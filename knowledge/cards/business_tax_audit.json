@@ -1,0 +1,90 @@
+{
+  "id": "business_tax_audit",
+  "category": "tadbirkorlik",
+  "title_uz": "Soliq tekshiruvi keldi: huquqlaringiz va shikoyat",
+  "title_cyrl": "Солиқ текшируви келди: ҳуқуқларингиз ва шикоят",
+  "title_ru": "Налоговая проверка: ваши права и обжалование",
+  "triggers": [
+    "soliq tekshiruvi",
+    "sayyor tekshiruv",
+    "sayyor soliq tekshiruvi",
+    "kameral tekshiruv",
+    "soliq auditi",
+    "soliqchilar tekshiruvga keldi",
+    "tekshiruv natijasi ustidan shikoyat",
+    "tadbirkor tekshiruv",
+    "налоговая проверка",
+    "выездная проверка",
+    "камеральная проверка"
+  ],
+  "plain_explanation_uz": "Sayyor soliq tekshiruvi faqat soliq organi rahbarining buyrug'i bilan o'tkaziladi; buyruqda tekshiruvchilar, muddat va maqsad yoziladi, tekshiruv o'n kundan oshmaydi. Kameral tekshiruvda (QQS qaytarishdan tashqari) hududingizga kirish va hujjat talab qilish taqiqlanadi. Tekshiruvda hozir bo'lish, dalolatnoma olish va qarorga bir oy ichida shikoyat qilish huquqingiz bor.",
+  "common_reasons": [
+    "Buyruq ko'rsatilmagan yoki muddat o'tgan",
+    "Kameral tekshiruvda hujjat talab qilinmoqda",
+    "Dalolatnoma berilmagan"
+  ],
+  "steps": [
+    "Tekshiruvchidan buyruqni ko'rsatishni so'rang (F.I.Sh., muddat, maqsad)",
+    "Tekshiruvda hozir bo'ling, dalolatnoma nusxasini oling",
+    "Qarorga rozi bo'lmasangiz — bir oy ichida yuqori soliq organiga (qaror chiqargan organ orqali) shikoyat bering"
+  ],
+  "documents": [
+    "Tekshiruv buyrug'i nusxasi",
+    "Tekshiruv dalolatnomasi",
+    "Soliq organi qarori",
+    "Yuridik shaxs rekvizitlari"
+  ],
+  "deadlines": [
+    "Sayyor tekshiruv — o'n kundan ko'p emas",
+    "Shikoyat — bir oy ichida (uzrli sabab bilan tiklanishi mumkin)"
+  ],
+  "where_to_go": [
+    {
+      "name": "Hududiy soliq organi / Soliq qo'mitasi (soliq.uz)",
+      "url": "https://soliq.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_TAX_AUDIT",
+      "doc": "O'zbekiston Respublikasining Soliq kodeksi",
+      "article": "21, 138, 139-moddalar",
+      "lex_url": "https://lex.uz/docs/-4674902",
+      "doc_date": "2019-12-30",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_TAX_AUDIT",
+      "doc": "O'zbekiston Respublikasining Soliq kodeksi",
+      "article": "232-modda",
+      "lex_url": "https://lex.uz/docs/-4674902",
+      "doc_date": "2019-12-30",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "excerpt_ids": [
+    "ex_tax_139_onsite",
+    "ex_tax_138_desk",
+    "ex_tax_21_rights",
+    "ex_tax_232_appeal",
+    "ex_tax_137_types"
+  ],
+  "appeal_template_id": "appeal_tax_audit_complaint",
+  "appeal_addressee": "Yuqori turuvchi soliq organi rahbariga (qaror chiqargan soliq organi orqali)",
+  "textbook_refs": [],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "_note": "Matn faqat excerpt_ids dagi lex.uz abzaslaridan. Huquqshunos tasdig'i: verified_by / verified_at."
+}

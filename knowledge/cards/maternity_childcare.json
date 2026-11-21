@@ -1,0 +1,97 @@
+{
+  "id": "maternity_childcare",
+  "category": "oila",
+  "title_uz": "Dekret: homiladorlik va tug'ish ta'tili, bola parvarishi",
+  "title_cyrl": "Декрет: ҳомиладорлик ва туғиш таътили, бола парвариши",
+  "title_ru": "Декрет: отпуск по беременности и родам, по уходу за ребёнком",
+  "triggers": [
+    "dekret",
+    "dekret ta'tili",
+    "onalik nafaqasi",
+    "homiladorlik ta'tili",
+    "tug'ish ta'tili",
+    "homiladorlik nafaqasi",
+    "bola parvarishi ta'tili",
+    "bola parvarishi nafaqasi",
+    "homiladorman ishdan bo'shatdi",
+    "декрет",
+    "декретный отпуск",
+    "пособие по беременности",
+    "отпуск по уходу за ребенком",
+    "homiladorman",
+    "homiladorman ishdan bo'shatishdi",
+    "homilador ayolni ishdan bo'shatish",
+    "homiladorligim uchun",
+    "farzandim borligi uchun ishga olishmadi",
+    "tug'ruq ta'tili",
+    "беременна уволили"
+  ],
+  "plain_explanation_uz": "Ishlaydigan ayolga tug'ruqdan oldin 70 va keyin 56 kalendar kun (qiyin tug'ruq yoki egizakda — 70 kun) ta'til beriladi va o'rtacha oylikning kamida 75% miqdorida nafaqa to'lanadi. Keyin bola 2 yoshga to'lguncha nafaqali parvarish ta'tili va 3 yoshgacha haq to'lanmaydigan ta'til olish mumkin; ish joyi saqlanadi. Homilador ayolni ish beruvchi bo'shata olmaydi (tashkilot tugatilishi bundan mustasno).",
+  "common_reasons": [
+    "Ish beruvchi ta'til yoki nafaqani rasmiylashtirmagan",
+    "Mehnat shartnomasi yo'q (norasmiy ish)",
+    "Ariza va tibbiy hujjat topshirilmagan"
+  ],
+  "steps": [
+    "Ish beruvchi nomiga ariza yozing",
+    "Homiladorlikni tasdiqlovchi tibbiy hujjatni ilova qiling",
+    "Rad etilsa yoki bo'shatilsa — yozma sababini talab qiling va shikoyat qiling"
+  ],
+  "documents": [
+    "Ish beruvchiga ariza",
+    "Tibbiy hujjat (homiladorlik)",
+    "Bolaning tug'ilganlik guvohnomasi (parvarish ta'tili uchun)"
+  ],
+  "deadlines": [
+    "Homiladorlik va tug'ish ta'tili: 70 + 56 kalendar kun (qiyin tug'ruqda 70 + 70)",
+    "Bola parvarishi: 2 yoshgacha nafaqa bilan, 3 yoshgacha haq to'lanmaydigan"
+  ],
+  "where_to_go": [
+    {
+      "name": "Ish beruvchingiz (kadrlar bo'limi)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_LABOR_MATERNITY",
+      "doc": "O'zbekiston Respublikasining Mehnat kodeksi",
+      "article": "404, 405-moddalar",
+      "lex_url": "https://lex.uz/docs/-6257288",
+      "doc_date": "2022-10-28",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_LABOR_MATERNITY",
+      "doc": "O'zbekiston Respublikasining Mehnat kodeksi",
+      "article": "392, 408-moddalar",
+      "lex_url": "https://lex.uz/docs/-6257288",
+      "doc_date": "2022-10-28",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "excerpt_ids": [
+    "ex_labor_404_maternity",
+    "ex_labor_405_childcare",
+    "ex_labor_408_pregnant",
+    "ex_labor_392_no_discrimination"
+  ],
+  "appeal_template_id": "appeal_maternity",
+  "appeal_addressee": "Ish beruvchi (tashkilot rahbari)ga",
+  "textbook_refs": [],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "_note": "Matn faqat excerpt_ids dagi lex.uz abzaslaridan. Huquqshunos tasdig'i: verified_by / verified_at."
+}

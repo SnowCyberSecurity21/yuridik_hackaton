@@ -15,7 +15,7 @@ from datetime import date
 from sqlalchemy.orm import Session
 
 from ..config import get_settings
-from . import analytics, classifier, knowledge, llm, rag, render, sms_parser
+from . import analytics, classifier, knowledge, llm, rag, render, rights, sms_parser
 from .i18n import t
 from .textutil import detect_lang, to_script
 
@@ -25,6 +25,13 @@ FACTCHECK_THRESHOLD = 0.45
 _NUM = re.compile(r"\d+")
 # JSON ichida ham to'g'ri ajratsin: qo'shtirnoq, qavs, vergul havolaga qo'shilmaydi
 _URL = re.compile(r"https?://[^\s)\]\"'<>,]+")
+
+
+def card_quotes(card: dict | None, lang: str, limit: int = 3) -> list[dict]:
+    """Karta bog'langan lex.uz abzaslari: asl matn (aynan) + oddiy til. Abzas bo'lmasa — bo'sh ro'yxat."""
+    if not card:
+        return []
+    return rights.excerpts_by_ids((card.get("excerpt_ids") or [])[:limit], "ru" if lang == "ru" else "uz")
 
 
 def _buttons(kind: str, card_id: str | None, event_id: int | None) -> list[dict]:
@@ -100,7 +107,8 @@ async def answer_question(db: Session, text: str, *, lang: str | None = None, re
         card = knowledge.cards.get(top.id)
         body = await _llm_body(card, text, lang)
         used_llm = body is not None
-        answer_text = render.card_answer_text(card, lang, body)
+        quotes = card_quotes(card, lang)
+        answer_text = render.card_answer_text(card, lang, body, quote=quotes[0] if quotes else None)
         event_id = analytics.log_event(db, kind="ask", topic_id=card["id"], region=region, lang=lang,
                                        channel=channel, answer_type="card", confidence=top.score)
         return {
@@ -108,6 +116,7 @@ async def answer_question(db: Session, text: str, *, lang: str | None = None, re
             "confidence": top.score, "sources": render.sources_of(card), "verified": card.get("verified", False),
             "needs_reverification": card.get("needs_reverification", False),
             "badge": render.badge(card, lang), "disclaimer": t(lang, "disclaimer"), "llm_used": used_llm,
+            "quotes": quotes,
             "event_id": event_id, "buttons": _buttons("card", card["id"], event_id), "alternatives": alternatives,
         }
 
@@ -117,6 +126,9 @@ async def answer_question(db: Session, text: str, *, lang: str | None = None, re
         ex, score = hits[0]
         quote = ex["text"][:700]
         body = [f"📖 «{quote}»"]
+        plain = (ex.get("plain_ru") if lang == "ru" else None) or ex.get("plain_uz")
+        if plain:
+            body.append(f"💬 {t(lang, 'quote_plain')}: {to_script(plain, lang) if lang == 'uz_cyrl' else plain}")
         if llm.is_available():
             expl = await llm.complete(llm.load_prompt("system_answer") + "\n\n" + llm.load_prompt("rag_answer"),
                                       f"TIL: {lang}\nSAVOL: {text}\nPARCHA ({ex['doc']}): {ex['text']}", max_tokens=500)
@@ -132,6 +144,7 @@ async def answer_question(db: Session, text: str, *, lang: str | None = None, re
         return {"type": "rag", "lang": lang, "text": answer_text, "card_id": None, "confidence": round(score, 3),
                 "sources": render.sources_of(src), "verified": src["verified"], "badge": render.badge(src, lang),
                 "disclaimer": t(lang, "disclaimer"), "event_id": event_id, "buttons": _buttons("rag", None, event_id),
+                "quotes": rights.excerpts_by_ids([ex["id"]], "ru" if lang == "ru" else "uz"),
                 "alternatives": alternatives}
 
     # 3) Topilmadi — taxmin qilmaymiz
@@ -184,6 +197,9 @@ async def explain_sms(db: Session, text: str, *, lang: str = "uz", region: str |
         dl = [render.show_todo(d, L) for d in card.get("deadlines", []) if "e'tiroz" in d.lower() or "shikoyat" in d.lower()]
         step = re.sub(r"^rozi bo'lmasangiz\s*[—-]\s*", "", dispute[0], flags=re.I)
         lines.append(f"⚖️ {t(L, 'sms_dispute')}: {render.show_todo(step, L)}" + (f" ({dl[0]})" if dl else ""))
+    quotes = card_quotes(card, L) if parsed.get("kind") != "suspicious" else []
+    if quotes:
+        lines += render.quote_lines(quotes[0], L)
     lines.append(render.source_line(card, L))
     lines.append(t(L, "disclaimer"))
     out_text = "\n".join(to_script(x, L) if L == "uz_cyrl" else x for x in lines)
@@ -192,7 +208,7 @@ async def explain_sms(db: Session, text: str, *, lang: str = "uz", region: str |
     return {"type": "sms", "lang": lang, "text": out_text, "card_id": card_id, "title": card["title_uz"],
             "parsed": parsed, "sources": render.sources_of(card), "verified": card.get("verified", False),
             "badge": render.badge(card, L), "disclaimer": t(L, "disclaimer"), "event_id": event_id,
-            "buttons": _buttons("sms", card_id, event_id)}
+            "quotes": quotes, "buttons": _buttons("sms", card_id, event_id)}
 
 
 # ------------------------------------------------------------------ Fakt-tekshiruv

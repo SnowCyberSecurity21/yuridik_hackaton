@@ -1,0 +1,89 @@
+{
+  "id": "student_stipend",
+  "category": "talaba",
+  "title_uz": "Stipendiya: kimga beriladi, nega berilmadi",
+  "title_cyrl": "Стипендия: кимга берилади, нега берилмади",
+  "title_ru": "Стипендия: кому положена и почему не назначили",
+  "triggers": [
+    "stipendiya",
+    "stipendiya berilmadi",
+    "stipendiya nega berilmadi",
+    "stipendiya olmayapman",
+    "stipendiya to'xtatildi",
+    "stipendiya kesildi",
+    "a'lochi stipendiya",
+    "stipendiyali kontrakt",
+    "qizlar uchun maxsus stipendiya",
+    "стипендия",
+    "стипендию не дали",
+    "стипендия не назначена"
+  ],
+  "plain_explanation_uz": "Davlat OTMida kunduzgi ta'limda grant yoki stipendiyali kontrakt asosida o'qiyotgan talabaga har oy stipendiya to'lanadi. Hamma fan «a'lo» (86 ball va yuqori) bo'lsa — 20% oshiriladi. Grant talabasida «qoniqarli» (71 balldan kam) baholar 30% va undan ko'p bo'lsa, keyingi semestrda stipendiya tayinlanmaydi (yetim va 1–2-guruh nogironligi bo'lgan talabalar bundan mustasno).",
+  "common_reasons": [
+    "«Qoniqarli» baholar 30% yoki undan ko'p (grant talabasi)",
+    "Kontrakt stipendiyasiz shaklda tanlangan yoki kontrakt summasi hali to'lanmagan",
+    "Sirtqi yoki kechki ta'lim / xususiy yoki xorijiy OTM — bu Nizom tatbiq etilmaydi"
+  ],
+  "steps": [
+    "Dekanatdan stipendiya komissiyasi qarori va rektor buyrug'ini so'rang",
+    "Semestr baholaringizni (reyting) tekshiring",
+    "Rozi bo'lmasangiz — rektor nomiga yozma ariza bering"
+  ],
+  "documents": [
+    "Talaba guvohnomasi yoki ID-karta",
+    "Semestr baholari (reyting) ko'chirmasi",
+    "Kontrakt va to'lov kvitansiyasi (kontrakt talabasi uchun)"
+  ],
+  "deadlines": [
+    "Stipendiya yiliga ikki marta, semestr natijalari e'lon qilingach tayinlanadi",
+    "2027-yil 1-yanvardan stipendiya faqat ijtimoiy karta orqali to'lanadi"
+  ],
+  "where_to_go": [
+    {
+      "name": "OTM dekanati va stipendiya komissiyasi",
+      "url": "https://edu.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_STIPEND_1",
+      "doc": "Vazirlar Mahkamasining 31.01.2020 dagi 59-son qarori, 1-ilova — Stipendiyalar tayinlash va to'lash tartibi to'g'risida Nizom",
+      "article": "2, 6-bandlar",
+      "lex_url": "https://lex.uz/docs/-4725554",
+      "doc_date": "2020-01-31",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_STIPEND_1",
+      "doc": "Vazirlar Mahkamasining 31.01.2020 dagi 59-son qarori, 1-ilova — Stipendiyalar tayinlash va to'lash tartibi to'g'risida Nizom",
+      "article": "7–9, 22-bandlar",
+      "lex_url": "https://lex.uz/docs/-4725554",
+      "doc_date": "2020-01-31",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "excerpt_ids": [
+    "ex_stip_grades",
+    "ex_stip_def",
+    "ex_stip_contract",
+    "ex_stip_timing"
+  ],
+  "appeal_template_id": "appeal_stipend",
+  "appeal_addressee": "Oliy ta'lim muassasasi rektoriga",
+  "textbook_refs": [],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "_note": "Matn faqat excerpt_ids dagi lex.uz abzaslaridan. Huquqshunos tasdig'i: verified_by / verified_at."
+}

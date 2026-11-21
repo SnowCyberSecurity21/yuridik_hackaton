@@ -32,7 +32,7 @@
     "Sud qarori / ijro hujjati (bo'lsa)"
   ],
   "deadlines": [
-    "Aliment miqdori va undirish muddatlari: TODO_LAWYER (Oila kodeksi)"
+    "Aliment miqdori (kelishuv bo'lmasa): bir bolaga — daromadning 1/4, ikki bolaga — 1/3, uch va undan ko'p bolaga — 1/2"
   ],
   "where_to_go": [
     {
@@ -52,8 +52,8 @@
     {
       "ref_id": "REF_ALIMONY_1",
       "doc": "O'zbekiston Respublikasining Oila kodeksi",
-      "article": "TODO_LAWYER",
-      "lex_url": "https://lex.uz/docs/104720",
+      "article": "96, 99, 112, 116-moddalar",
+      "lex_url": "https://lex.uz/docs/-104720",
       "doc_date": "1998-04-30",
       "retrieved_at": "2026-11-21",
       "source_type": "lex.uz",
@@ -91,5 +91,11 @@
   "_note": "Manba lex.uz'da tekshirildi (21.11.2026). Huquqshunos tasdig'i: verified_by / verified_at maydonlarini to'ldiring. TODO_LAWYER — manbada aniq ko'rinmagan summa/miqdor.",
   "source_checked": true,
   "source_checked_at": "2026-11-21",
-  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)"
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "excerpt_ids": [
+    "ex_family_99_amount",
+    "ex_family_96_duty",
+    "ex_family_112_temp",
+    "ex_family_116_liability"
+  ]
 }

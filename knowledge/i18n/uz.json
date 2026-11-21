@@ -87,5 +87,7 @@
   "pf_no_such_profile": "Bunday demo profil yo'q. Quyidagilardan birini tanlang:",
   "pf_consent_recorded": "✅ Rozilik qayd etildi (DEMO). Faqat oila tarkibi, bolalar yoshi, ijtimoiy holat, jarima/MIB qarzlari va hudud o'qiladi, saqlanmaydi. Bekor qilish: /chiqish",
   "pf_not_linked": "Profil ulanmagan. Kirish: /login",
-  "badge_source_checked": "📚 Manba tekshirildi: lex.uz,"
+  "badge_source_checked": "📚 Manba tekshirildi: lex.uz,",
+  "quote_law": "Qonunda",
+  "quote_plain": "Oddiy tilda (AI soddalashtirdi)"
 }

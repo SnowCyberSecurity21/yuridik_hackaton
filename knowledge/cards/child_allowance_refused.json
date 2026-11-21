@@ -102,5 +102,11 @@
   },
   "source_checked": true,
   "source_checked_at": "2026-11-21",
-  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)"
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "excerpt_ids": [
+    "ex_child_refusal",
+    "ex_child_until18",
+    "ex_child_timing",
+    "ex_child_apply"
+  ]
 }

@@ -18,7 +18,10 @@
     "жарима",
     "штраф",
     "штраф гаи",
-    "камера штраф"
+    "камера штраф",
+    "jarimani yarmini to'lash",
+    "70 foiz jarima",
+    "jarima shikoyat muddati"
   ],
   "plain_explanation_uz": "Jarima haqida xabar kelganda summasi, chegirmali summasi va chegirma muddati ko'rsatiladi. Chegirma muddatida to'lasangiz kamroq to'laysiz. Qoidabuzarlikka rozi bo'lmasangiz, qarorga e'tiroz bildirishingiz mumkin.",
   "common_reasons": [
@@ -38,8 +41,8 @@
     "E'tiroz uchun dalillar (foto, video)"
   ],
   "deadlines": [
-    "Chegirmali to'lov muddati: SMS'da ko'rsatilgan sana (TODO_LAWYER: qonuniy muddat)",
-    "E'tiroz bildirish muddati: TODO_LAWYER"
+    "Chegirma: qaror topshirilgan kundan 15 kun ichida — 50%, 30 kun ichida — 70% to'lansa, qolgani kechiriladi",
+    "Shikoyat: qaror nusxasi olingan kundan 10 kun ichida"
   ],
   "where_to_go": [
     {
@@ -55,8 +58,18 @@
     {
       "ref_id": "REF_ADMIN_CODE_TRAFFIC",
       "doc": "O'zbekiston Respublikasining Ma'muriy javobgarlik to'g'risidagi kodeksi",
-      "article": "TODO_LAWYER",
-      "lex_url": "https://lex.uz/docs/97664",
+      "article": "332¹-modda",
+      "lex_url": "https://lex.uz/docs/-97664",
+      "doc_date": "1994-09-22",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_ADMIN_CODE_TRAFFIC",
+      "doc": "O'zbekiston Respublikasining Ma'muriy javobgarlik to'g'risidagi kodeksi",
+      "article": "316, 332-moddalar",
+      "lex_url": "https://lex.uz/docs/-97664",
       "doc_date": "1994-09-22",
       "retrieved_at": "2026-11-21",
       "source_type": "lex.uz",
@@ -71,5 +84,13 @@
   "verified": false,
   "verified_by": null,
   "verified_at": null,
-  "_note": "PLACEHOLDER: huquqiy mazmunni huquqshunos tekshirishi va TODO_LAWYER joylarini to'ldirishi shart."
+  "_note": "PLACEHOLDER: huquqiy mazmunni huquqshunos tekshirishi va TODO_LAWYER joylarini to'ldirishi shart.",
+  "excerpt_ids": [
+    "ex_admin_332_1_discount",
+    "ex_admin_316_complaint",
+    "ex_admin_332_term"
+  ],
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)"
 }

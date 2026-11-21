@@ -1,0 +1,75 @@
+{
+  "id": "student_dormitory",
+  "category": "talaba",
+  "title_uz": "Yotoqxona to'lovini davlat qoplashi",
+  "title_cyrl": "Ётоқхона тўловини давлат қоплаши",
+  "title_ru": "Компенсация оплаты общежития",
+  "triggers": [
+    "yotoqxona",
+    "yotoqxona to'lovi",
+    "talabalar turar joyi",
+    "yotoqxona puli",
+    "turar joy xarajati",
+    "yotoqxonaga joy berishmadi",
+    "общежитие",
+    "оплата общежития"
+  ],
+  "plain_explanation_uz": "Ijtimoiy reyestrdagi oila farzandi bo'lgan, davlat OTMida kunduzgi ta'limda o'qib, yotoqxonada shartnoma bilan yashaydigan talabaning yotoqxona to'lovi Davlat budjetidan qoplanadi. Bunday talabalar yotoqxonaga navbatsiz joylashadi.",
+  "common_reasons": [
+    "Ariza oyning 7-sanasidan keyin yuborilgan",
+    "Yotoqxonada shartnoma asosida yashamaysiz",
+    "Oila Ijtimoiy reyestrda emas yoki ma'lumot noto'g'ri"
+  ],
+  "steps": [
+    "kontrakt.edu.uz orqali rektor nomiga ariza yuboring (o'quv yili uchun bir marta)",
+    "Oila reyestrda ekanini tekshiring (my.gov.uz ma'lumotnomasi)",
+    "Rad etilsa — besh ish kuni ichida xatoni tuzating"
+  ],
+  "documents": [
+    "Ariza (kontrakt.edu.uz)",
+    "Ijtimoiy reyestr ma'lumotnomasi (avtomatik bo'lmasa)",
+    "Yotoqxona shartnomasi"
+  ],
+  "deadlines": [
+    "Ariza — oyning 7-sanasigacha",
+    "Rad etilganda tuzatish — besh ish kuni"
+  ],
+  "where_to_go": [
+    {
+      "name": "kontrakt.edu.uz",
+      "url": "https://kontrakt.edu.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_DORM_1",
+      "doc": "Vazirlar Mahkamasining 28.01.2026 dagi 32-son qarori, 1-ilova — Talabalar turar joyi xarajatlarini qoplab berish tartibi to'g'risida Nizom",
+      "article": "3, 5, 9, 10, 27, 28-bandlar",
+      "lex_url": "https://lex.uz/docs/-8022224",
+      "doc_date": "2026-01-28",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "excerpt_ids": [
+    "ex_dorm_scope",
+    "ex_dorm_apply",
+    "ex_dorm_refusal",
+    "ex_dorm_priority"
+  ],
+  "appeal_template_id": "appeal_benefit_request",
+  "appeal_addressee": "Oliy ta'lim tashkiloti rektoriga",
+  "textbook_refs": [],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "_note": "Matn faqat excerpt_ids dagi lex.uz abzaslaridan. Huquqshunos tasdig'i: verified_by / verified_at."
+}

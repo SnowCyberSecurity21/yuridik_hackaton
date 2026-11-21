@@ -106,10 +106,30 @@ def compose(header: str, body: list[str], footer: list[str]) -> str:
     return "\n".join([header, *body, *footer]).strip()
 
 
-def card_answer_text(card: dict, lang: str, body: list[str] | None = None) -> str:
+QUOTE_MAX = 280
+
+
+def quote_lines(quote: dict | None, lang: str) -> list[str]:
+    """Qonundan asl iqtibos (lex.uz'dan aynan, o'zgartirilmaydi) + oddiy tildagi izoh (AI soddalashtirgan)."""
+    if not quote:
+        return []
+    orig = " ".join(p for p in quote["original_text"].split("\n") if p.strip() != "…")
+    if len(orig) > QUOTE_MAX:
+        orig = orig[:QUOTE_MAX].rsplit(" ", 1)[0] + " …"
+    ref = ", ".join(x for x in (quote.get("article"), quote.get("paragraph")) if x)
+    plain = quote.get("plain_ru") if lang == "ru" and quote.get("plain_ru") else quote.get("plain_uz", "")
+    if lang == "uz_cyrl":
+        plain = to_script(plain, lang)
+    lines = [f"📖 {t(lang, 'quote_law')} ({ref}): «{orig}»"]
+    if plain:
+        lines.append(f"💬 {t(lang, 'quote_plain')}: {plain}")
+    return lines
+
+
+def card_answer_text(card: dict, lang: str, body: list[str] | None = None, quote: dict | None = None) -> str:
     header = f"📌 {_title(card, lang)}"
     if lang == "ru":
         header += f"\n{t('ru', 'ru_note')}"
     body = body if body is not None else card_body_lines(card, lang)
-    footer = [source_line(card, lang), t(lang, "disclaimer")]
+    footer = [*quote_lines(quote, lang), source_line(card, lang), t(lang, "disclaimer")]
     return compose(header, body, footer)
