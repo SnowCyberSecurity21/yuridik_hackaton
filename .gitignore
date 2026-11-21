@@ -9,6 +9,7 @@ AGENTS.md
 secrets/
 deploy/huquqim-secret
 docs/huquqim_deploy_*.md
+docs/hakamlar_kirish.md
 scripts/setup-design.ps1
 
 # --- Ish vaqtidagi ma'lumotlar ---
