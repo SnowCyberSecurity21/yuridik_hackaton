@@ -1,0 +1,86 @@
+{
+  "id": "mib_debt_travel_ban",
+  "category": "ijro",
+  "title_uz": "MIB qarzi va chet elga chiqish cheklovi",
+  "title_cyrl": "MIB қарзи ва чет элга чиқиш чеклови",
+  "title_ru": "Долг в МИБ и запрет на выезд",
+  "triggers": [
+    "mib qarz",
+    "mib qarzim",
+    "majburiy ijro",
+    "chet elga chiqish taqiqlandi",
+    "chiqish cheklovi",
+    "ijro varaqasi",
+    "mib",
+    "мажбурий ижро",
+    "миб",
+    "долг миб",
+    "запрет на выезд"
+  ],
+  "plain_explanation_uz": "Sud hujjati talabi belgilangan muddatda uzrsiz bajarilmasa, davlat ijrochisi qarzdorning O'zbekistondan chiqishini vaqtincha cheklashi mumkin; qaror katta davlat ijrochisi tomonidan tasdiqlanadi va ustidan shikoyat qilish mumkin. Qarz to'langach, cheklov olib tashlanganligi haqida keyingi kundan kechiktirmay xabar beriladi. Ma'muriy jarima, soliq, kommunal qarz va BHMning 5 baravarigacha bo'lgan summalar soddalashtirilgan tartibda undiriladi — bunda chet elga chiqishni cheklash qo'llanilmaydi.",
+  "common_reasons": [
+    "Sud qarori bo'yicha qarz (kredit, aliment va boshqalar) muddatida to'lanmagan",
+    "Qarz to'langan, lekin ijro ishi hali tamomlanmagan",
+    "Ijro ishi sizga tegishli emas yoki xato ochilgan"
+  ],
+  "steps": [
+    "Qarzingiz va ijro ishi raqamini my.gov.uz orqali tekshiring",
+    "Qarz qaysi hujjat asosida ekanini aniqlang: sud hujjatimi yoki soddalashtirilgan tartibdagi qarz (jarima, soliq, kommunal)mi",
+    "To'lagan bo'lsangiz — to'lov hujjati bilan ijro ishini tamomlashni so'rang",
+    "Cheklov noto'g'ri deb hisoblasangiz — davlat ijrochisining qarori ustidan shikoyat qiling"
+  ],
+  "documents": [
+    "Shaxsni tasdiqlovchi hujjat",
+    "To'lov kvitansiyasi (to'langan bo'lsa)",
+    "Ijro ishi raqami"
+  ],
+  "deadlines": [
+    "Cheklov olib tashlanganligi haqida xabar — qarz to'langan (ijro ishi tamomlangan) kundan keyingi kundan kechiktirmay",
+    "Soddalashtirilgan tartibda ixtiyoriy to'lash — xabarnoma olingan kundan 5 kun",
+    "Shikoyat berish muddati: TODO_LAWYER"
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Majburiy ijro byurosi hududiy bo'limi",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_ENFORCEMENT_TRAVEL",
+      "doc": "«Sud hujjatlari va boshqa organlar hujjatlarini ijro etish to'g'risida»gi Qonun (258-II)",
+      "article": "42¹-modda",
+      "lex_url": "https://lex.uz/docs/-26477",
+      "doc_date": "2001-08-29",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_ENFORCEMENT_SIMPLE",
+      "doc": "«Sud hujjatlari va boshqa organlar hujjatlarini ijro etish to'g'risida»gi Qonun (258-II)",
+      "article": "43¹, 43²-moddalar (O'RQ-1134, 20.04.2026 tahririda)",
+      "lex_url": "https://lex.uz/docs/-26477",
+      "doc_date": "2001-08-29",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "appeal_template_id": "appeal_enforcement",
+  "appeal_addressee": "Majburiy ijro byurosi hududiy bo'limi boshlig'iga",
+  "textbook_refs": [
+    "civil_proc_ch5_s2"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "Manba lex.uz'da tekshirildi (21.11.2026). Huquqshunos tasdig'i: verified_by / verified_at maydonlarini to'ldiring. TODO_LAWYER — manbada aniq ko'rinmagan summa/miqdor.",
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)"
+}

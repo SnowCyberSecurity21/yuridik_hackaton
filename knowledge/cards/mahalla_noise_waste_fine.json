@@ -1,0 +1,67 @@
+{
+  "id": "mahalla_noise_waste_fine",
+  "category": "obodonlashtirish",
+  "title_uz": "Shovqin yoki chiqindi uchun jarima (mahallada)",
+  "title_cyrl": "Шовқин ёки чиқинди учун жарима (маҳаллада)",
+  "title_ru": "Штраф за шум или мусор (в махалле)",
+  "triggers": [
+    "shovqin jarima",
+    "chiqindi jarima",
+    "axlat jarima",
+    "musor jarima",
+    "tunda shovqin",
+    "obodonlashtirish jarima",
+    "шовқин",
+    "штраф за шум",
+    "штраф за мусор"
+  ],
+  "plain_explanation_uz": "Jamoat tartibi va obodonlashtirish qoidalarini buzish uchun ma'muriy jarima qo'llanishi mumkin. Jarima faqat rasmiylashtirilgan bayonnoma va qaror asosida qo'llanadi, siz unga e'tiroz bildirishingiz mumkin.",
+  "common_reasons": [
+    "Belgilangan vaqtda shovqin",
+    "Chiqindini belgilanmagan joyga tashlash",
+    "Bayonnoma sizning ishtirokingizsiz tuzilgan"
+  ],
+  "steps": [
+    "Bayonnoma yoki qaror nusxasini so'rang",
+    "Kim, qachon va qanday dalil bilan qayd etganini tekshiring",
+    "Rozi bo'lmasangiz — yuqori organga yoki sudga e'tiroz bildiring"
+  ],
+  "documents": [
+    "Bayonnoma / qaror nusxasi",
+    "Dalillar (guvohlar, foto)"
+  ],
+  "deadlines": [
+    "E'tiroz bildirish muddati: TODO_LAWYER"
+  ],
+  "where_to_go": [
+    {
+      "name": "Tuman (shahar) hokimligi",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_ADMIN_CODE_PUBLIC_ORDER",
+      "doc": "O'zbekiston Respublikasining Ma'muriy javobgarlik to'g'risidagi kodeksi",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/docs/97664",
+      "doc_date": "1994-09-22",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "appeal_template_id": "appeal_fine_dispute",
+  "appeal_addressee": "Jarima qarorini chiqargan organning yuqori turuvchi rahbariga",
+  "textbook_refs": [
+    "admin_law_ch6_s2"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: huquqiy mazmunni huquqshunos tekshirishi va TODO_LAWYER joylarini to'ldirishi shart."
+}

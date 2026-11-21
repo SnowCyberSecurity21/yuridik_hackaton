@@ -1,0 +1,18 @@
+{
+  "id": "foreign_status_law",
+  "title_uz": "O'zbekiston Respublikasida chet el fuqarolarining va fuqaroligi bo'lmagan shaxslarning huquqiy holati to'g'risida",
+  "title_official": "Ўзбекистон Республикасида чет эл фуқароларининг ва фуқаролиги бўлмаган шахсларнинг ҳуқуқий ҳолати тўғрисида",
+  "number": "O'RQ-692",
+  "date": "2021-06-04",
+  "url": "https://lex.uz/docs/5443899",
+  "plain_uz": "Chet el fuqarolari va fuqaroligi bo'lmagan shaxslar O'zbekistonda qanday huquq va majburiyatlarga ega ekanini belgilaydi: mehnat, pensiya, sog'liqni saqlash, ta'lim, murojaat, soliq.",
+  "statuses": [
+    "foreign",
+    "stateless",
+    "unknown"
+  ],
+  "situations": [],
+  "retrieved_at": "2026-11-21",
+  "source_type": "lex.uz",
+  "source_verified": true
+}

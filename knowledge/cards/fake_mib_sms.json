@@ -1,0 +1,64 @@
+{
+  "id": "fake_mib_sms",
+  "category": "firibgarlik",
+  "title_uz": "MIB nomidan soxta SMS (firibgarlik)",
+  "title_cyrl": "MIB номидан сохта SMS (фирибгарлик)",
+  "title_ru": "Фальшивое SMS от имени МИБ",
+  "triggers": [
+    "mib sms havola",
+    "soxta sms",
+    "firibgar sms",
+    "havolaga o'ting qarz",
+    "karta raqamini so'rayapti",
+    "sms kod so'rashdi",
+    "фальшивое смс",
+    "мошенническое смс",
+    "сохта смс"
+  ],
+  "plain_explanation_uz": "Davlat organi nomidan kelgan SMS'da noma'lum havola, karta raqami yoki SMS kod so'ralsa — bu firibgarlik bo'lishi mumkin. Qarzingizni faqat rasmiy portal orqali tekshiring, havolani ochmang.",
+  "common_reasons": [
+    "SMS'da gov.uz bo'lmagan havola",
+    "Shoshilinch to'lashga undash, 'bloklanadi' degan tahdid",
+    "Karta ma'lumotlari yoki kod so'ralmoqda"
+  ],
+  "steps": [
+    "Havolani ochmang, karta ma'lumotini kiritmang",
+    "Qarzingizni faqat rasmiy portalda tekshiring",
+    "Ma'lumot kiritib qo'ygan bo'lsangiz — darhol bankka qo'ng'iroq qilib kartani bloklang",
+    "Ichki ishlar organiga xabar bering"
+  ],
+  "documents": [
+    "SMS skrinshoti",
+    "Yuboruvchi raqam"
+  ],
+  "deadlines": [
+    "Karta ma'lumoti kiritilgan bo'lsa — darhol bankka murojaat qiling"
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Ichki ishlar organi (tuman bo'limi)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_FRAUD_1",
+      "doc": "TODO_LAWYER: firibgarlik uchun javobgarlik belgilovchi hujjat",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/"
+    }
+  ],
+  "appeal_template_id": "appeal_fraud",
+  "appeal_addressee": "Ichki ishlar bo'limi boshlig'iga",
+  "textbook_refs": [
+    "criminal_law_ch7_s1"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: huquqiy mazmunni huquqshunos tekshirishi va TODO_LAWYER joylarini to'ldirishi shart."
+}

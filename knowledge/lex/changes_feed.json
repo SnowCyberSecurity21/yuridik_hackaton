@@ -1,0 +1,46 @@
+{
+  "_note": "MOCK lenta. Matnlar [DEMO] — haqiqiy o'zgarish emas. Haqiqiysi bilan huquqshunos almashtiradi.",
+  "changes": [
+    {
+      "id": "chg_demo_child_allowance",
+      "ref_id": "REF_CHILD_ALLOWANCE_1",
+      "doc": "Vazirlar Mahkamasining 29.01.2026 dagi 35-son qarori, 3-ilova (bolalar nafaqasi nizomi)",
+      "article": "6-band",
+      "date": "2026-11-21",
+      "summary_uz": "[DEMO] Bolalik nafaqasi uchun ariza berish tartibi o'zgardi: ariza endi faqat onlayn qabul qilinadi.",
+      "old_text": "[DEMO] Ariza tuman ijtimoiy xizmatlar markaziga qog'oz shaklida yoki onlayn topshiriladi.",
+      "new_text": "[DEMO] Ariza faqat my.gov.uz orqali onlayn topshiriladi; markaz xodimi arizani to'ldirishda yordam beradi.",
+      "lex_url": "https://lex.uz/docs/-8027513"
+    },
+    {
+      "id": "chg_demo_labor_salary",
+      "ref_id": "REF_LABOR_SALARY",
+      "doc": "O'zbekiston Respublikasining Mehnat kodeksi",
+      "article": "TODO_LAWYER",
+      "date": "2026-11-22",
+      "summary_uz": "[DEMO] Ish haqi kechiktirilganda xodimni xabardor qilish tartibi o'zgardi.",
+      "old_text": "[DEMO] Ish beruvchi ish haqi kechikishi haqida xodimni og'zaki xabardor qiladi.",
+      "new_text": "[DEMO] Ish beruvchi ish haqi kechikishi haqida xodimni yozma ravishda xabardor qilishi shart."
+    },
+    {
+      "id": "chg_demo_pension",
+      "ref_id": "REF_PENSION_1",
+      "doc": "TODO_LAWYER: davlat pensiya ta'minoti to'g'risidagi qonun hujjati",
+      "article": "TODO_LAWYER",
+      "date": "2026-11-23",
+      "summary_uz": "[DEMO] Pensiyani qayta hisoblash arizasini endi my.gov.uz orqali onlayn topshirish mumkin.",
+      "old_text": "[DEMO] Qayta hisoblash arizasi faqat bo'limga shaxsan topshiriladi.",
+      "new_text": "[DEMO] Qayta hisoblash arizasi bo'limga shaxsan yoki my.gov.uz orqali onlayn topshiriladi."
+    },
+    {
+      "id": "chg_demo_traffic_fine",
+      "ref_id": "REF_ADMIN_CODE_TRAFFIC",
+      "doc": "O'zbekiston Respublikasining Ma'muriy javobgarlik to'g'risidagi kodeksi",
+      "article": "TODO_LAWYER",
+      "date": "2026-11-24",
+      "summary_uz": "[DEMO] Kamera jarimasi bo'yicha e'tiroz endi onlayn ham qabul qilinadi.",
+      "old_text": "[DEMO] E'tiroz yozma ravishda organga topshiriladi.",
+      "new_text": "[DEMO] E'tiroz yozma ravishda yoki my.gov.uz orqali onlayn topshiriladi."
+    }
+  ]
+}

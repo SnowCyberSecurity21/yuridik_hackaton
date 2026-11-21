@@ -1,0 +1,40 @@
+{
+  "id": "practical_manual",
+  "title": "Amaliy huquq: fuqarolar murojaatlari (o'quv qo'llanma, DEMO)",
+  "_note": "DEMO o'quv matni. Modda raqamlari yo'q — ref_id orqali bog'langan.",
+  "chunks": [
+    {
+      "id": "social_law_ch2_s1",
+      "title": "2.1. Bolalik nafaqasini tayinlash tartibi",
+      "text": "Bolalik nafaqasi oila daromadi va boshqa mezonlar asosida tayinlanadi. [DEMO] Ariza tuman ijtimoiy xizmatlar markaziga qog'oz shaklida yoki onlayn topshiriladi. Talaba fuqaroga rad etish sababini yozma so'rash huquqini tushuntira olishi kerak.",
+      "refs": [
+        "REF_CHILD_ALLOWANCE_1"
+      ]
+    },
+    {
+      "id": "labor_law_ch4_s2",
+      "title": "4.2. Ish haqini to'lash va kechiktirish",
+      "text": "Ish beruvchi bajarilgan ish uchun ish haqini o'z vaqtida to'lashi shart. [DEMO] Ish beruvchi ish haqi kechikishi haqida xodimni og'zaki xabardor qiladi. Nizolar mehnat inspeksiyasi yoki sud orqali hal qilinadi.",
+      "refs": [
+        "REF_LABOR_SALARY"
+      ]
+    },
+    {
+      "id": "family_law_ch3_s1",
+      "title": "3.1. Aliment majburiyatlari",
+      "text": "Ota-ona voyaga yetmagan bolasini ta'minlashi shart. Ixtiyoriy to'lanmasa, aliment sud orqali undiriladi.",
+      "refs": [
+        "REF_ALIMONY_1",
+        "REF_ENFORCEMENT_1"
+      ]
+    },
+    {
+      "id": "admin_law_ch6_s1",
+      "title": "6.1. Yo'l harakati sohasidagi ma'muriy jarimalar",
+      "text": "Jarima qarori ustidan e'tiroz bildirish mumkin. Kamera qayd etgan qoidabuzarlik avtomobil egasiga yuboriladi.",
+      "refs": [
+        "REF_ADMIN_CODE_TRAFFIC"
+      ]
+    }
+  ]
+}

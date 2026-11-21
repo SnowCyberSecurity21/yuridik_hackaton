@@ -1,0 +1,66 @@
+{
+  "_note": "Bu yerga lex.uz'dan qo'lda olingan ANIQ parchalar qo'yiladi. Matni TODO_LAWYER bilan boshlanadigan yozuvlar RAG'da e'tiborga olinmaydi.",
+  "excerpts": [
+    {
+      "id": "ex_appeals_law_1",
+      "ref_id": "REF_APPEALS_LAW_1",
+      "doc": "\"Jismoniy va yuridik shaxslarning murojaatlari to'g'risida\"gi Qonun",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/",
+      "text": "TODO_LAWYER: murojaatlarni ko'rib chiqish muddatlari haqidagi modda matni"
+    },
+    {
+      "id": "ex_labor_salary_1",
+      "ref_id": "REF_LABOR_SALARY",
+      "doc": "O'zbekiston Respublikasining Mehnat kodeksi",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/",
+      "text": "TODO_LAWYER: ish haqini to'lash muddatlari haqidagi modda matni"
+    },
+    {
+      "id": "ex_foreign_labor",
+      "ref_id": "REF_FOREIGN_STATUS",
+      "doc": "«Oʻzbekiston Respublikasida chet el fuqarolarining va fuqaroligi boʻlmagan shaxslarning huquqiy holati toʻgʻrisida»gi Qonun (OʻRQ-692, 04.06.2021)",
+      "article": "15-modda",
+      "lex_url": "https://lex.uz/docs/-5443899",
+      "text": "Oʻzbekiston Respublikasi hududida mehnat faoliyatini amalga oshirayotgan chet el fuqarolari va fuqaroligi boʻlmagan shaxslar Oʻzbekiston Respublikasining mehnat toʻgʻrisidagi qonunchiligiga muvofiq huquqlardan foydalanadi hamda ularning zimmasida majburiyatlar boʻladi. Agar Oʻzbekiston Respublikasining qonunchiligiga muvofiq muayyan lavozimlarga tayinlanish yoki muayyan mehnat faoliyati turi bilan shugʻullanish Oʻzbekiston Respublikasi fuqaroligiga mansublik bilan bogʻliq boʻlsa, chet el fuqarolari va fuqaroligi boʻlmagan shaxslar ushbu lavozimlarga tayinlanishi, saylanishi yoki muayyan mehnat faoliyati turi bilan shugʻullanishi mumkin emas.",
+      "keywords": "chet el fuqarosi ishlash ishlay oladimi ish mehnat ishga kirish",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_checked": true,
+      "source_checked_at": "2026-11-21",
+      "verified": false,
+      "verified_by": null
+    },
+    {
+      "id": "ex_foreign_education",
+      "ref_id": "REF_FOREIGN_STATUS",
+      "doc": "«Oʻzbekiston Respublikasida chet el fuqarolarining va fuqaroligi boʻlmagan shaxslarning huquqiy holati toʻgʻrisida»gi Qonun (OʻRQ-692, 04.06.2021)",
+      "article": "18-modda",
+      "lex_url": "https://lex.uz/docs/-5443899",
+      "text": "Boshqa davlatlar hududida doimiy yashaydigan chet el fuqarolari va fuqaroligi boʻlmagan shaxslar Oʻzbekiston Respublikasining xalqaro shartnomalariga va qonunchiligiga muvofiq Oʻzbekiston Respublikasida taʼlim olishga haqlidir. Oʻzbekiston Respublikasida doimiy yashaydigan fuqaroligi boʻlmagan shaxslar taʼlim olishda Oʻzbekiston Respublikasi fuqarolari bilan teng huquqlarga ega.",
+      "keywords": "chet el fuqarosi o'qish o'qiy oladimi ta'lim talaba universitet maktab",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_checked": true,
+      "source_checked_at": "2026-11-21",
+      "verified": false,
+      "verified_by": null
+    },
+    {
+      "id": "ex_foreign_appeal",
+      "ref_id": "REF_FOREIGN_STATUS",
+      "doc": "«Oʻzbekiston Respublikasida chet el fuqarolarining va fuqaroligi boʻlmagan shaxslarning huquqiy holati toʻgʻrisida»gi Qonun (OʻRQ-692, 04.06.2021)",
+      "article": "22-modda",
+      "lex_url": "https://lex.uz/docs/-5443899",
+      "text": "Chet el fuqarolari va fuqaroligi boʻlmagan shaxslar Oʻzbekiston Respublikasining davlat organlariga, tashkilotlarga hamda ularning mansabdor shaxslariga “Jismoniy va yuridik shaxslarning murojaatlari toʻgʻrisida”gi Oʻzbekiston Respublikasi Qonunida belgilangan tartibda arizalar, takliflar va shikoyatlar bilan murojaat qilish huquqiga ega.",
+      "keywords": "chet el fuqarosi murojaat ariza shikoyat davlat organi murojaat qila oladimi",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_checked": true,
+      "source_checked_at": "2026-11-21",
+      "verified": false,
+      "verified_by": null
+    }
+  ]
+}

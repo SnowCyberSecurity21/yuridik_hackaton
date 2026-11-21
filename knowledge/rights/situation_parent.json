@@ -1,0 +1,35 @@
+{
+  "id": "parent",
+  "type": "situation",
+  "title_uz": "Ota-ona",
+  "icon": "👨‍👩‍👧",
+  "items": [
+    {
+      "id": "pa_duty",
+      "kind": "duty",
+      "title_uz": "Bolani voyaga yetgunicha boqish",
+      "plain_uz": "Ota-onalar farzandlarini voyaga yetgunicha boqishi, tarbiyasi va ta'limi haqida g'amxo'rlik qilishi shart.",
+      "law_id": "constitution",
+      "article": "77-modda",
+      "excerpt": "Ота-оналар ва уларнинг ўрнини босувчи шахслар ўз фарзандларини вояга етгунига қадар боқиши ..."
+    },
+    {
+      "id": "pa_equal",
+      "kind": "right",
+      "title_uz": "Bolalar qonun oldida teng",
+      "plain_uz": "Farzandlar ota-onasining nasl-nasabi va fuqarolik holatidan qat'i nazar teng.",
+      "law_id": "constitution",
+      "article": "78-modda",
+      "excerpt": "Фарзандлар ота-онасининг насл-насаби ва фуқаролик ҳолатидан қатъи назар, қонун олдида тенгдирлар."
+    },
+    {
+      "id": "pa_family",
+      "kind": "info",
+      "title_uz": "Aliment va oilaviy huquqlar",
+      "plain_uz": "Aliment, ajrashish va bolalar bilan bog'liq qoidalar Oila kodeksida.",
+      "law_id": "family_code",
+      "article": "",
+      "excerpt": ""
+    }
+  ]
+}

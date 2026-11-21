@@ -1,0 +1,108 @@
+{
+  "id": "foreign",
+  "type": "status",
+  "title_uz": "Chet el fuqarosi (vaqtincha yoki doimiy yashovchi)",
+  "icon": "🌍",
+  "intro_uz": "Huquqlaringiz Konstitutsiya, O'RQ-692 qonuni va xalqaro shartnomalar bilan belgilanadi. Ba'zi huquqlar O'zbekistonda DOIMIY yashashingizga bog'liq.",
+  "answer_note_uz": "ℹ️ Siz chet el fuqarosisiz: bu masalada qoida siz uchun boshqacha bo'lishi mumkin. Masalan, pensiya fuqarolar bilan teng huquqda faqat O'zbekistonda doimiy yashovchilarga beriladi (O'RQ-692, 16-modda). Ariza berishdan oldin tegishli organdan tekshiring.",
+  "items": [
+    {
+      "id": "f_const",
+      "kind": "right",
+      "title_uz": "Huquq va erkinliklaringiz kafolatlangan",
+      "plain_uz": "Huquq va erkinliklaringiz xalqaro huquq normalariga muvofiq ta'minlanadi.",
+      "law_id": "constitution",
+      "article": "24-modda",
+      "excerpt": "Ўзбекистон Республикаси ҳудудидаги чет эл фуқароларининг ва фуқаролиги бўлмаган шахсларнинг ҳуқуқ ва эркинликлари халқаро ҳуқуқ нормаларига мувофиқ таъминланади."
+    },
+    {
+      "id": "f_labor",
+      "kind": "right",
+      "title_uz": "Mehnat huquqlari",
+      "plain_uz": "Ishlayotgan bo'lsangiz, mehnat qonunchiligidagi huquqlar sizga ham tegishli. Ba'zi lavozimlar faqat O'zbekiston fuqarolari uchun.",
+      "law_id": "foreign_status_law",
+      "article": "15-modda",
+      "excerpt": "... меҳнат тўғрисидаги қонунчилигига мувофиқ ҳуқуқлардан фойдаланади ҳамда уларнинг зиммасида мажбуриятлар бўлади."
+    },
+    {
+      "id": "f_pension",
+      "kind": "right",
+      "title_uz": "Pensiya (doimiy yashovchilar uchun)",
+      "plain_uz": "O'zbekistonda doimiy yashasangiz — fuqarolar bilan teng huquqda pensiya olishingiz mumkin. Vaqtincha yashovchilar uchun bu qoida yozilmagan — tekshiring.",
+      "law_id": "foreign_status_law",
+      "article": "16-modda",
+      "excerpt": "... доимий яшайдиган чет эл фуқаролари ва фуқаролиги бўлмаган шахслар ... фуқаролари билан тенг равишда пенсия олиш ҳуқуқига эга."
+    },
+    {
+      "id": "f_health",
+      "kind": "right",
+      "title_uz": "Sog'liqni saqlash",
+      "plain_uz": "Boshqa davlatda doimiy yashab, O'zbekistonda vaqtincha bo'lsangiz — tibbiy yordam xalqaro shartnomalarga muvofiq kafolatlanadi.",
+      "law_id": "foreign_status_law",
+      "article": "17-modda",
+      "excerpt": "... соғлиқни сақлашга бўлган ҳуқуқи Ўзбекистон Республикасининг халқаро шартномаларига мувофиқ кафолатланади."
+    },
+    {
+      "id": "f_edu",
+      "kind": "right",
+      "title_uz": "Ta'lim olish",
+      "plain_uz": "Xalqaro shartnomalar va qonunchilikka muvofiq O'zbekistonda o'qishingiz mumkin.",
+      "law_id": "foreign_status_law",
+      "article": "18-modda",
+      "excerpt": "... Ўзбекистон Республикасида таълим олишга ҳақлидир."
+    },
+    {
+      "id": "f_appeal",
+      "kind": "right",
+      "title_uz": "Davlat organlariga murojaat",
+      "plain_uz": "Ariza, taklif va shikoyat bilan murojaat qilishingiz mumkin — «Murojaatlar to'g'risida»gi qonunda belgilangan tartibda.",
+      "law_id": "foreign_status_law",
+      "article": "22-modda",
+      "excerpt": "Чет эл фуқаролари ва фуқаролиги бўлмаган шахслар ... аризалар, таклифлар ва шикоятлар билан мурожаат қилиш ҳуқуқига эга."
+    },
+    {
+      "id": "f_idcard",
+      "kind": "info",
+      "title_uz": "ID-karta (doimiy yashovchilar)",
+      "plain_uz": "O'zbekistonda doimiy yashovchi chet el fuqarolariga identifikatsiyalovchi ID-karta beriladi.",
+      "law_id": "foreign_status_law",
+      "article": "9-modda",
+      "excerpt": "Идентификацияловчи карта: Ўзбекистон Республикаси ҳудудида доимий яшайдиган чет эл фуқароларига ..."
+    },
+    {
+      "id": "f_d_law",
+      "kind": "duty",
+      "title_uz": "Qonunlarga rioya qilish",
+      "plain_uz": "Konstitutsiya va qonunlarga rioya qilish, boshqalarning huquq va qadr-qimmatini hurmat qilish.",
+      "law_id": "foreign_status_law",
+      "article": "25-modda",
+      "excerpt": "... Ўзбекистон Республикасининг Конституциясига, қонунларига ва бошқа норматив-ҳуқуқий ҳужжатларига риоя этиши"
+    },
+    {
+      "id": "f_d_tax",
+      "kind": "duty",
+      "title_uz": "Soliq to'lash",
+      "plain_uz": "Soliq kodeksida belgilangan soliq va yig'imlarni to'laysiz; qonundagi soliq imtiyozlaridan foydalanishingiz mumkin.",
+      "law_id": "foreign_status_law",
+      "article": "27-modda",
+      "excerpt": "... Солиқ кодексида белгиланган солиқларни ва унда назарда тутилган йиғимларни ... тўлайди."
+    }
+  ],
+  "suggested_questions": [
+    {
+      "q": "Chet el fuqarosi O'zbekistonda ishlashi mumkinmi?",
+      "excerpt_id": "ex_foreign_labor",
+      "article": "15-modda"
+    },
+    {
+      "q": "Chet el fuqarosi O'zbekistonda o'qiy oladimi?",
+      "excerpt_id": "ex_foreign_education",
+      "article": "18-modda"
+    },
+    {
+      "q": "Chet el fuqarosi davlat organiga murojaat qila oladimi?",
+      "excerpt_id": "ex_foreign_appeal",
+      "article": "22-modda"
+    }
+  ]
+}

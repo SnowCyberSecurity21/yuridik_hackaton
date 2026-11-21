@@ -1,0 +1,54 @@
+{
+  "id": "demo_driver",
+  "order": 3,
+  "_note": "SOXTA DEMO PROFIL. Haqiqiy shaxs emas. MyGov (OneID) va idoralararo integratsiya platformasidan keladigan javobni taqlid qiladi. Jarima summalari loyiha brifidagi SMS namunasi formatida (44 000 / 22 000, 50%).",
+  "icon": "🚗",
+  "persona_uz": "Yosh haydovchi",
+  "persona_ru": "Молодой водитель",
+  "display_name": "Sardor (DEMO)",
+  "birth_year": 2004,
+  "region": "toshkent_sh",
+  "family": {
+    "marital_status": "turmush qurmagan",
+    "household_size": 4,
+    "children": []
+  },
+  "social": {
+    "employment": "talaba, yarim stavkada ishlaydi",
+    "pensioner": false,
+    "lives_alone": false,
+    "low_income_registry": false,
+    "disability_group": null
+  },
+  "driver": {
+    "has_license": true,
+    "license_year": 2024
+  },
+  "obligations": [
+    {
+      "id": "ob_driver_fine",
+      "kind": "traffic_fine",
+      "title_uz": "Yo'l harakati jarimasi (kamera) — DEMO",
+      "title_ru": "Штраф ПДД (камера) — DEMO",
+      "amount": 44000,
+      "discount_amount": 22000,
+      "discount_pct": 50,
+      "discount_due_in_days": 6,
+      "due_in_days": 30,
+      "invoice": "DEMO-0000000001",
+      "card_id": "traffic_fine",
+      "issuer": "YHXB (DEMO)"
+    },
+    {
+      "id": "ob_driver_mib",
+      "kind": "mib_debt",
+      "title_uz": "MIB'dagi ijro hujjati bo'yicha qarz — DEMO",
+      "title_ru": "Долг по исполнительному документу в БПИ — DEMO",
+      "amount": 1250000,
+      "due_in_days": null,
+      "card_id": "mib_debt_travel_ban",
+      "issuer": "Majburiy ijro byurosi (DEMO)",
+      "warning_uz": "Qarz uzilmasa, chet elga chiqish cheklanishi mumkin (shartlari: huquqshunos tasdiqlashi kutilmoqda)."
+    }
+  ]
+}

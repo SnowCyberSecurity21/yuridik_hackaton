@@ -1,0 +1,21 @@
+{
+  "id": "personal_data_law",
+  "title_uz": "Shaxsga doir ma'lumotlar to'g'risida",
+  "title_official": "Шахсга доир маълумотлар тўғрисида",
+  "number": "O'RQ-547",
+  "date": "2019-07-02",
+  "url": "https://lex.uz/docs/4396419",
+  "plain_uz": "Shaxsiy ma'lumotlaringizni kim, qanday asosda va roziligingiz bilan qayta ishlashi mumkinligi.",
+  "statuses": [
+    "uz_citizen",
+    "foreign",
+    "stateless",
+    "unknown"
+  ],
+  "situations": [
+    "civil_servant"
+  ],
+  "retrieved_at": "2026-11-21",
+  "source_type": "lex.uz",
+  "source_verified": true
+}

@@ -1,0 +1,62 @@
+{
+  "id": "benefit_pension_recalc",
+  "order": 3,
+  "kind": "right",
+  "icon": "🧾",
+  "title_uz": "Pensiyani tekshirish va qayta hisoblashni so'rash",
+  "title_ru": "Запрос на проверку и перерасчёт пенсии",
+  "summary_uz": "Pensioner pensiyasi to'g'ri hisoblanganini tekshirishni va hisobga olinmagan ish staji yoki daromad bo'lsa, qayta hisoblashni so'rashi mumkin. Qayta hisoblash asoslarini huquqshunos tasdiqlaydi.",
+  "amount": "TODO_LAWYER: qayta hisoblash natijasi individual",
+  "rule": {
+    "all": [
+      {
+        "fact": "is_pensioner",
+        "op": "==",
+        "value": true,
+        "label_uz": "Siz pensiya olasiz",
+        "label_ru": "Вы получаете пенсию",
+        "appeal_uz": "Men pensiya olaman"
+      },
+      {
+        "todo": "TODO_LAWYER: qayta hisoblash uchun asoslar (hisobga olinmagan staj, ish haqi va h.k.)",
+        "label_uz": "Hisobga olinmagan ish staji yoki daromad bor-yo'qligi",
+        "label_ru": "Есть ли неучтённый стаж или заработок"
+      }
+    ]
+  },
+  "documents": [
+    "Ariza",
+    "Mehnat daftarchasi yoki ish stajini tasdiqlovchi hujjatlar",
+    "TODO_LAWYER: ish haqi haqidagi ma'lumotnoma talab qilinadimi"
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "TODO_LAWYER: pensiya tayinlovchi organning tuman (shahar) bo'limi",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_PENSION_1",
+      "doc": "Fuqarolarning davlat pensiya ta'minoti to'g'risida (938-XII)",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/docs/112314",
+      "doc_date": "1993-09-03",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "related_card_id": null,
+  "appeal_template_id": "appeal_benefit_request",
+  "appeal_addressee": "TODO_LAWYER: pensiya tayinlovchi organning tuman (shahar) bo'limi rahbariga",
+  "appeal_label_uz": "Pensiyani qayta hisoblash arizasi",
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: shartlar, organ nomi va hujjatlarni huquqshunos tasdiqlashi shart."
+}

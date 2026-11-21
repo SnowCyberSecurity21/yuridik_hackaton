@@ -1,0 +1,82 @@
+{
+  "id": "uz_citizen",
+  "type": "status",
+  "title_uz": "O'zbekiston fuqarosi",
+  "icon": "🏠",
+  "intro_uz": "Konstitutsiyadagi huquq va erkinliklar to'liq hajmda sizga tegishli. Quyida eng ko'p kerak bo'ladiganlari.",
+  "answer_note_uz": null,
+  "items": [
+    {
+      "id": "c_appeal",
+      "kind": "right",
+      "title_uz": "Davlat organlariga murojaat qilish",
+      "plain_uz": "Ariza, taklif va shikoyat bilan davlat organlariga, mansabdor shaxslarga murojaat qilishingiz mumkin. Ular qonunda belgilangan tartib va muddatda ko'rib chiqilishi shart.",
+      "law_id": "constitution",
+      "article": "40-modda",
+      "excerpt": "Ҳар ким ... давлат органларига ... аризалар, таклифлар ва шикоятлар билан мурожаат қилиш ҳуқуқига эга."
+    },
+    {
+      "id": "c_labor",
+      "kind": "right",
+      "title_uz": "Munosib mehnat va adolatli ish haqi",
+      "plain_uz": "Kasbni erkin tanlash, xavfsiz sharoitda ishlash va eng kam miqdordan kam bo'lmagan adolatli haq olish huquqi.",
+      "law_id": "constitution",
+      "article": "42-modda",
+      "excerpt": "Ҳар ким муносиб меҳнат қилиш, касб ва фаолият турини эркин танлаш ... ҳуқуқига эга."
+    },
+    {
+      "id": "c_social",
+      "kind": "right",
+      "title_uz": "Ijtimoiy ta'minot",
+      "plain_uz": "Qariganda, mehnat qobiliyatini yo'qotganda, ishsizlikda, boquvchisini yo'qotganda ijtimoiy ta'minot huquqi.",
+      "law_id": "constitution",
+      "article": "46-modda",
+      "excerpt": "Ҳар ким қариганда, меҳнат қобилиятини йўқотганда, ишсизликда ... ижтимоий таъминот ҳуқуқига эга."
+    },
+    {
+      "id": "c_edu",
+      "kind": "right",
+      "title_uz": "Ta'lim olish",
+      "plain_uz": "Har kim ta'lim olish huquqiga ega.",
+      "law_id": "constitution",
+      "article": "50-modda",
+      "excerpt": "Ҳар ким таълим олиш ҳуқуқига эга."
+    },
+    {
+      "id": "c_court",
+      "kind": "right",
+      "title_uz": "Huquqlarni sud orqali himoya qilish",
+      "plain_uz": "Davlat organlari va mansabdor shaxslarning noqonuniy qarori yoki harakati ustidan sudga shikoyat qilishingiz mumkin.",
+      "law_id": "constitution",
+      "article": "55-modda",
+      "excerpt": "Ҳар кимга ўз ҳуқуқ ва эркинликларини суд орқали ҳимоя қилиш ... ҳуқуқи кафолатланади."
+    },
+    {
+      "id": "c_d_law",
+      "kind": "duty",
+      "title_uz": "Konstitutsiya va qonunlarga rioya qilish",
+      "plain_uz": "Qonunlarga rioya qilish, boshqalarning huquqi, sha'ni va qadr-qimmatini hurmat qilish.",
+      "law_id": "constitution",
+      "article": "60-modda",
+      "excerpt": "Фуқаролар Конституция ва қонунларга риоя этишга ... мажбурдирлар."
+    },
+    {
+      "id": "c_d_tax",
+      "kind": "duty",
+      "title_uz": "Soliq va yig'imlarni to'lash",
+      "plain_uz": "Qonun bilan belgilangan soliqlar va yig'imlarni to'lash shart.",
+      "law_id": "constitution",
+      "article": "63-modda",
+      "excerpt": "Фуқаролар қонун билан белгиланган солиқлар ва йиғимларни тўлаши шарт."
+    },
+    {
+      "id": "c_d_defense",
+      "kind": "duty",
+      "title_uz": "Vatanni himoya qilish",
+      "plain_uz": "Qonunda belgilangan tartibda harbiy yoki muqobil xizmatni o'tash.",
+      "law_id": "constitution",
+      "article": "64-modda",
+      "excerpt": "Ўзбекистон Республикасини ҳимоя қилиш Ўзбекистон Республикаси ҳар бир фуқаросининг бурчидир."
+    }
+  ]
+}

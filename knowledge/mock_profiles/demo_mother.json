@@ -1,0 +1,41 @@
+{
+  "id": "demo_mother",
+  "order": 1,
+  "_note": "SOXTA DEMO PROFIL. Haqiqiy shaxs emas. MyGov (OneID) va idoralararo integratsiya platformasidan keladigan javobni taqlid qiladi.",
+  "icon": "👩‍👧‍👦",
+  "persona_uz": "2 bolali ona",
+  "persona_ru": "Мать двоих детей",
+  "display_name": "Malika (DEMO)",
+  "birth_year": 1994,
+  "region": "samarqand",
+  "family": {
+    "marital_status": "ajrashgan",
+    "household_size": 3,
+    "children": [
+      {"age": 6},
+      {"age": 3}
+    ]
+  },
+  "social": {
+    "employment": "vaqtincha ishsiz",
+    "pensioner": false,
+    "lives_alone": false,
+    "low_income_registry": true,
+    "disability_group": null
+  },
+  "driver": {
+    "has_license": false
+  },
+  "obligations": [
+    {
+      "id": "ob_mother_utility",
+      "kind": "utility_debt",
+      "title_uz": "Kommunal xizmat qarzi (gaz) — DEMO",
+      "title_ru": "Долг за коммунальные услуги (газ) — DEMO",
+      "amount": 186000,
+      "due_in_days": 15,
+      "card_id": "utility_debt_court_order",
+      "issuer": "Gaz ta'minoti tashkiloti (DEMO)"
+    }
+  ]
+}

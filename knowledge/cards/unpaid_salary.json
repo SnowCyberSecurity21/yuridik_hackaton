@@ -1,0 +1,75 @@
+{
+  "id": "unpaid_salary",
+  "category": "mehnat",
+  "title_uz": "Ish haqi berilmayapti / mehnat nizosi",
+  "title_cyrl": "Иш ҳақи берилмаяпти / меҳнат низоси",
+  "title_ru": "Не выплачивают зарплату / трудовой спор",
+  "triggers": [
+    "ish haqi berilmayapti",
+    "maosh bermayapti",
+    "oylik bermayapti",
+    "ish haqi kechikmoqda",
+    "ishdan bo'shatishdi",
+    "mehnat nizosi",
+    "иш ҳақи",
+    "ойлик бермаяпти",
+    "не платят зарплату",
+    "задержка зарплаты",
+    "трудовой спор"
+  ],
+  "plain_explanation_uz": "Ish beruvchi bajarilgan ish uchun ish haqini o'z vaqtida to'lashi shart. To'lanmasa, avval ish beruvchiga yozma murojaat qiling, so'ng mehnat inspeksiyasi yoki sudga murojaat qilishingiz mumkin.",
+  "common_reasons": [
+    "Mehnat shartnomasi rasmiylashtirilmagan",
+    "Korxonada moliyaviy qiyinchilik",
+    "Ishdan bo'shatishda hisob-kitob qilinmagan"
+  ],
+  "steps": [
+    "Ish beruvchiga yozma talabnoma bering va nusxasini saqlang",
+    "Mehnat shartnomasi, buyruqlar, ish haqi hisob-kitobini to'plang",
+    "Davlat mehnat inspeksiyasiga murojaat qiling",
+    "Hal bo'lmasa — sudga da'vo bering"
+  ],
+  "documents": [
+    "Mehnat shartnomasi yoki ishga qabul buyrug'i",
+    "Ish haqi hisob-varag'i / bank ko'chirmasi",
+    "Yozma talabnoma nusxasi"
+  ],
+  "deadlines": [
+    "Mehnat nizosi bo'yicha sudga murojaat muddati: TODO_LAWYER"
+  ],
+  "where_to_go": [
+    {
+      "name": "Davlat mehnat inspeksiyasi hududiy bo'limi",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Tuman (shahar) sudi (fuqarolik ishlari)",
+      "url": "https://my.sud.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_LABOR_SALARY",
+      "doc": "O'zbekiston Respublikasining Mehnat kodeksi",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/docs/6257288",
+      "doc_date": "2022-10-28",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "appeal_template_id": "appeal_labor",
+  "appeal_addressee": "Davlat mehnat inspeksiyasi hududiy bo'limi boshlig'iga",
+  "textbook_refs": [
+    "labor_law_ch4_s2"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: huquqiy mazmunni huquqshunos tekshirishi va TODO_LAWYER joylarini to'ldirishi shart."
+}

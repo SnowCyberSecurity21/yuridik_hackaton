@@ -1,0 +1,66 @@
+{
+  "id": "utility_debt_court_order",
+  "category": "kommunal",
+  "title_uz": "Kommunal qarz va sud buyrug'i",
+  "title_cyrl": "Коммунал қарз ва суд буйруғи",
+  "title_ru": "Коммунальный долг и судебный приказ",
+  "triggers": [
+    "kommunal qarz",
+    "sud buyrug'i",
+    "gaz qarzi",
+    "svet qarzi",
+    "elektr qarzi",
+    "suv qarzi",
+    "kommunal to'lov",
+    "суд буйруғи",
+    "коммунальный долг",
+    "судебный приказ"
+  ],
+  "plain_explanation_uz": "Kommunal qarz bo'yicha sud buyrug'i — soddalashtirilgan tartibda, tomonlarni chaqirmasdan chiqariladigan hujjat. Qarz summasiga rozi bo'lmasangiz, belgilangan muddatda e'tiroz bildirib, buyruqni bekor qildirishingiz mumkin.",
+  "common_reasons": [
+    "Hisoblagich ko'rsatkichlari noto'g'ri",
+    "To'lov tizimda aks etmagan",
+    "Boshqa abonent qarzi sizga yozilgan"
+  ],
+  "steps": [
+    "Sud buyrug'i nusxasini oling va qarz summasini tekshiring",
+    "To'lov kvitansiyalaringizni to'plang",
+    "Rozi bo'lmasangiz — buyruqni chiqargan sudga e'tiroz yuboring",
+    "Xizmat ko'rsatuvchi tashkilot bilan hisob-kitobni solishtiring"
+  ],
+  "documents": [
+    "Sud buyrug'i nusxasi",
+    "To'lov kvitansiyalari",
+    "Hisoblagich ko'rsatkichlari"
+  ],
+  "deadlines": [
+    "Sud buyrug'iga e'tiroz bildirish muddati: TODO_LAWYER"
+  ],
+  "where_to_go": [
+    {
+      "name": "Buyruqni chiqargan sud",
+      "url": "https://my.sud.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_CIVPROC_COURT_ORDER",
+      "doc": "O'zbekiston Respublikasining Fuqarolik protsessual kodeksi",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/"
+    }
+  ],
+  "appeal_template_id": "appeal_court_order_objection",
+  "appeal_addressee": "Sud buyrug'ini chiqargan sudga",
+  "textbook_refs": [
+    "civil_proc_ch5_s1"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: huquqiy mazmunni huquqshunos tekshirishi va TODO_LAWYER joylarini to'ldirishi shart."
+}

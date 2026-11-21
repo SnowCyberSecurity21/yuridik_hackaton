@@ -1,0 +1,20 @@
+{
+  "id": "constitution",
+  "title_uz": "O'zbekiston Respublikasi Konstitutsiyasi",
+  "title_official": "Ўзбекистон Республикаси Конституцияси",
+  "number": "—",
+  "number_note": "2023-yil 30-aprel referendumida qabul qilingan (raqamsiz)",
+  "date": "2023-04-30",
+  "url": "https://lex.uz/docs/6445145",
+  "plain_uz": "Davlatning asosiy qonuni. Har kimning huquq va erkinliklari, fuqarolarning burchlari, chet el fuqarolari va fuqaroligi bo'lmagan shaxslarning holati shu yerda belgilangan.",
+  "statuses": [
+    "uz_citizen",
+    "foreign",
+    "stateless",
+    "unknown"
+  ],
+  "situations": [],
+  "retrieved_at": "2026-11-21",
+  "source_type": "lex.uz",
+  "source_verified": true
+}

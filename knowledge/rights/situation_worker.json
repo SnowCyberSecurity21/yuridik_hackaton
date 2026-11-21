@@ -1,0 +1,26 @@
+{
+  "id": "worker",
+  "type": "situation",
+  "title_uz": "Yollanib ishlovchi",
+  "icon": "🛠️",
+  "items": [
+    {
+      "id": "wo_labor",
+      "kind": "right",
+      "title_uz": "Adolatli ish haqi",
+      "plain_uz": "Eng kam miqdordan kam bo'lmagan adolatli haq olish huquqi.",
+      "law_id": "constitution",
+      "article": "42-modda",
+      "excerpt": "... меҳнатга ҳақ тўлашнинг белгиланган энг кам миқдоридан кам бўлмаган тарзда адолатли ҳақ олиш ..."
+    },
+    {
+      "id": "wo_code",
+      "kind": "info",
+      "title_uz": "Mehnat kodeksi",
+      "plain_uz": "Ish haqi, ta'til, ishdan bo'shatish qoidalari.",
+      "law_id": "labor_code",
+      "article": "",
+      "excerpt": ""
+    }
+  ]
+}

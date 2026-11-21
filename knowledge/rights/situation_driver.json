@@ -1,0 +1,26 @@
+{
+  "id": "driver",
+  "type": "situation",
+  "title_uz": "Haydovchi",
+  "icon": "🚗",
+  "items": [
+    {
+      "id": "dr_admin",
+      "kind": "info",
+      "title_uz": "Jarimalar qayerda yozilgan",
+      "plain_uz": "Yo'l harakati qoidabuzarligi uchun jarimalar va ularga shikoyat qilish tartibi Ma'muriy javobgarlik to'g'risidagi kodeksda.",
+      "law_id": "admin_code",
+      "article": "",
+      "excerpt": ""
+    },
+    {
+      "id": "dr_court",
+      "kind": "right",
+      "title_uz": "Jarima ustidan shikoyat",
+      "plain_uz": "Noqonuniy deb hisoblagan qaror ustidan sudga shikoyat qilishingiz mumkin.",
+      "law_id": "constitution",
+      "article": "55-modda",
+      "excerpt": "... қонунга хилоф қарорлари, ҳаракатлари ва ҳаракатсизлиги устидан судга шикоят қилиш ҳуқуқи кафолатланади."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+[Unit]
+Description=Huquqim web (FastAPI: /api, /miniapp, /dashboard) - huquqim.zehnprotect.uz
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=600
+StartLimitBurst=5
+
+[Service]
+User=huquqim
+Group=huquqim
+WorkingDirectory=/opt/huquqim
+EnvironmentFile=/etc/huquqim/huquqim.env
+Environment=PYTHONUTF8=1 PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/huquqim/.venv/bin/python -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 18080 --proxy-headers --forwarded-allow-ips=127.0.0.1 --no-server-header
+Restart=on-failure
+RestartSec=5
+MemoryMax=512M
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/huquqim
+
+[Install]
+WantedBy=multi-user.target

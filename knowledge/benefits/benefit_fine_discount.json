@@ -1,0 +1,57 @@
+{
+  "id": "benefit_fine_discount",
+  "order": 5,
+  "kind": "right",
+  "icon": "🚦",
+  "title_uz": "Jarimani chegirma bilan to'lash yoki e'tiroz bildirish",
+  "title_ru": "Оплата штрафа со скидкой или обжалование",
+  "summary_uz": "Jarima xabarnomasida chegirma muddati ko'rsatilgan bo'lsa, shu muddatda kamroq to'lashingiz mumkin. Qoidabuzarlikka rozi bo'lmasangiz, e'tiroz bildirish huquqingiz bor. Chegirma summasi va muddati jarima xabarnomasining o'zidan olinadi.",
+  "amount": "Jarima xabarnomasida ko'rsatilgan chegirmali summa",
+  "rule": {
+    "all": [
+      {
+        "fact": "fines_with_active_discount",
+        "op": ">=",
+        "value": 1,
+        "label_uz": "Chegirma muddati o'tmagan jarimangiz bor",
+        "label_ru": "Есть штраф, срок скидки по которому не истёк",
+        "appeal_uz": "Menga nisbatan jarima qarori chiqarilgan, chegirma muddati hali o'tmagan"
+      },
+      {
+        "todo": "TODO_LAWYER: chegirma qaysi holatlarda qo'llanmasligi",
+        "label_uz": "Chegirma sizning qoidabuzarlik turingizga tatbiq etilishi",
+        "label_ru": "Применима ли скидка к вашему виду нарушения"
+      }
+    ]
+  },
+  "documents": [
+    "Jarima qarori yoki invoys raqami",
+    "E'tiroz uchun dalillar (foto, video) — rozi bo'lmasangiz"
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_ADMIN_CODE_TRAFFIC",
+      "doc": "O'zbekiston Respublikasining Ma'muriy javobgarlik to'g'risidagi kodeksi",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/docs/97664",
+      "doc_date": "1994-09-22",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "related_card_id": "traffic_fine",
+  "appeal_template_id": "appeal_fine_dispute",
+  "appeal_addressee": "TODO_LAWYER: jarima qarorini chiqargan organning yuqori turuvchi organi yoki sud",
+  "appeal_label_uz": "E'tiroz arizasi (rozi bo'lmasangiz)",
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: chegirma qoidalari va e'tiroz tartibini huquqshunos tasdiqlashi shart."
+}

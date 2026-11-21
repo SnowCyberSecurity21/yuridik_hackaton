@@ -1,0 +1,93 @@
+{
+  "_note": "DEMO claim'lar. Hukm va manbani huquqshunos tasdiqlashi shart (verified=false).",
+  "claims": [
+    {
+      "id": "claim_car_new_tax_jan1",
+      "claim_uz": "1-yanvardan hamma mashinaga yangi soliq joriy qilinadi",
+      "triggers": [
+        "1-yanvardan hamma mashinaga yangi soliq",
+        "hamma mashinaga yangi soliq",
+        "hamma mashinaga soliq",
+        "barcha avtomobillarga yangi soliq",
+        "mashina egalari yangi soliq to'laydi",
+        "все машины новый налог",
+        "ҳамма машинага солиқ"
+      ],
+      "verdict": "notogri",
+      "explanation_uz": "Barcha avtomobillarga 1-yanvardan yangi soliq joriy etilgani haqidagi da'vo rasmiy hujjat bilan tasdiqlanmagan. Soliqlar Soliq kodeksi va rasmiy e'lon qilingan hujjatlar bilan belgilanadi — postdagi da'vo manbasiz.",
+      "legal_basis": [
+        {
+          "ref_id": "REF_TAX_CODE_1",
+          "doc": "O'zbekiston Respublikasining Soliq kodeksi",
+          "article": "TODO_LAWYER",
+          "lex_url": "https://lex.uz/"
+        }
+      ],
+      "topic_id": null,
+      "verified": false
+    },
+    {
+      "id": "claim_alimony_stops_at_16",
+      "claim_uz": "Aliment bola 16 yoshga to'lganda to'xtaydi",
+      "triggers": [
+        "aliment 16 yoshda to'xtaydi",
+        "16 yoshdan keyin aliment yo'q",
+        "aliment 16 yoshgacha"
+      ],
+      "verdict": "tasdiqlanmagan",
+      "explanation_uz": "Aliment to'lash yoshi va muddati qonunda belgilangan (TODO_LAWYER). Huquqshunos tasdiqlamaguncha bu da'voga baho berilmaydi.",
+      "legal_basis": [
+        {
+          "ref_id": "REF_ALIMONY_1",
+          "doc": "O'zbekiston Respublikasi Oila kodeksi",
+          "article": "TODO_LAWYER",
+          "lex_url": "https://lex.uz/"
+        }
+      ],
+      "topic_id": "alimony",
+      "verified": false
+    },
+    {
+      "id": "claim_mib_sms_link_pay",
+      "claim_uz": "MIB qarzingizni shu havola orqali 24 soatda to'lamasangiz kartangiz bloklanadi",
+      "triggers": [
+        "kartangiz bloklanadi",
+        "24 soat ichida to'lang havola",
+        "mib havola orqali to'lang"
+      ],
+      "verdict": "notogri",
+      "explanation_uz": "Davlat organlari to'lovni noma'lum havola orqali talab qilmaydi. Bu firibgarlik belgisi — qarzni faqat rasmiy portalda tekshiring.",
+      "legal_basis": [
+        {
+          "ref_id": "REF_FRAUD_1",
+          "doc": "TODO_LAWYER: firibgarlik uchun javobgarlik belgilovchi hujjat",
+          "article": "TODO_LAWYER",
+          "lex_url": "https://lex.uz/"
+        }
+      ],
+      "topic_id": "fake_mib_sms",
+      "verified": false
+    },
+    {
+      "id": "claim_fine_discount_70",
+      "claim_uz": "Endi barcha jarimalarga 70 foiz chegirma beriladi",
+      "triggers": [
+        "jarimalarga 70 foiz chegirma",
+        "70% chegirma jarima",
+        "barcha jarimalarga chegirma"
+      ],
+      "verdict": "qisman",
+      "explanation_uz": "Ayrim jarimalar muddatida to'lansa chegirma qo'llanadi (SMS'da ko'rsatiladi), biroq 'barcha jarimalarga 70 foiz' degan da'vo tasdiqlanmagan (TODO_LAWYER: amaldagi chegirma tartibi).",
+      "legal_basis": [
+        {
+          "ref_id": "REF_ADMIN_CODE_TRAFFIC",
+          "doc": "O'zbekiston Respublikasining Ma'muriy javobgarlik to'g'risidagi kodeksi",
+          "article": "TODO_LAWYER",
+          "lex_url": "https://lex.uz/"
+        }
+      ],
+      "topic_id": "traffic_fine",
+      "verified": false
+    }
+  ]
+}

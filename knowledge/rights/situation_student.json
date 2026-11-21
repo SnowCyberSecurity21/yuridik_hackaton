@@ -1,0 +1,35 @@
+{
+  "id": "student",
+  "type": "situation",
+  "title_uz": "Talaba",
+  "icon": "🎓",
+  "items": [
+    {
+      "id": "st_edu",
+      "kind": "right",
+      "title_uz": "Ta'lim olish huquqi",
+      "plain_uz": "Har kim ta'lim olish huquqiga ega; davlat uzluksiz ta'lim tizimini ta'minlaydi.",
+      "law_id": "constitution",
+      "article": "50-modda",
+      "excerpt": "Ҳар ким таълим олиш ҳуқуқига эга."
+    },
+    {
+      "id": "st_law",
+      "kind": "info",
+      "title_uz": "Ta'lim oluvchining huquq va majburiyatlari",
+      "plain_uz": "Talabaning huquq va majburiyatlari «Ta'lim to'g'risida»gi qonunda.",
+      "law_id": "education_law",
+      "article": "",
+      "excerpt": ""
+    },
+    {
+      "id": "st_labor",
+      "kind": "right",
+      "title_uz": "O'qish bilan birga ishlash",
+      "plain_uz": "Ishlasangiz — mehnat huquqlaringiz Mehnat kodeksi bilan himoyalanadi.",
+      "law_id": "labor_code",
+      "article": "",
+      "excerpt": ""
+    }
+  ]
+}

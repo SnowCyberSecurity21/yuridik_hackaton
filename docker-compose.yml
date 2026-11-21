@@ -1,0 +1,23 @@
+# docker compose up --build
+# Sozlamalar faqat .env orqali (cp .env.example .env). Kalitlar bo'lmasa ham ishlaydi.
+services:
+  backend:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    env_file: .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-sqlite:////app/data/huquqim.db}
+    ports: ["8000:8000"]
+    volumes:
+      - ./data:/app/data            # SQLite + TTS kesh
+      - ./knowledge:/app/knowledge  # huquqshunos kartalarni qayta build qilmasdan yangilaydi
+    restart: unless-stopped
+
+  bot:
+    build: { context: ., dockerfile: bot/Dockerfile }
+    env_file: .env
+    environment:
+      BACKEND_URL: http://backend:8000
+    ports: ["8081:8081"]            # faqat BOT_MODE=webhook uchun
+    depends_on:
+      backend: { condition: service_healthy }
+    restart: on-failure             # token yo'q bo'lsa toza chiqadi (0) va qayta ishga tushmaydi

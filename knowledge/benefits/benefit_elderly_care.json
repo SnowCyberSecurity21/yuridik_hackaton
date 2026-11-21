@@ -1,0 +1,65 @@
+{
+  "id": "benefit_elderly_care",
+  "order": 4,
+  "kind": "benefit",
+  "icon": "🤝",
+  "title_uz": "Yolg'iz keksalarga ijtimoiy xizmat (uyda yordam)",
+  "title_ru": "Социальные услуги одиноким пожилым (помощь на дому)",
+  "summary_uz": "Yolg'iz yashovchi keksa fuqaro uyda ijtimoiy yordam (parvarish, oziq-ovqat, dori olib kelish kabi) xizmatlariga murojaat qilishi mumkin. Xizmat turlari va shartlarini huquqshunos tasdiqlaydi.",
+  "amount": "TODO_LAWYER: xizmat turlari va hajmi",
+  "rule": {
+    "all": [
+      {
+        "fact": "is_pensioner",
+        "op": "==",
+        "value": true,
+        "label_uz": "Siz pensiya yoshidasiz / pensiya olasiz",
+        "label_ru": "Вы пенсионного возраста / получаете пенсию",
+        "appeal_uz": "Men pensiya olaman"
+      },
+      {
+        "fact": "lives_alone",
+        "op": "==",
+        "value": true,
+        "label_uz": "Yolg'iz yashaysiz",
+        "label_ru": "Вы проживаете один/одна",
+        "appeal_uz": "Yolg'iz yashayman"
+      },
+      {
+        "todo": "TODO_LAWYER: sog'liq holati yoki parvarishga muhtojlik mezoni",
+        "label_uz": "Parvarishga muhtojlik darajasi",
+        "label_ru": "Степень нуждаемости в уходе"
+      }
+    ]
+  },
+  "documents": [
+    "Ariza",
+    "TODO_LAWYER: tibbiy xulosa talab qilinadimi"
+  ],
+  "where_to_go": [
+    {
+      "name": "Tuman (shahar) \"Inson\" ijtimoiy xizmatlar markazi",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Mahalladagi ijtimoiy xodim",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_SOCIAL_SERVICES_1",
+      "doc": "TODO_LAWYER: keksalarga ijtimoiy xizmat ko'rsatish tartibini belgilovchi hujjat",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/"
+    }
+  ],
+  "related_card_id": null,
+  "appeal_template_id": "appeal_benefit_request",
+  "appeal_addressee": "Tuman (shahar) \"Inson\" ijtimoiy xizmatlar markazi rahbariga",
+  "appeal_label_uz": "Ijtimoiy xizmat so'rash arizasi",
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: shartlar va xizmat turlarini huquqshunos tasdiqlashi shart."
+}

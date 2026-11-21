@@ -1,0 +1,83 @@
+{
+  "id": "benefit_child_allowance",
+  "order": 1,
+  "kind": "benefit",
+  "icon": "👶",
+  "title_uz": "Ijtimoiy reyestrdagi oilalarga bolalar nafaqasi",
+  "title_ru": "Детское пособие малообеспеченным семьям",
+  "summary_uz": "Ijtimoiy reyestrga kiritilgan, eng kichik yoki yagona bolasi 18 yoshga to'lmagan oilaga bolalar nafaqasi tayinlanadi. Rad etish asosi bo'lmasa, ariza ko'rib chiqilgan oydan keyingi oydan avtomatik to'lanadi.",
+  "amount": "TODO_LAWYER: nafaqa miqdori (VM 35, 3-ilovaga 1-ilova — sxema)",
+  "rule": {
+    "all": [
+      {
+        "fact": "minor_children",
+        "op": ">=",
+        "value": 1,
+        "label_uz": "Eng kichik yoki yagona bola 18 yoshga to'lmagan",
+        "label_ru": "Младший или единственный ребёнок не достиг 18 лет",
+        "appeal_uz": "Oilamda 18 yoshga to'lmagan bola bor"
+      },
+      {
+        "fact": "low_income_registry",
+        "op": "==",
+        "value": true,
+        "label_uz": "Oila Ijtimoiy reyestrga kiritilgan",
+        "label_ru": "Семья включена в Социальный реестр",
+        "appeal_uz": "Oilam Ijtimoiy reyestrga kiritilgan"
+      },
+      {
+        "todo": "Daromad va mol-mulk ma'lumoti demo profilda yo'q — vakolatli organ idoralararo tekshiradi",
+        "label_uz": "Rad etish asoslari yo'qligi: daromad minimal iste'mol xarajatlaridan yuqori emas, ortiqcha ko'chmas mulk, yangi avtomobil, katta depozit yo'q",
+        "label_ru": "Нет оснований для отказа (доход, имущество, авто, депозиты)"
+      }
+    ]
+  },
+  "documents": [
+    "Shaxsni tasdiqlovchi hujjat (chet el fuqarosi yoki fuqaroligi bo'lmagan shaxs — yashash guvohnomasi)",
+    "Ariza (davlat xizmatlari markazi, «Inson» markazi, ijtimoiy xodim, my.gov.uz yoki «Ijtimoiy karta» ilovasi orqali)",
+    "Qo'shimcha hujjatlar ro'yxati: TODO_LAWYER"
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Tuman (shahar) «Inson» ijtimoiy xizmatlar markazi",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_CHILD_ALLOWANCE_1",
+      "doc": "Vazirlar Mahkamasining 29.01.2026 dagi 35-son qarori, 3-ilova — Ijtimoiy reyestrga kiritilgan oilalarga bolalar nafaqasi va moddiy yordamni tayinlash va to'lash tartibi to'g'risidagi Nizom",
+      "article": "2, 6, 11, 12, 13-bandlar",
+      "lex_url": "https://lex.uz/docs/-8027513",
+      "doc_date": "2026-01-29",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_SOCIAL_REGISTRY_1",
+      "doc": "Vazirlar Mahkamasining 29.01.2026 dagi 35-son qarori, 1-ilova — Ijtimoiy reyestrni yuritish tartibi to'g'risidagi Nizom",
+      "article": "33-band",
+      "lex_url": "https://lex.uz/docs/-8027513",
+      "doc_date": "2026-01-29",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "related_card_id": "child_allowance_refused",
+  "appeal_template_id": "appeal_benefit_request",
+  "appeal_addressee": "Tuman (shahar) \"Inson\" ijtimoiy xizmatlar markazi rahbariga",
+  "appeal_label_uz": "Nafaqa so'rash arizasi",
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "Manba lex.uz'da tekshirildi (21.11.2026). Huquqshunos tasdig'i: verified_by / verified_at maydonlarini to'ldiring. TODO_LAWYER — manbada aniq ko'rinmagan summa/miqdor.",
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)"
+}

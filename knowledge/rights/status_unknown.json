@@ -1,0 +1,46 @@
+{
+  "id": "unknown",
+  "type": "status",
+  "title_uz": "Bilmayman",
+  "icon": "❔",
+  "intro_uz": "Maqomingizni bilmasangiz ham, quyidagi huquqlar «har kim»ga tegishli. Maqomni aniqlash uchun ta'riflarni o'qing yoki migratsiya organiga murojaat qiling.",
+  "answer_note_uz": "ℹ️ Maqomingiz (fuqarolik) aniq emas: ba'zi imtiyoz va nafaqalar faqat O'zbekiston fuqarolari yoki doimiy yashovchilar uchun bo'lishi mumkin. Ariza berishdan oldin tekshiring.",
+  "items": [
+    {
+      "id": "u_def",
+      "kind": "info",
+      "title_uz": "Maqomni aniqlash: ta'riflar",
+      "plain_uz": "Chet el fuqarosi — boshqa davlat fuqaroligiga dalili bor shaxs; fuqaroligi bo'lmagan shaxs — hech bir davlat fuqaroligiga dalili yo'q shaxs.",
+      "law_id": "foreign_status_law",
+      "article": "3-modda",
+      "excerpt": "чет эл фуқароси — Ўзбекистон Республикасининг фуқаролигига эга бўлмаган, бошқа давлат фуқаролигига ... мансублигига доир далилга эга бўлган шахс"
+    },
+    {
+      "id": "u_appeal",
+      "kind": "right",
+      "title_uz": "Murojaat qilish (har kim)",
+      "plain_uz": "Ariza, taklif va shikoyat bilan davlat organlariga murojaat qilish huquqi har kimga tegishli.",
+      "law_id": "constitution",
+      "article": "40-modda",
+      "excerpt": "Ҳар ким ... аризалар, таклифлар ва шикоятлар билан мурожаат қилиш ҳуқуқига эга."
+    },
+    {
+      "id": "u_court",
+      "kind": "right",
+      "title_uz": "Sud orqali himoya (har kim)",
+      "plain_uz": "Noqonuniy qaror yoki harakat ustidan sudga shikoyat qilish huquqi har kimga kafolatlangan.",
+      "law_id": "constitution",
+      "article": "55-modda",
+      "excerpt": "Ҳар кимга ўз ҳуқуқ ва эркинликларини суд орқали ҳимоя қилиш ... ҳуқуқи кафолатланади."
+    },
+    {
+      "id": "u_social",
+      "kind": "right",
+      "title_uz": "Ijtimoiy ta'minot (har kim)",
+      "plain_uz": "Qariganda, ishsizlikda, boquvchisini yo'qotganda ijtimoiy ta'minot huquqi — qonunda belgilangan tartibda.",
+      "law_id": "constitution",
+      "article": "46-modda",
+      "excerpt": "Ҳар ким қариганда ... ижтимоий таъминот ҳуқуқига эга."
+    }
+  ]
+}

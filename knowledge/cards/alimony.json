@@ -1,0 +1,95 @@
+{
+  "id": "alimony",
+  "category": "oila",
+  "title_uz": "Aliment: qanday undiriladi, qarzdor to'lamasa nima qilinadi",
+  "title_cyrl": "Алимент: қандай ундирилади, қарздор тўламаса нима қилинади",
+  "title_ru": "Алименты: как взыскать и что делать, если должник не платит",
+  "triggers": [
+    "aliment",
+    "alimentni undirish",
+    "aliment to'lamayapti",
+    "aliment qarzi",
+    "bolaga aliment",
+    "sobiq erim aliment",
+    "алимент",
+    "алименты",
+    "не платит алименты"
+  ],
+  "plain_explanation_uz": "Ota-ona voyaga yetmagan bolasini ta'minlashi shart. Aliment ixtiyoriy to'lanmasa, sud orqali undiriladi. Aliment va aliment qarzini undirish tartibi Oila kodeksida belgilangan; sud qarori Majburiy ijro byurosi orqali ijro etiladi. Qarzdor sud hujjatini uzrsiz bajarmasa, davlat ijrochisi uning chet elga chiqishini vaqtincha cheklashi mumkin.",
+  "common_reasons": [
+    "Aliment bo'yicha sud qarori hali yo'q",
+    "Qarzdorning daromadi yashirilgan",
+    "Ijro hujjati ijroga topshirilmagan"
+  ],
+  "steps": [
+    "Kelishuv bo'lmasa — sudga aliment undirish haqida ariza bering",
+    "Sud qarori yoki ijro hujjatini Majburiy ijro byurosiga topshiring",
+    "To'lanmasa — davlat ijrochisidan qarzdorning chet elga chiqishini vaqtincha cheklashni so'rang (undiruvchi arizasi bilan)"
+  ],
+  "documents": [
+    "Bolaning tug'ilganlik haqida guvohnomasi",
+    "Nikoh yoki ajrim haqidagi hujjat (bo'lsa)",
+    "Sud qarori / ijro hujjati (bo'lsa)"
+  ],
+  "deadlines": [
+    "Aliment miqdori va undirish muddatlari: TODO_LAWYER (Oila kodeksi)"
+  ],
+  "where_to_go": [
+    {
+      "name": "Tuman (shahar) sudi (fuqarolik ishlari)",
+      "url": "https://my.sud.uz"
+    },
+    {
+      "name": "Majburiy ijro byurosi hududiy bo'limi",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_ALIMONY_1",
+      "doc": "O'zbekiston Respublikasining Oila kodeksi",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/docs/104720",
+      "doc_date": "1998-04-30",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_ENFORCEMENT_1",
+      "doc": "«Sud hujjatlari va boshqa organlar hujjatlarini ijro etish to'g'risida»gi Qonun (258-II)",
+      "article": "70-modda",
+      "lex_url": "https://lex.uz/docs/-26477",
+      "doc_date": "2001-08-29",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_ENFORCEMENT_TRAVEL",
+      "doc": "«Sud hujjatlari va boshqa organlar hujjatlarini ijro etish to'g'risida»gi Qonun (258-II)",
+      "article": "42¹-modda",
+      "lex_url": "https://lex.uz/docs/-26477",
+      "doc_date": "2001-08-29",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "appeal_template_id": "appeal_enforcement",
+  "appeal_addressee": "Majburiy ijro byurosi hududiy bo'limi boshlig'iga",
+  "textbook_refs": [
+    "family_law_ch3_s1"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "Manba lex.uz'da tekshirildi (21.11.2026). Huquqshunos tasdig'i: verified_by / verified_at maydonlarini to'ldiring. TODO_LAWYER — manbada aniq ko'rinmagan summa/miqdor.",
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)"
+}

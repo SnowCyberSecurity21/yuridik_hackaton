@@ -1,0 +1,30 @@
+{
+  "id": "demo_pensioner",
+  "order": 2,
+  "_note": "SOXTA DEMO PROFIL. Haqiqiy shaxs emas. MyGov (OneID) va idoralararo integratsiya platformasidan keladigan javobni taqlid qiladi.",
+  "icon": "👴",
+  "persona_uz": "Yolg'iz yashovchi pensioner",
+  "persona_ru": "Одинокий пенсионер",
+  "display_name": "Karim ota (DEMO)",
+  "birth_year": 1956,
+  "region": "toshkent_vil",
+  "family": {
+    "marital_status": "beva",
+    "household_size": 1,
+    "children": [
+      {"age": 44},
+      {"age": 39}
+    ]
+  },
+  "social": {
+    "employment": "pensiyada",
+    "pensioner": true,
+    "lives_alone": true,
+    "low_income_registry": false,
+    "disability_group": null
+  },
+  "driver": {
+    "has_license": false
+  },
+  "obligations": []
+}

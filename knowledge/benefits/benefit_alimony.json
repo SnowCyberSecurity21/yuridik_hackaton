@@ -1,0 +1,70 @@
+{
+  "id": "benefit_alimony",
+  "order": 2,
+  "kind": "right",
+  "icon": "⚖️",
+  "title_uz": "Bolalar uchun aliment undirish huquqi",
+  "title_ru": "Право на взыскание алиментов на детей",
+  "summary_uz": "Bolalar bilan alohida yashayotgan ota yoki ona voyaga yetmagan bolalar uchun ikkinchi ota-onadan aliment undirishni so'rashi mumkin. Aliment miqdori va tartibini huquqshunos tasdiqlaydi.",
+  "amount": "TODO_LAWYER: aliment miqdori (ulush yoki qat'iy summa)",
+  "rule": {
+    "all": [
+      {
+        "fact": "minor_children",
+        "op": ">=",
+        "value": 1,
+        "label_uz": "Voyaga yetmagan (18 yoshgacha) bola bor",
+        "label_ru": "Есть несовершеннолетний ребёнок (до 18 лет)",
+        "appeal_uz": "Voyaga yetmagan (18 yoshgacha) bolam bor"
+      },
+      {
+        "fact": "single_parent",
+        "op": "==",
+        "value": true,
+        "label_uz": "Bolalarni yolg'iz tarbiyalayapsiz (ajrashgan / alohida yashaysiz)",
+        "label_ru": "Вы воспитываете детей одна/один (развод / раздельное проживание)",
+        "appeal_uz": "Bolalarni yolg'iz tarbiyalayapman"
+      },
+      {
+        "todo": "TODO_LAWYER: aliment bo'yicha kelishuv yoki sud qarori mavjudligi",
+        "label_uz": "Aliment bo'yicha kelishuv yoki sud qarori bor-yo'qligi",
+        "label_ru": "Наличие соглашения или решения суда об алиментах"
+      }
+    ]
+  },
+  "documents": [
+    "Bolalarning tug'ilganlik haqidagi guvohnomasi",
+    "Nikohdan ajratish haqidagi hujjat (bo'lsa)",
+    "TODO_LAWYER: sudga da'vo uchun boshqa hujjatlar"
+  ],
+  "where_to_go": [
+    {
+      "name": "Fuqarolik ishlari bo'yicha sud (my.sud.uz)",
+      "url": "https://my.sud.uz"
+    },
+    {
+      "name": "Majburiy ijro byurosi (qaror ijro etilmasa)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_ALIMONY_1",
+      "doc": "O'zbekiston Respublikasining Oila kodeksi",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/docs/104720",
+      "doc_date": "1998-04-30",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "related_card_id": "alimony",
+  "appeal_template_id": "appeal_benefit_request",
+  "appeal_addressee": "TODO_LAWYER: aliment undirish bo'yicha vakolatli sud (yashash joyi bo'yicha)",
+  "appeal_label_uz": "Aliment so'rash arizasi (qoralama)",
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: shartlar va adresatni huquqshunos tasdiqlashi shart."
+}

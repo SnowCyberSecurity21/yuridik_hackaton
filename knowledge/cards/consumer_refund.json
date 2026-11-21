@@ -1,0 +1,77 @@
+{
+  "id": "consumer_refund",
+  "category": "istemolchi",
+  "title_uz": "Sifatsiz tovar: qaytarish va pulni olish",
+  "title_cyrl": "Сифациз товар: қайтариш ва пулни олиш",
+  "title_ru": "Некачественный товар: возврат и деньги",
+  "triggers": [
+    "tovarni qaytarish",
+    "pulimni qaytarmayapti",
+    "sifatsiz tovar",
+    "brak tovar",
+    "kafolat",
+    "do'kon qaytarmayapti",
+    "iste'molchi huquqi",
+    "товар қайтариш",
+    "вернуть товар",
+    "возврат денег",
+    "некачественный товар"
+  ],
+  "plain_explanation_uz": "Nuqsonli tovar sotilgan bo'lsa (va bu oldindan aytilmagan bo'lsa), o'zingiz tanlab talab qilasiz: almashtirish, bepul tuzatish, narxni kamaytirish yoki shartnomani bekor qilib zararni qoplash. Nuqson kafolat muddatida, kafolat bo'lmasa — 6 oy ichida aniqlangan bo'lishi kerak. Sifatli nooziq-ovqat tovarini 10 kun ichida almashtirish (bo'lmasa — pulni qaytarish) mumkin.",
+  "common_reasons": [
+    "Nuqson kafolat muddati (kafolat bo'lmasa — 6 oy) o'tgandan keyin aniqlangan",
+    "Sifatli tovar ishlatilgan, shikastlangan yoki qadog'isiz qaytarilmoqda",
+    "Tovar shu sotuvchidan olinganini tasdiqlovchi asos (chek) yo'q",
+    "Tovar almashtirilmaydigan tovarlar ro'yxatida (Hukumat qoidalari — TODO_LAWYER)"
+  ],
+  "steps": [
+    "Sotuvchiga yozma talabnoma bering: qaysi talabni tanlaganingizni yozing (nusxasini saqlang)",
+    "Chek, kafolat taloni va nuqson suratlarini saqlang",
+    "Rad etilsa — sudga da'vo bering: o'zingiz yashaydigan joy, javobgar joylashgan joy yoki zarar yetkazilgan joydagi sudga",
+    "Iste'molchi huquqi buzilishi bo'yicha da'volarda davlat boji to'lanmaydi"
+  ],
+  "documents": [
+    "Chek yoki to'lov hujjati",
+    "Kafolat taloni",
+    "Yozma talabnoma nusxasi"
+  ],
+  "deadlines": [
+    "Nuqsonli tovar: kafolat yoki yaroqlilik muddati ichida; muddat belgilanmagan bo'lsa — 6 oy; ko'chmas mulk — 2 yil",
+    "Sifatli nooziq-ovqat tovarini almashtirish — xarid kunidan 10 kun ichida",
+    "Talabni ko'rib chiqish va pulni qaytarish muddati: TODO_LAWYER"
+  ],
+  "where_to_go": [
+    {
+      "name": "Iste'molchilar huquqlarini himoya qilish bo'yicha vakolatli organ (TODO_LAWYER: aniq nomi)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_CONSUMER_RIGHTS_1",
+      "doc": "«Iste'molchilarning huquqlarini himoya qilish to'g'risida»gi Qonun (221-I)",
+      "article": "13, 18, 29-moddalar",
+      "lex_url": "https://lex.uz/docs/-4704",
+      "doc_date": "1996-04-26",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "appeal_template_id": "appeal_consumer",
+  "appeal_addressee": "Do'kon (sotuvchi) rahbariga",
+  "textbook_refs": [
+    "civil_law_ch4_s3"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "Manba lex.uz'da tekshirildi (21.11.2026). Huquqshunos tasdig'i: verified_by / verified_at maydonlarini to'ldiring. TODO_LAWYER — manbada aniq ko'rinmagan summa/miqdor.",
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)"
+}

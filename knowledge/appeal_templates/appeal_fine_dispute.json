@@ -1,0 +1,27 @@
+{
+  "id": "appeal_fine_dispute",
+  "doc_type": "SHIKOYAT (E'TIROZ)",
+  "intro": "Menga nisbatan qo'llangan jarima qaroriga rozi emasman.",
+  "request": "jarima qarorini qayta ko'rib chiqishingizni va dalillarni taqdim etishingizni so'rayman.",
+  "body": "{addressee}\n{region} hududida yashovchi fuqaro {applicant_name}dan\nManzil: {address}\nAloqa: {contact}\n\n{doc_type}\n\n{intro}\n\nVaziyat: {situation}\n\nHuquqiy asos: {legal_basis}\n\nYuqoridagilarni inobatga olib, {request}\n\nIlova: {attachments}\n\nSana: {date}                Imzo: ____________\n",
+  "checklist": [
+    "Adresat (qaysi organ/rahbarga) to'g'ri ko'rsatilgan",
+    "Ariza beruvchining F.I.Sh. va manzili",
+    "Vaziyat qisqa va aniq bayon qilingan",
+    "Huquqiy asos ko'rsatilgan",
+    "Aniq talab",
+    "Ilovalar ro'yxati",
+    "Sana va imzo"
+  ],
+  "submit_channels": [
+    {
+      "name": "my.gov.uz",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Virtual qabulxona (pm.gov.uz)",
+      "url": "https://pm.gov.uz"
+    }
+  ],
+  "verified": false
+}

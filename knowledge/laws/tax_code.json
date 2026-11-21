@@ -1,0 +1,16 @@
+{
+  "id": "tax_code",
+  "title_uz": "O'zbekiston Respublikasining Soliq kodeksi",
+  "title_official": "Ўзбекистон Республикасининг Солиқ кодекси",
+  "number": "TODO_LAWYER",
+  "date": "2019-12-30",
+  "url": "https://lex.uz/docs/4674902",
+  "plain_uz": "Soliqlar va yig'imlar, ularni to'lash tartibi (yakka tadbirkorlar uchun ham).",
+  "statuses": [],
+  "situations": [
+    "entrepreneur"
+  ],
+  "retrieved_at": "2026-11-21",
+  "source_type": "lex.uz",
+  "source_verified": true
+}

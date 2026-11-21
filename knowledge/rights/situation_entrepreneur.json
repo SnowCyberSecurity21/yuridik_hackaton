@@ -1,0 +1,35 @@
+{
+  "id": "entrepreneur",
+  "type": "situation",
+  "title_uz": "Tadbirkor",
+  "icon": "💼",
+  "items": [
+    {
+      "id": "en_tax",
+      "kind": "duty",
+      "title_uz": "Soliq to'lash",
+      "plain_uz": "Qonun bilan belgilangan soliq va yig'imlarni to'lash shart.",
+      "law_id": "constitution",
+      "article": "63-modda",
+      "excerpt": "Фуқаролар қонун билан белгиланган солиқлар ва йиғимларни тўлаши шарт."
+    },
+    {
+      "id": "en_code",
+      "kind": "info",
+      "title_uz": "Soliq kodeksi",
+      "plain_uz": "Yakka tadbirkor soliqlari va hisobot tartibi Soliq kodeksida.",
+      "law_id": "tax_code",
+      "article": "",
+      "excerpt": ""
+    },
+    {
+      "id": "en_prop",
+      "kind": "right",
+      "title_uz": "Mulkdor bo'lish",
+      "plain_uz": "Har bir shaxs mulkdor bo'lishga haqli.",
+      "law_id": "constitution",
+      "article": "41-modda",
+      "excerpt": "Ҳар бир шахс мулкдор бўлишга ҳақли."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "online_loan_fraud",
+  "category": "moliya",
+  "title_uz": "Firibgarlar nomimga onlayn kredit olgan",
+  "title_cyrl": "Фирибгарлар номимга онлайн кредит олган",
+  "title_ru": "Мошенники оформили на меня онлайн-кредит",
+  "triggers": [
+    "nomimga kredit",
+    "onlayn kredit firibgar",
+    "men olmagan kredit",
+    "mikroqarz",
+    "kredit olishgan",
+    "firibgarlik kredit",
+    "номимга кредит",
+    "оформили кредит на меня",
+    "мошенники кредит"
+  ],
+  "plain_explanation_uz": "Agar siz olmagan kredit nomingizga rasmiylashtirilgan bo'lsa, bu firibgarlik belgisi. Darhol bank yoki kredit tashkilotiga yozma xabar bering va huquqni muhofaza qiluvchi organga ariza yozing.",
+  "common_reasons": [
+    "SMS kod yoki karta ma'lumotlari begonaga berilgan",
+    "Shaxsiy hujjat nusxasidan foydalanilgan",
+    "Telefon raqami boshqa shaxs qo'lida"
+  ],
+  "steps": [
+    "Kredit bergan tashkilotga yozma ariza bering (kreditni olmaganingiz haqida)",
+    "Ichki ishlar organiga firibgarlik haqida ariza yozing",
+    "Kredit tarixingizni tekshiring",
+    "Hech kimga SMS kodlarni bermang"
+  ],
+  "documents": [
+    "Shaxsni tasdiqlovchi hujjat",
+    "Kredit haqidagi xabar/SMS skrinshoti",
+    "Politsiyaga arizaning nusxasi"
+  ],
+  "deadlines": [
+    "Bankka xabar berish muddati: TODO_LAWYER"
+  ],
+  "where_to_go": [
+    {
+      "name": "Ichki ishlar organi (tuman bo'limi)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Kredit bergan bank / tashkilot",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_CONSUMER_CREDIT",
+      "doc": "TODO_LAWYER: iste'mol kreditlari / firibgarlikka oid hujjat",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/"
+    }
+  ],
+  "appeal_template_id": "appeal_fraud",
+  "appeal_addressee": "Ichki ishlar bo'limi boshlig'iga",
+  "textbook_refs": [
+    "civil_law_ch4_s2"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: huquqiy mazmunni huquqshunos tekshirishi va TODO_LAWYER joylarini to'ldirishi shart."
+}

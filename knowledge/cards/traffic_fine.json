@@ -1,0 +1,75 @@
+{
+  "id": "traffic_fine",
+  "category": "yol_harakati",
+  "title_uz": "Yo'l harakati jarimasi: kamera, inspektor, chegirma va e'tiroz",
+  "title_cyrl": "Ёъл ҳаракати жаримаси: камера, инспектор, чегирма ва эътироз",
+  "title_ru": "Штраф ПДД: камера, инспектор, скидка и обжалование",
+  "triggers": [
+    "jarima",
+    "yo'l jarimasi",
+    "kamera jarima",
+    "radar",
+    "inspektor jarima",
+    "jarima sms",
+    "jarima chegirma",
+    "50 foiz",
+    "jarimani bekor qilish",
+    "invoys",
+    "жарима",
+    "штраф",
+    "штраф гаи",
+    "камера штраф"
+  ],
+  "plain_explanation_uz": "Jarima haqida xabar kelganda summasi, chegirmali summasi va chegirma muddati ko'rsatiladi. Chegirma muddatida to'lasangiz kamroq to'laysiz. Qoidabuzarlikka rozi bo'lmasangiz, qarorga e'tiroz bildirishingiz mumkin.",
+  "common_reasons": [
+    "Kamera qayd etgan qoidabuzarlik (avtomobil egasiga yuboriladi)",
+    "Inspektor tuzgan bayonnoma",
+    "Avtomobilni boshqa shaxs boshqargan bo'lishi mumkin"
+  ],
+  "steps": [
+    "SMS'dagi invoys raqami bo'yicha jarimani rasmiy portalda tekshiring",
+    "Rozi bo'lsangiz — chegirma muddatida to'lang",
+    "Rozi bo'lmasangiz — qaror ustidan yuqori organga yoki sudga e'tiroz bildiring",
+    "Kamera fotosuratini (dalilni) ko'rishni so'rang"
+  ],
+  "documents": [
+    "Jarima qarori yoki invoys raqami",
+    "Haydovchilik guvohnomasi / texpasport",
+    "E'tiroz uchun dalillar (foto, video)"
+  ],
+  "deadlines": [
+    "Chegirmali to'lov muddati: SMS'da ko'rsatilgan sana (TODO_LAWYER: qonuniy muddat)",
+    "E'tiroz bildirish muddati: TODO_LAWYER"
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Yo'l harakati xavfsizligi xizmati hududiy bo'limi",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_ADMIN_CODE_TRAFFIC",
+      "doc": "O'zbekiston Respublikasining Ma'muriy javobgarlik to'g'risidagi kodeksi",
+      "article": "TODO_LAWYER",
+      "lex_url": "https://lex.uz/docs/97664",
+      "doc_date": "1994-09-22",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "appeal_template_id": "appeal_fine_dispute",
+  "appeal_addressee": "Jarima qarorini chiqargan organning yuqori turuvchi rahbariga",
+  "textbook_refs": [
+    "admin_law_ch6_s1"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "PLACEHOLDER: huquqiy mazmunni huquqshunos tekshirishi va TODO_LAWYER joylarini to'ldirishi shart."
+}

@@ -1,0 +1,25 @@
+[Unit]
+Description=Huquqim Telegram bot @Huquqim_official_bot (long polling)
+After=network-online.target huquqim-web.service
+Wants=network-online.target huquqim-web.service
+StartLimitIntervalSec=600
+StartLimitBurst=5
+
+[Service]
+User=huquqim
+Group=huquqim
+WorkingDirectory=/opt/huquqim
+EnvironmentFile=/etc/huquqim/huquqim.env
+Environment=PYTHONUTF8=1 PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/huquqim/.venv/bin/python bot/main.py
+Restart=on-failure
+RestartSec=5
+MemoryMax=512M
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/huquqim
+
+[Install]
+WantedBy=multi-user.target

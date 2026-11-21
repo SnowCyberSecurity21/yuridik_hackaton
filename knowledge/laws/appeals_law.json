@@ -1,0 +1,21 @@
+{
+  "id": "appeals_law",
+  "title_uz": "Jismoniy va yuridik shaxslarning murojaatlari to'g'risida",
+  "title_official": "Жисмоний ва юридик шахсларнинг мурожаатлари тўғрисида",
+  "number": "O'RQ-378",
+  "date": "2014-12-03",
+  "url": "https://lex.uz/docs/2509996",
+  "plain_uz": "Davlat organlariga ariza, taklif va shikoyat berish tartibi: murojaatni qanday yozish, qayerga yuborish va qanday ko'rib chiqilishi.",
+  "statuses": [
+    "uz_citizen",
+    "foreign",
+    "stateless",
+    "unknown"
+  ],
+  "situations": [
+    "civil_servant"
+  ],
+  "retrieved_at": "2026-11-21",
+  "source_type": "lex.uz",
+  "source_verified": true
+}

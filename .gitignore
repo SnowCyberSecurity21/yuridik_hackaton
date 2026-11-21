@@ -1,0 +1,37 @@
+# --- Ichki / maxfiy (hech qachon push qilinmaydi) ---
+CLAUDE.md
+AGENTS.md
+.claude/
+.agents/
+.env
+.env.*
+!.env.example
+secrets/
+deploy/huquqim-secret
+docs/huquqim_deploy_*.md
+scripts/setup-design.ps1
+
+# --- Ish vaqtidagi ma'lumotlar ---
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.mp3
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# --- Frontend ---
+node_modules/
+frontend/dist/
+
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

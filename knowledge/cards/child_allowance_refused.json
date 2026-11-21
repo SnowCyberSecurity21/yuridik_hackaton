@@ -1,0 +1,106 @@
+{
+  "id": "child_allowance_refused",
+  "category": "ijtimoiy_himoya",
+  "title_uz": "Bola nafaqasi berilmadi",
+  "title_cyrl": "Бола нафақаси берилмади",
+  "title_ru": "Отказ в детском пособии",
+  "triggers": [
+    "bola nafaqasi",
+    "bolalar nafaqasi",
+    "nafaqa berilmadi",
+    "nafaqa nega berilmadi",
+    "nafaqa rad etildi",
+    "bolamga nafaqa",
+    "18 yoshgacha nafaqa",
+    "бола нафақаси",
+    "нафақа берилмади",
+    "детское пособие",
+    "пособие на ребенка",
+    "отказали в пособии"
+  ],
+  "plain_explanation_uz": "Bolalar nafaqasi Ijtimoiy reyestrga kiritilgan oilalarga tayinlanadi. Shart: oilaning eng kichik yoki yagona bolasi 18 yoshga to'lmagan bo'lishi kerak. Rad etish uchun asos topilmasa, nafaqa ariza ko'rib chiqilgan oydan keyingi oydan avtomatik tayinlanadi. Rad etilsa — sababini bilish va shikoyat qilish huquqingiz bor.",
+  "common_reasons": [
+    "Oila a'zosiga to'g'ri keladigan oylik o'rtacha daromad minimal iste'mol xarajatlaridan yuqori",
+    "Oilada bittadan ortiq ko'chmas mulk va yer uchastkasi yoki noturar joy bor",
+    "Oila a'zolari nomida yoki foydalanuvida 12 yildan yangi soz yengil avtomobil (nogironligi bo'lgan a'zo bo'lsa — 7 yil) yoki 15 yildan yangi yuk mashinasi, texnika bor",
+    "Bank depozitida yoki qimmatli qog'ozlarda eng kam ish haqining 5 baravari va undan ko'p mablag' bor",
+    "Oila Reyestrga kiritilmagan yoki «kambag'allik chegarasidagi oila» toifasiga kiritilganiga 6 oy to'lgan"
+  ],
+  "steps": [
+    "Rad etish sababini aniqlang (SMS, my.gov.uz yoki «Inson» ijtimoiy xizmatlar markazi)",
+    "Sabab xato ma'lumotga asoslangan bo'lsa (masalan, sizga tegishli bo'lmagan mashina) — dalil to'plang",
+    "Ma'muriy hujjat kuchga kirgan kundan 30 kun ichida tuman (shahar) hokimligi huzuridagi apellyatsiya kengashiga shikoyat qiling",
+    "Kengashga shikoyat ixtiyoriy: yuqori organga yoki to'g'ridan-to'g'ri sudga ham murojaat qilishingiz mumkin"
+  ],
+  "documents": [
+    "Shaxsni tasdiqlovchi hujjat (chet el fuqarosi yoki fuqaroligi bo'lmagan shaxs — O'zbekistonda yashash guvohnomasi)",
+    "Ariza — davlat xizmatlari markazida yoki ijtimoiy xodim siz bilan birga to'ldiradi, yoki my.gov.uz / «Ijtimoiy karta» ilovasida o'zingiz",
+    "Qo'shimcha hujjatlar ro'yxati: TODO_LAWYER"
+  ],
+  "deadlines": [
+    "Bolalar nafaqasi uchun murojaat — oyda bir marta",
+    "Nafaqa — ariza ko'rib chiqilgan oydan keyingi oydan; eng kichik bola 18 yoshga to'lgan oyning oxirigacha to'lanadi",
+    "Apellyatsiya kengashiga shikoyat — ma'muriy hujjat kuchga kirgan kundan 30 kun ichida; 15 kun ichida ko'rib chiqiladi; to'lov olinmaydi"
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Tuman (shahar) «Inson» ijtimoiy xizmatlar markazi yoki davlat xizmatlari markazi",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Tuman (shahar) hokimligi huzuridagi apellyatsiya kengashi",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_CHILD_ALLOWANCE_1",
+      "doc": "Vazirlar Mahkamasining 29.01.2026 dagi 35-son qarori, 3-ilova — Ijtimoiy reyestrga kiritilgan oilalarga bolalar nafaqasi va moddiy yordamni tayinlash va to'lash tartibi to'g'risidagi Nizom",
+      "article": "2, 6, 11, 12, 13-bandlar",
+      "lex_url": "https://lex.uz/docs/-8027513",
+      "doc_date": "2026-01-29",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_SOCIAL_REGISTRY_1",
+      "doc": "Vazirlar Mahkamasining 29.01.2026 dagi 35-son qarori, 1-ilova — Ijtimoiy reyestrni yuritish tartibi to'g'risidagi Nizom",
+      "article": "33-band",
+      "lex_url": "https://lex.uz/docs/-8027513",
+      "doc_date": "2026-01-29",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    },
+    {
+      "ref_id": "REF_APPEAL_COUNCIL_1",
+      "doc": "Vazirlar Mahkamasining 29.01.2026 dagi 35-son qarori, 4-ilova — Tuman (shahar) hokimliklari huzuridagi apellyatsiya kengashlari to'g'risidagi Nizom",
+      "article": "7, 33-bandlar, 2-ilova (sxema)",
+      "lex_url": "https://lex.uz/docs/-8027513",
+      "doc_date": "2026-01-29",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "appeal_template_id": "appeal_social_benefit",
+  "appeal_addressee": "Tuman (shahar) \"Inson\" ijtimoiy xizmatlar markazi rahbariga",
+  "textbook_refs": [
+    "social_law_ch2_s1"
+  ],
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "_note": "Manba lex.uz'da tekshirildi (21.11.2026). Huquqshunos tasdig'i: verified_by / verified_at maydonlarini to'ldiring. TODO_LAWYER — manbada aniq ko'rinmagan summa/miqdor.",
+  "status_notes": {
+    "foreign": "Ariza beruvchi O'zbekistonda yashash guvohnomasiga ega chet el fuqarosi yoki fuqaroligi bo'lmagan shaxs ham bo'lishi mumkin (VM 35, 3-ilova, 2-band)."
+  },
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)"
+}

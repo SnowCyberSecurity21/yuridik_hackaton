@@ -1,0 +1,35 @@
+{
+  "id": "civil_servant",
+  "type": "situation",
+  "title_uz": "Davlat xizmatchisi",
+  "icon": "🏛️",
+  "items": [
+    {
+      "id": "cs_appeal",
+      "kind": "duty",
+      "title_uz": "Murojaatlarni muddatida ko'rib chiqish",
+      "plain_uz": "Ariza, taklif va shikoyatlar qonunda belgilangan tartibda va muddatlarda ko'rib chiqilishi shart.",
+      "law_id": "constitution",
+      "article": "40-modda",
+      "excerpt": "Аризалар, таклифлар ва шикоятлар қонунда белгиланган тартибда ва муддатларда кўриб чиқилиши шарт."
+    },
+    {
+      "id": "cs_law",
+      "kind": "info",
+      "title_uz": "Murojaatlar bilan ishlash",
+      "plain_uz": "Murojaatlarni qabul qilish va ko'rib chiqish tartibi.",
+      "law_id": "appeals_law",
+      "article": "",
+      "excerpt": ""
+    },
+    {
+      "id": "cs_pd",
+      "kind": "duty",
+      "title_uz": "Shaxsiy ma'lumotlarni himoya qilish",
+      "plain_uz": "Fuqarolarning shaxsiy ma'lumotlarini faqat qonun asosida qayta ishlash.",
+      "law_id": "personal_data_law",
+      "article": "",
+      "excerpt": ""
+    }
+  ]
+}

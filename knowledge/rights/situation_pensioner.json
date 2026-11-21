@@ -1,0 +1,26 @@
+{
+  "id": "pensioner",
+  "type": "situation",
+  "title_uz": "Pensioner",
+  "icon": "👴",
+  "items": [
+    {
+      "id": "pe_social",
+      "kind": "right",
+      "title_uz": "Qariganda ijtimoiy ta'minot",
+      "plain_uz": "Qariganda ijtimoiy ta'minot huquqi Konstitutsiyada kafolatlangan.",
+      "law_id": "constitution",
+      "article": "46-modda",
+      "excerpt": "Ҳар ким қариганда ... ижтимоий таъминот ҳуқуқига эга."
+    },
+    {
+      "id": "pe_apply",
+      "kind": "right",
+      "title_uz": "Pensiya so'rab istalgan vaqtda murojaat",
+      "plain_uz": "Pensiya huquqi paydo bo'lgandan keyin istalgan vaqtda pensiya tayinlashni so'rab murojaat qilish mumkin. Yoshga doir pensiyalar murojaatsiz (proaktiv) ham tayinlanishi mumkin.",
+      "law_id": "pension_law",
+      "article": "3-modda",
+      "excerpt": "Фуқаролар пенсия олиш ҳуқуқи пайдо бўлганидан сўнг исталган пайтда пенсия тайинлашни сўраб мурожаат этишлари мумкин."
+    }
+  ]
+}

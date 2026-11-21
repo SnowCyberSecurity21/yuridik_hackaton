@@ -1,0 +1,82 @@
+{
+  "id": "stateless",
+  "type": "status",
+  "title_uz": "Fuqaroligi bo'lmagan shaxs",
+  "icon": "🕊️",
+  "intro_uz": "Hech bir davlat fuqaroligini tasdiqlovchi dalilingiz bo'lmasa, siz fuqaroligi bo'lmagan shaxssiz. O'zbekistonda DOIMIY yashasangiz, ko'p huquqlarda fuqarolar bilan tengsiz.",
+  "answer_note_uz": "ℹ️ Siz fuqaroligi bo'lmagan shaxssiz: bu masalada qoida siz uchun boshqacha bo'lishi mumkin. Doimiy yashasangiz pensiya, sog'liqni saqlash va ta'limda fuqarolar bilan tengsiz (O'RQ-692, 16–18-moddalar). Ariza berishdan oldin tegishli organdan tekshiring.",
+  "items": [
+    {
+      "id": "s_def",
+      "kind": "info",
+      "title_uz": "Kim fuqaroligi bo'lmagan shaxs",
+      "plain_uz": "O'zbekiston fuqarosi bo'lmagan va boshqa davlat fuqaroligiga mansubligiga dalili yo'q shaxs.",
+      "law_id": "foreign_status_law",
+      "article": "3-modda",
+      "excerpt": "фуқаролиги бўлмаган шахс — Ўзбекистон Республикасининг фуқароси бўлмаган ва ўзининг чет давлат фуқаролигига мансублигига доир далилга эга бўлмаган шахс"
+    },
+    {
+      "id": "s_const",
+      "kind": "right",
+      "title_uz": "Huquq va erkinliklaringiz kafolatlangan",
+      "plain_uz": "Huquq va erkinliklaringiz xalqaro huquq normalariga muvofiq ta'minlanadi.",
+      "law_id": "constitution",
+      "article": "24-modda",
+      "excerpt": "... фуқаролиги бўлмаган шахсларнинг ҳуқуқ ва эркинликлари халқаро ҳуқуқ нормаларига мувофиқ таъминланади."
+    },
+    {
+      "id": "s_pension",
+      "kind": "right",
+      "title_uz": "Pensiya (doimiy yashovchilar)",
+      "plain_uz": "Doimiy yashasangiz — fuqarolar bilan teng huquqda pensiya.",
+      "law_id": "foreign_status_law",
+      "article": "16-modda",
+      "excerpt": "... доимий яшайдиган ... фуқаролиги бўлмаган шахслар ... фуқаролари билан тенг равишда пенсия олиш ҳуқуқига эга."
+    },
+    {
+      "id": "s_health",
+      "kind": "right",
+      "title_uz": "Sog'liqni saqlash (doimiy yashovchilar)",
+      "plain_uz": "Doimiy yashasangiz — sog'liqni saqlashda fuqarolar bilan tengsiz.",
+      "law_id": "foreign_status_law",
+      "article": "17-modda",
+      "excerpt": "Ўзбекистон Республикасида доимий яшайдиган фуқаролиги бўлмаган шахслар соғлиқни сақлашга бўлган ҳуқуқдан ... фуқаролари билан тенг равишда фойдаланади."
+    },
+    {
+      "id": "s_edu",
+      "kind": "right",
+      "title_uz": "Ta'lim (doimiy yashovchilar)",
+      "plain_uz": "Doimiy yashasangiz — ta'lim olishda fuqarolar bilan teng huquqqa egasiz.",
+      "law_id": "foreign_status_law",
+      "article": "18-modda",
+      "excerpt": "Ўзбекистон Республикасида доимий яшайдиган фуқаролиги бўлмаган шахслар таълим олишда ... фуқаролари билан тенг ҳуқуқларга эга."
+    },
+    {
+      "id": "s_appeal",
+      "kind": "right",
+      "title_uz": "Davlat organlariga murojaat",
+      "plain_uz": "Ariza, taklif va shikoyat bilan murojaat qilishingiz mumkin.",
+      "law_id": "foreign_status_law",
+      "article": "22-modda",
+      "excerpt": "... фуқаролиги бўлмаган шахслар ... аризалар, таклифлар ва шикоятлар билан мурожаат қилиш ҳуқуқига эга."
+    },
+    {
+      "id": "s_d_law",
+      "kind": "duty",
+      "title_uz": "Qonunlarga rioya qilish",
+      "plain_uz": "Konstitutsiya va qonunlarga rioya qilish.",
+      "law_id": "foreign_status_law",
+      "article": "25-modda",
+      "excerpt": "... Конституциясига, қонунларига ва бошқа норматив-ҳуқуқий ҳужжатларига риоя этиши"
+    },
+    {
+      "id": "s_d_tax",
+      "kind": "duty",
+      "title_uz": "Soliq to'lash",
+      "plain_uz": "Soliq kodeksida belgilangan soliq va yig'imlarni to'laysiz.",
+      "law_id": "foreign_status_law",
+      "article": "27-modda",
+      "excerpt": "... Солиқ кодексида белгиланган солиқларни ... тўлайди."
+    }
+  ]
+}
