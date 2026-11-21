@@ -52,6 +52,22 @@ export function CountUp({ value, format = (n) => new Intl.NumberFormat("ru-RU").
   return <span ref={ref} className={`tabnum ${className}`}>{num == null ? (value ?? "—") : format(reduce ? num : 0)}</span>;
 }
 
+/** .reveal uchun fallback: animation-timeline yo'q brauzerlarda IntersectionObserver .in qo'shadi. */
+export function useRevealFallback() {
+  useEffect(() => {
+    if (typeof window === "undefined" || window.CSS?.supports?.("animation-timeline: view()")) return undefined;
+    if (!("IntersectionObserver" in window)) { document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in")); return undefined; }
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    }), { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    const scan = () => document.querySelectorAll(".reveal:not(.in)").forEach((el) => io.observe(el));
+    scan();
+    const mo = new MutationObserver(scan);
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => { io.disconnect(); mo.disconnect(); };
+  }, []);
+}
+
 /** Sahifa o'tishi: yangi sahifa yengil ko'tarilib paydo bo'ladi. */
 export function PageTransition({ id, children, className = "" }) {
   return (

@@ -24,7 +24,7 @@ export { Alert } from "./Alert.jsx";
 export { Tabs, TabPanel } from "./Tabs.jsx";
 export { Sheet, Modal } from "./Sheet.jsx";
 export { Skeleton, SkeletonCard, SkeletonList, EmptyState, Toaster, toast } from "./Feedback.jsx";
-export { Reveal, RevealGroup, RevealItem, CountUp, PageTransition } from "./Reveal.jsx";
+export { Reveal, RevealGroup, RevealItem, CountUp, PageTransition, useRevealFallback } from "./Reveal.jsx";
 export { Logo } from "./Logo.jsx";
 export { Ico, iconFor } from "./icons.jsx";
 export { spring, springSnappy, springSheet, fadeUp, stagger, useMediaQuery, useScrolled } from "./motion.js";

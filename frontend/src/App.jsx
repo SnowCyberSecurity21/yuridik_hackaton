@@ -5,7 +5,7 @@ import { api } from "./api.js";
 import { APP_NAME } from "./config.js";
 import { AnonView, AuthPage, CabinetPage, Footer, Header, ThemeToggle } from "./Site.jsx";
 import Home from "./Home.jsx";
-import { Badge, Logo, PageTransition, SkeletonList, Toaster, useScrolled } from "./ui/index.js";
+import { Badge, Logo, PageTransition, SkeletonList, Toaster, useRevealFallback, useScrolled } from "./ui/index.js";
 
 // Davlat dashboardi (Recharts) alohida yuklanadi; /dashboard nginx basic auth ortida.
 const Dashboard = lazy(() => import("./Dashboard.jsx"));
@@ -44,6 +44,7 @@ function DashboardShell() {
 export default function App() {
   const [path, setPath] = useState(window.location.pathname);
   const [me, reload, setMe] = useMe();
+  useRevealFallback();
   useEffect(() => {
     const onPop = () => setPath(window.location.pathname);
     window.addEventListener("popstate", onPop);
