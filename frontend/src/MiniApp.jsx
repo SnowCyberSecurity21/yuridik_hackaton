@@ -1,9 +1,12 @@
 // Telegram Mini App: chat Huquqim hisobiga ulangan va tasdiqlangan bo'lsa — kabinet; aks holda — anonim rejim.
-// Telegram mavzusiga moslashadi (colorScheme). Brauzerda ochilsa — saytga yo'naltiradi.
+// Telegram ichida: ready/expand, themeParams → tokenlar, MainButton, BackButton, har bosishda haptik.
+// Oddiy brauzerda ochilsa ham ishlaydi (Telegram tugmalari o'rniga sahifadagi tugmalar).
 import { useEffect, useMemo, useState } from "react";
 import { api } from "./api.js";
-import { APP_NAME } from "./config.js";
 import { AnonView, CabinetView } from "./Site.jsx";
+import {
+  Badge, Button, Card, Logo, SkeletonList, applyTelegramTheme, installTapHaptics, useTelegramMainButton,
+} from "./ui/index.js";
 
 const TG_SDK = "https://telegram.org/js/telegram-web-app.js";
 
@@ -24,15 +27,19 @@ export default function MiniApp() {
   const [wa, setWa] = useState(undefined);
   const [me, setMe] = useState(null);
   useEffect(() => {
+    let cleanup = () => {};
     loadTelegram().then((w) => {
       if (w?.initData) {
         try { w.ready(); w.expand(); } catch { /* eski klient */ }
-        const apply = () => document.documentElement.setAttribute("data-theme", w.colorScheme === "dark" ? "dark" : "light");
+        try { w.disableVerticalSwipes?.(); } catch { /* */ }
+        const apply = () => applyTelegramTheme(w);
         apply();
         try { w.onEvent("themeChanged", apply); } catch { /* */ }
+        cleanup = installTapHaptics();
         setWa(w);
       } else setWa(null);
     });
+    return () => cleanup();
   }, []);
   const headers = useMemo(() => (wa?.initData ? { "X-Telegram-Init-Data": wa.initData } : {}), [wa]);
   useEffect(() => {
@@ -42,23 +49,25 @@ export default function MiniApp() {
 
   const site = `${window.location.origin}/kirish?next=oneid&from=tg`;
   const openSite = () => { if (wa?.openLink) wa.openLink(site); else window.location.href = site; };
+  const needsVerify = !!me && !me.verified;
+  useTelegramMainButton({ text: "OneID bilan tasdiqlash", onClick: openSite, active: needsVerify && !!wa });
 
   return (
-    <div className="mx-auto min-h-screen max-w-md px-4 pb-10 pt-3">
-      <div className="mb-3 flex items-center gap-2">
-        <span className="hero-mark" style={{ width: 28, height: 28, fontSize: 12 }}>H</span>
-        <span className="font-bold">{APP_NAME}</span>
-        {me?.verified && <span className="badge badge-ok ml-auto">✅ {me.first_name}</span>}
-      </div>
-      {!me && <div className="muted py-10 text-center">Yuklanmoqda…</div>}
+    <div className="mx-auto min-h-screen max-w-md px-4 pb-24 pt-3" style={{ paddingTop: "max(12px, env(safe-area-inset-top))" }}>
+      <header className="mb-4 flex items-center gap-2">
+        <Logo size={28} textClassName="text-base" />
+        {me?.verified && <Badge tone="verified" className="ml-auto">✅ {me.first_name}</Badge>}
+        {!wa && wa !== undefined && !me?.verified && <Badge className="ml-auto">Brauzer rejimi</Badge>}
+      </header>
+      {!me && <SkeletonList count={3} />}
       {me?.verified && <CabinetView me={me} headers={headers} inMiniApp />}
-      {me && !me.verified && (
-        <div className="space-y-4">
-          <div className="card p-4">
-            <div className="font-semibold">✅ OneID bilan tasdiqlang</div>
-            <p className="secondary mt-1 text-sm">Shaxsiy imtiyozlar va majburiyatlar uchun saytda hisob oching, OneID (demo) orqali tasdiqlang va «Telegram'ni ulash»ni bosing.</p>
-            <button className="btn btn-primary mt-3 w-full" onClick={openSite}>Saytda tasdiqlash</button>
-          </div>
+      {needsVerify && (
+        <div className="space-y-5">
+          <Card padding="md" style={{ background: "var(--primary-soft)", borderColor: "transparent" }}>
+            <div className="h3">Shaxsiy kabinet uchun OneID bilan tasdiqlang</div>
+            <p className="secondary mt-1 text-sm">Saytda hisob oching, OneID (demo) orqali tasdiqlang va «Telegram'ni ulash» ni bosing. Imtiyozlar va muddatlar shu yerda ochiladi.</p>
+            {!wa && <Button variant="primary" block className="mt-4" onClick={openSite}>Saytda tasdiqlash</Button>}
+          </Card>
           <AnonView headers={headers} compact />
         </div>
       )}
