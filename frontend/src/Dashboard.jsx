@@ -2,16 +2,19 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { api } from "./api.js";
 import { ChartTooltip, ErrorNote, Section, StatusBadge, Wow, fmt } from "./components.jsx";
+import { Badge, Button, Card, CountUp, Skeleton, toast } from "./ui/index.js";
 
 const AXIS = { fontSize: 12, fill: "var(--text-muted)" };
 
-function Kpi({ label, value, sub, hint }) {
+function Kpi({ label, value, suffix = "", sub, hint, loading }) {
   return (
-    <div className="card p-4" title={hint}>
-      <div className="muted text-xs font-medium uppercase tracking-wide">{label}</div>
-      <div className="tabnum mt-1 text-3xl font-bold">{value}</div>
-      {sub && <div className="mt-1 text-sm">{sub}</div>}
-    </div>
+    <Card padding="md" title={hint}>
+      <div className="secondary text-sm font-medium leading-snug">{label}</div>
+      <div className="mt-2 text-[1.9rem] font-bold leading-none tracking-tight">
+        {loading ? <Skeleton className="h-8 w-24" /> : <><CountUp value={value} format={fmt} />{suffix}</>}
+      </div>
+      {sub && <div className="mt-2 text-sm">{sub}</div>}
+    </Card>
   );
 }
 
@@ -25,7 +28,7 @@ function RegionChart({ data, topicTitle, titles }) {
     <Section
       title="Huquqiy tushunmovchilik xaritasi — 14 hudud"
       subtitle={topicTitle ? `Mavzu: ${topicTitle}` : "Barcha mavzular bo'yicha savollar soni"}
-      right={<button className="btn" onClick={() => setTable((v) => !v)}>{table ? "📊 Grafik" : "📋 Jadval"}</button>}
+      right={<Button size="sm" onClick={() => setTable((v) => !v)} icon={table ? "📊" : "📋"}>{table ? "Grafik" : "Jadval"}</Button>}
     >
       {table ? (
         <table className="w-full text-sm">
@@ -80,7 +83,7 @@ function TopicsTable({ topics, selected, onSelect, onGenerate, generating }) {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[720px] text-sm">
           <thead>
-            <tr className="muted text-left text-xs uppercase tracking-wide">
+            <tr className="muted text-left text-xs font-medium">
               <th className="py-2">Mavzu</th><th className="text-right">Jami</th><th className="text-right">Shu hafta</th>
               <th className="text-right">Haftalik</th><th className="text-right" title="'Tushunmadim / rozi emasman' ulushi">Tushunmovchilik</th>
               <th className="pl-4">Holat</th><th />
@@ -97,10 +100,10 @@ function TopicsTable({ topics, selected, onSelect, onGenerate, generating }) {
                 <td className="tabnum text-right">{t.misunderstanding_rate != null ? `${t.misunderstanding_rate}%` : "—"}</td>
                 <td className="pl-4"><StatusBadge verified={t.verified} reverify={t.needs_reverification} sourceChecked={t.source_checked} /></td>
                 <td className="pl-2 text-right">
-                  <button className="btn btn-primary" disabled={generating === t.topic_id}
+                  <Button size="sm" variant="primary" loading={generating === t.topic_id} icon="✨"
                     onClick={(e) => { e.stopPropagation(); onGenerate(t.topic_id); }}>
-                    {generating === t.topic_id ? "⏳" : "✨"} Targ'ibot kontenti
-                  </button>
+                    Targ'ibot kontenti
+                  </Button>
                 </td>
               </tr>
             ))}
@@ -112,7 +115,7 @@ function TopicsTable({ topics, selected, onSelect, onGenerate, generating }) {
 }
 
 function copy(text) {
-  try { navigator.clipboard.writeText(text); } catch { /* ruxsat yo'q */ }
+  try { navigator.clipboard.writeText(text); toast("Post nusxalandi", { tone: "ok" }); } catch { /* ruxsat yo'q */ }
 }
 
 function ContentPanel({ content, onClose }) {
@@ -122,9 +125,9 @@ function ContentPanel({ content, onClose }) {
   return (
     <Section title={`✨ Targ'ibot kontenti: ${content.title}`}
       subtitle={`Manba — faqat vaziyat kartasi · ${content.generated_by === "llm" ? "AI generatsiya" : "shablon (LLM kaliti yo'q)"}`}
-      right={<><StatusBadge verified={content.verified} /><button className="btn" onClick={onClose}>✕</button></>}>
+      right={<><StatusBadge verified={content.verified} /><Button size="sm" variant="ghost" onClick={onClose} aria-label="Yopish">✕</Button></>}>
       <div className="grid gap-4 lg:grid-cols-2">
-        <div className="card p-4" style={{ background: "var(--surface-2)" }}>
+        <div className="card card-inset p-4">
           <h3 className="mb-2 font-semibold">🎬 30 soniyalik video ssenariy</h3>
           <ol className="space-y-2 text-sm">
             {content.video_script.map((s, i) => (
@@ -132,12 +135,12 @@ function ContentPanel({ content, onClose }) {
             ))}
           </ol>
         </div>
-        <div className="card p-4" style={{ background: "var(--surface-2)" }}>
+        <div className="card card-inset p-4">
           <div className="mb-2 flex items-center"><h3 className="font-semibold">📣 Telegram post</h3>
-            <button className="btn ml-auto" onClick={() => copy(content.telegram_post)}>📋 Nusxa</button></div>
+            <Button size="sm" className="ml-auto" icon="📋" onClick={() => copy(content.telegram_post)}>Nusxa</Button></div>
           <pre className="whitespace-pre-wrap text-sm" style={{ fontFamily: "inherit" }}>{content.telegram_post}</pre>
         </div>
-        <div className="card p-4" style={{ background: "var(--surface-2)" }}>
+        <div className="card card-inset p-4">
           <h3 className="mb-2 font-semibold">🖼 Infografika matni</h3>
           <div className="text-lg font-bold">{content.infographic.headline}</div>
           <div className="mt-2 grid gap-2 sm:grid-cols-2">
@@ -147,7 +150,7 @@ function ContentPanel({ content, onClose }) {
           </div>
           <div className="muted mt-2 text-xs">{content.infographic.footer}</div>
         </div>
-        <div className="card p-4" style={{ background: "var(--surface-2)" }}>
+        <div className="card card-inset p-4">
           <h3 className="mb-2 font-semibold">❓ 3 savollik quiz</h3>
           {content.quiz.map((q, qi) => (
             <div key={qi} className="mb-3">
@@ -155,9 +158,10 @@ function ContentPanel({ content, onClose }) {
               <div className="mt-1 flex flex-wrap gap-1.5">
                 {q.options.map((o, oi) => {
                   const picked = answers[qi] === oi;
-                  const cls = picked ? (oi === q.answer ? "badge badge-ok" : "badge badge-crit") : "badge";
+                  const ok = oi === q.answer;
                   return (
-                    <button key={oi} className={cls} style={picked ? {} : { background: "var(--surface-1)", border: "1px solid var(--border)" }}
+                    <button key={oi} className="chip" aria-pressed={picked}
+                      style={picked ? { background: ok ? "var(--ok-bg)" : "var(--danger-bg)", color: ok ? "var(--ok-ink)" : "var(--danger-ink)", borderColor: "transparent", boxShadow: "none" } : undefined}
                       onClick={() => setAnswers((a) => ({ ...a, [qi]: oi }))}>
                       {picked ? (oi === q.answer ? "✅ " : "❌ ") : ""}{o}
                     </button>
@@ -247,13 +251,13 @@ function AmendmentPanel({ onApplied }) {
           <option value="">Navbatdagi o'zgarish</option>
           {pendingList.map((c) => <option key={c.id} value={c.id}>{c.date} · {c.summary_uz.replace("[DEMO] ", "").slice(0, 48)}…</option>)}
         </select>
-        <button className="btn btn-primary" onClick={simulate} disabled={busy || pendingList.length === 0}>⚡ O'zgarishni simulyatsiya qilish</button>
-        <button className="btn" onClick={reset} disabled={busy}>↺ Demo'ni tiklash</button>
+        <Button variant="primary" onClick={simulate} loading={busy} disabled={pendingList.length === 0} icon="⚡">O'zgarishni simulyatsiya qilish</Button>
+        <Button onClick={reset} disabled={busy} icon="↺">Demo'ni tiklash</Button>
       </>}>
       <ul className="mb-3 space-y-1 text-sm">
         {changes.map((c) => (
           <li key={c.id} className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-            <span className={`badge ${c.applied ? "badge-ok" : ""}`} style={c.applied ? {} : { background: "var(--surface-2)" }}>{c.applied ? "qo'llangan" : "kutilmoqda"}</span>
+            <Badge tone={c.applied ? "ok" : "neutral"}>{c.applied ? "qo'llangan" : "kutilmoqda"}</Badge>
             <span className="tabnum muted">{c.date}</span><span>{c.summary_uz}</span>
           </li>
         ))}
@@ -280,7 +284,7 @@ function AmendmentPanel({ onApplied }) {
                       <td className="py-2">
                         {!hit ? <span className="muted">—</span> : hit.affected
                           ? <span className="badge badge-ok" title={hit.reason}>🔔 Xabar yuborildi · {hit.reason}</span>
-                          : <span className="badge" style={{ background: "var(--surface-1)" }}>🔕 Taalluqli emas — xabar yo'q</span>}
+                          : <Badge>🔕 Taalluqli emas — xabar yo'q</Badge>}
                       </td>
                     </tr>
                   );
@@ -290,7 +294,7 @@ function AmendmentPanel({ onApplied }) {
           </div>
           <p className="muted mt-2 text-xs">Profil ma'lumoti saqlanmaydi: faqat "foydalanuvchi ↔ profil" bog'lanishi va rozilik yozuvi SQLite'da.</p>
         </div>
-        <div className="card p-4" style={{ background: "var(--surface-2)" }}>
+        <div className="card card-inset p-4">
           <h3 className="mb-2 font-semibold">🔔 Xabar</h3>
           {!result || result.error ? <p className="muted text-sm">Simulyatsiyadan keyin shu yerda fuqaroga boradigan xabar ko'rinadi.</p> : (
             <>
@@ -358,19 +362,19 @@ export default function Dashboard({ apiBase = "/api/gov" }) {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-2xl font-bold">Fuqarolar nimani tushunmayapti?</h1>
-        <p className="secondary mt-1 text-sm">Anonim analitika: mavzu, hudud, til, kanal. Shaxsiy ma'lumot (PINFL, F.I.Sh., telefon) saqlanmaydi.</p>
+        <h1 className="h1">Fuqarolar nimani tushunmayapti?</h1>
+        <p className="secondary mt-1.5 text-sm">Anonim analitika: mavzu, hudud, til, kanal. Shaxsiy ma'lumot (PINFL, F.I.Sh., telefon) saqlanmaydi.</p>
       </div>
       <ErrorNote error={error} />
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-5">
-        <Kpi label="Savollar (7 kun)" value={fmt(o.week_questions)} sub={<Wow pct={o.wow_change_pct} />} />
-        <Kpi label="Jami savollar" value={fmt(o.total_questions)} sub={<span className="muted">{o.topics_total} ta vaziyat kartasi</span>} />
-        <Kpi label="Konsultatsiya murojaati oldi olindi" value={fmt(o.deflected)}
+        <Kpi loading={!overview} label="Savollar (7 kun)" value={o.week_questions} sub={<Wow pct={o.wow_change_pct} />} />
+        <Kpi loading={!overview} label="Jami savollar" value={o.total_questions} sub={<span className="muted">{o.topics_total} ta vaziyat kartasi</span>} />
+        <Kpi loading={!overview} label="Konsultatsiya murojaati oldi olindi" value={o.deflected}
           hint="Kartadan javob olgan va murojaat yozishga ehtiyoj qolmagan holatlar (PF-51: 'konsultatsiya talab qiluvchi' toifa)"
           sub={<span className="muted">murojaatsiz hal qilindi</span>} />
-        <Kpi label="Tayyor murojaatlar" value={fmt(o.appeals_generated)} sub={<span className="muted">«rozi emasman» → to'g'ri adresatga</span>} />
-        <Kpi label="Foydali deb baholandi" value={o.helpful_rate != null ? `${o.helpful_rate}%` : "—"} sub={<span className="muted">{fmt(o.factchecks)} fakt-tekshiruv</span>} />
+        <Kpi loading={!overview} label="Tayyor murojaatlar" value={o.appeals_generated} sub={<span className="muted">«rozi emasman» → to'g'ri adresatga</span>} />
+        <Kpi loading={!overview} label="Foydali deb baholandi" value={o.helpful_rate} suffix={o.helpful_rate != null ? "%" : ""} sub={<span className="muted">{fmt(o.factchecks)} fakt-tekshiruv</span>} />
       </div>
 
       <div className="grid gap-5 lg:grid-cols-5">

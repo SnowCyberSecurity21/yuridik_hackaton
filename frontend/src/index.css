@@ -271,7 +271,7 @@
   .btn-secondary { background: var(--surface-1); }
   .btn-ghost { background: transparent; border-color: transparent; color: var(--text-secondary); }
   .btn-danger { background: var(--danger); color: var(--text-on-primary); border-color: transparent; }
-  .btn-sm { min-height: 36px; padding: 6px 12px; font-size: var(--text-sm); border-radius: var(--radius-sm); }
+  .btn-sm { white-space: nowrap; min-height: 36px; padding: 6px 12px; font-size: var(--text-sm); border-radius: var(--radius-sm); }
   .btn-lg { min-height: 52px; padding: 14px 22px; font-size: var(--text-base); }
   .btn-block { width: 100%; }
   @media (hover: hover) and (pointer: fine) {

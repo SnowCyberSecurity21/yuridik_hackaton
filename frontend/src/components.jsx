@@ -12,7 +12,7 @@ export function Wow({ pct }) {
   if (pct === null || pct === undefined) return <span className="muted">—</span>;
   const up = pct >= 0;
   return (
-    <span className="tabnum secondary" title="O'tgan haftaga nisbatan">
+    <span className="tabnum secondary whitespace-nowrap" title="O'tgan haftaga nisbatan">
       {up ? "▲" : "▼"} {Math.abs(pct)}%
     </span>
   );
