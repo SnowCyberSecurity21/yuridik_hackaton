@@ -84,13 +84,13 @@ function Err({ error }) {
 function Source({ law, article }) {
   if (!law) return null;
   return (
-    <div className="source mt-3 flex flex-wrap items-baseline gap-x-1.5 gap-y-1">
-      <span aria-hidden>📚</span>
+    <p className="source mt-3">
+      <span aria-hidden>📚 </span>
       <a className="law" style={{ color: "inherit" }} href={law.url} target="_blank" rel="noreferrer">«{law.title}»</a>
-      {law.number ? <span>{law.number}</span> : <Badge tone="warn">raqami: tekshirilishi kerak</Badge>}
-      <span>({law.date_text}){article ? `, ${article}` : ""}</span>
-      <span className="muted">· tekshirildi {dmy(law.retrieved_at)}</span>
-    </div>
+      {law.number ? `, ${law.number}` : <> <Badge tone="warn">raqami: tekshirilishi kerak</Badge></>}
+      {` (${law.date_text})`}{article ? `, ${article}` : ""}
+      <span className="muted"> · tekshirildi {dmy(law.retrieved_at)}</span>
+    </p>
   );
 }
 
@@ -355,40 +355,59 @@ export function AnonView({ headers = {}, compact = false }) {
   const [sits, setSits] = useState(() => (localStorageSafe("anonSituations") || "").split(",").filter(Boolean));
   const [tab, setTab] = useState("rights");
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
   useEffect(() => { localStorageSafe("anonStatus", status); localStorageSafe("anonSituations", sits.join(",")); }, [status, sits]);
   useEffect(() => {
     if (!status) return;
-    api.get(`/api/rights?status=${encodeURIComponent(status)}&situations=${encodeURIComponent(sits.join(","))}`).then((r) => !r?.error && setData(r));
+    setLoading(true);
+    api.get(`/api/rights?status=${encodeURIComponent(status)}&situations=${encodeURIComponent(sits.join(","))}`)
+      .then((r) => { if (!r?.error) setData(r); setLoading(false); });
   }, [status, sits]);
   const toggle = (id) => setSits((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
+  const tabs = [
+    { id: "rights", icon: "⚖️", label: "Umumiy huquqlar" },
+    { id: "laws", icon: "📚", label: "Siz uchun qonunlar", count: data?.laws?.length || undefined },
+    { id: "ask", icon: "❓", label: "Savol · SMS · Feyk" },
+  ];
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       {!compact && (
-        <div>
-          <h1 className="text-2xl font-bold">👤 Anonim rejim</h1>
-          <p className="secondary mt-1 text-sm">Ro'yxatsiz ishlaydi. Shaxsiy ma'lumot so'ralmaydi va saqlanmaydi; tanlovingiz faqat shu qurilmada qoladi.</p>
+        <div className="pt-2 sm:pt-4">
+          <h1 className="h1">Anonim rejim</h1>
+          <p className="secondary mt-2 measure">Ro'yxatsiz ishlaydi. Shaxsiy ma'lumot so'ralmaydi va saqlanmaydi — tanlovingiz faqat shu qurilmada qoladi.</p>
         </div>
       )}
-      <section className="card p-4">
-        <h2 className="font-semibold">Huquqiy maqomingiz <span className="muted text-sm font-normal">(ixtiyoriy)</span></h2>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {(meta?.statuses || []).map((s) => <button key={s.id} className="chip" aria-pressed={status === s.id} onClick={() => setStatus(s.id)}>{s.icon} {s.title}</button>)}
-        </div>
-        <h2 className="mt-4 font-semibold">Holatingiz <span className="muted text-sm font-normal">(ixtiyoriy, bir nechta)</span></h2>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {(meta?.situations || []).map((s) => <button key={s.id} className="chip" aria-pressed={sits.includes(s.id)} onClick={() => toggle(s.id)}>{s.icon} {s.title}</button>)}
-        </div>
-      </section>
-      <div className="tabs" role="tablist">
-        {[["rights", "⚖️ Umumiy huquqlar"], ["laws", "📚 Siz uchun qonunlar"], ["ask", "❓ Savol · SMS · Feyk"]].map(([id, label]) => (
-          <button key={id} role="tab" className="tab" aria-selected={tab === id} onClick={() => setTab(id)}>{label}</button>
+      <Card padding="md">
+        <fieldset>
+          <legend className="font-semibold">Huquqiy maqomingiz <span className="muted text-sm font-normal">(ixtiyoriy)</span></legend>
+          <div className="mt-2.5 flex flex-wrap gap-2">
+            {!meta && [1, 2, 3, 4].map((i) => <span key={i} className="skeleton inline-block h-10 w-32 rounded-full" />)}
+            {(meta?.statuses || []).map((s) => <button key={s.id} className="chip" aria-pressed={status === s.id} onClick={() => setStatus(s.id)}><span aria-hidden>{s.icon}</span> {s.title}</button>)}
+          </div>
+        </fieldset>
+        <fieldset className="mt-5">
+          <legend className="font-semibold">Holatingiz <span className="muted text-sm font-normal">(bir nechtasini tanlash mumkin)</span></legend>
+          <div className="mt-2.5 flex flex-wrap gap-2">
+            {(meta?.situations || []).map((s) => <button key={s.id} className="chip" aria-pressed={sits.includes(s.id)} onClick={() => toggle(s.id)}><span aria-hidden>{s.icon}</span> {s.title}</button>)}
+          </div>
+        </fieldset>
+      </Card>
+      <Tabs ariaLabel="Anonim bo'limlar" value={tab} onChange={setTab} items={tabs} />
+      <TabPanel id={tab} key={tab}>
+        {tab === "ask" && <Card padding="lg"><AskPanel legalStatus={status} headers={headers} suggestions={data?.status?.suggested_questions || []} /></Card>}
+        {tab !== "ask" && !status && (
+          <EmptyState icon="🧭" title="Avval maqomni tanlang">
+            Yuqoridan maqomingizni belgilang (yoki «Bilmayman») — huquqlar va tegishli qonunlar shu yerda chiqadi.
+          </EmptyState>
+        )}
+        {tab !== "ask" && status && (loading && !data ? <SkeletonList count={3} /> : (
+          <div style={{ opacity: loading ? 0.6 : 1, transition: "opacity var(--dur-base) ease" }}>
+            {tab === "rights" && data && <RightsView status={data.status} situations={data.situations} />}
+            {tab === "laws" && data && <LawsList laws={data.laws} />}
+          </div>
         ))}
-      </div>
-      {tab === "ask" && <AskPanel legalStatus={status} headers={headers} suggestions={data?.status?.suggested_questions || []} />}
-      {tab !== "ask" && !status && <div className="card secondary p-4 text-sm">Avval maqomni tanlang (yoki «Bilmayman»).</div>}
-      {tab === "rights" && status && data && <RightsView status={data.status} situations={data.situations} />}
-      {tab === "laws" && status && data && <LawsList laws={data.laws} />}
+      </TabPanel>
     </div>
   );
 }
