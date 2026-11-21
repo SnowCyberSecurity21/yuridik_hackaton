@@ -23,14 +23,23 @@
       "doc": "«Oʻzbekiston Respublikasida chet el fuqarolarining va fuqaroligi boʻlmagan shaxslarning huquqiy holati toʻgʻrisida»gi Qonun (OʻRQ-692, 04.06.2021)",
       "article": "15-modda",
       "lex_url": "https://lex.uz/docs/-5443899",
-      "text": "Oʻzbekiston Respublikasi hududida mehnat faoliyatini amalga oshirayotgan chet el fuqarolari va fuqaroligi boʻlmagan shaxslar Oʻzbekiston Respublikasining mehnat toʻgʻrisidagi qonunchiligiga muvofiq huquqlardan foydalanadi hamda ularning zimmasida majburiyatlar boʻladi. Agar Oʻzbekiston Respublikasining qonunchiligiga muvofiq muayyan lavozimlarga tayinlanish yoki muayyan mehnat faoliyati turi bilan shugʻullanish Oʻzbekiston Respublikasi fuqaroligiga mansublik bilan bogʻliq boʻlsa, chet el fuqarolari va fuqaroligi boʻlmagan shaxslar ushbu lavozimlarga tayinlanishi, saylanishi yoki muayyan mehnat faoliyati turi bilan shugʻullanishi mumkin emas.",
+      "text": "Oʻzbekiston Respublikasi hududida mehnat faoliyatini amalga oshirayotgan chet el fuqarolari va fuqaroligi boʻlmagan shaxslar Oʻzbekiston Respublikasining mehnat toʻgʻrisidagi qonunchiligiga muvofiq huquqlardan foydalanadi hamda ularning zimmasida majburiyatlar boʻladi.\n…\nAgar Oʻzbekiston Respublikasining qonunchiligiga muvofiq muayyan lavozimlarga tayinlanish yoki muayyan mehnat faoliyati turi bilan shugʻullanish Oʻzbekiston Respublikasi fuqaroligiga mansublik bilan bogʻliq boʻlsa, chet el fuqarolari va fuqaroligi boʻlmagan shaxslar ushbu lavozimlarga tayinlanishi, saylanishi yoki muayyan mehnat faoliyati turi bilan shugʻullanishi mumkin emas.",
       "keywords": "chet el fuqarosi ishlash ishlay oladimi ish mehnat ishga kirish",
       "retrieved_at": "2026-11-21",
       "source_type": "lex.uz",
       "source_checked": true,
       "source_checked_at": "2026-11-21",
       "verified": false,
-      "verified_by": null
+      "verified_by": null,
+      "original_text": "Oʻzbekiston Respublikasi hududida mehnat faoliyatini amalga oshirayotgan chet el fuqarolari va fuqaroligi boʻlmagan shaxslar Oʻzbekiston Respublikasining mehnat toʻgʻrisidagi qonunchiligiga muvofiq huquqlardan foydalanadi hamda ularning zimmasida majburiyatlar boʻladi.\n…\nAgar Oʻzbekiston Respublikasining qonunchiligiga muvofiq muayyan lavozimlarga tayinlanish yoki muayyan mehnat faoliyati turi bilan shugʻullanish Oʻzbekiston Respublikasi fuqaroligiga mansublik bilan bogʻliq boʻlsa, chet el fuqarolari va fuqaroligi boʻlmagan shaxslar ushbu lavozimlarga tayinlanishi, saylanishi yoki muayyan mehnat faoliyati turi bilan shugʻullanishi mumkin emas.",
+      "plain_uz": "Chet el fuqarolari va fuqaroligi yo'q shaxslar O'zbekistonda ishlaganda mehnat qonunchiligi bo'yicha huquq va majburiyatlarga ega. Faqat fuqarolik talab qilinadigan lavozim va ishlarga ular tayinlana olmaydi.",
+      "plain_ru": "Иностранцы и лица без гражданства, работающие в Узбекистане, имеют права и обязанности по трудовому законодательству. На должности и работы, требующие гражданства Узбекистана, они назначаться не могут.",
+      "simplified_by": "ai",
+      "categories": [
+        "foreign"
+      ],
+      "law_id": "foreign_status_law",
+      "paragraph": ""
     },
     {
       "id": "ex_foreign_education",
@@ -45,7 +54,16 @@
       "source_checked": true,
       "source_checked_at": "2026-11-21",
       "verified": false,
-      "verified_by": null
+      "verified_by": null,
+      "original_text": "Boshqa davlatlar hududida doimiy yashaydigan chet el fuqarolari va fuqaroligi boʻlmagan shaxslar Oʻzbekiston Respublikasining xalqaro shartnomalariga va qonunchiligiga muvofiq Oʻzbekiston Respublikasida taʼlim olishga haqlidir. Oʻzbekiston Respublikasida doimiy yashaydigan fuqaroligi boʻlmagan shaxslar taʼlim olishda Oʻzbekiston Respublikasi fuqarolari bilan teng huquqlarga ega.",
+      "plain_uz": "Chet davlatda doimiy yashovchi chet el fuqarolari va fuqaroligi yo'q shaxslar O'zbekistonda xalqaro shartnomalar va qonunchilikka muvofiq o'qishi mumkin. O'zbekistonda doimiy yashovchi fuqaroligi yo'q shaxslar ta'limda fuqarolar bilan teng huquqli.",
+      "plain_ru": "Иностранцы и лица без гражданства, постоянно проживающие за рубежом, могут учиться в Узбекистане согласно международным договорам и законодательству. Постоянно проживающие в Узбекистане лица без гражданства имеют в образовании равные права с гражданами.",
+      "simplified_by": "ai",
+      "categories": [
+        "foreign"
+      ],
+      "law_id": "foreign_status_law",
+      "paragraph": ""
     },
     {
       "id": "ex_foreign_appeal",
@@ -60,7 +78,16 @@
       "source_checked": true,
       "source_checked_at": "2026-11-21",
       "verified": false,
-      "verified_by": null
+      "verified_by": null,
+      "original_text": "Chet el fuqarolari va fuqaroligi boʻlmagan shaxslar Oʻzbekiston Respublikasining davlat organlariga, tashkilotlarga hamda ularning mansabdor shaxslariga “Jismoniy va yuridik shaxslarning murojaatlari toʻgʻrisida”gi Oʻzbekiston Respublikasi Qonunida belgilangan tartibda arizalar, takliflar va shikoyatlar bilan murojaat qilish huquqiga ega.",
+      "plain_uz": "Chet el fuqarolari va fuqaroligi yo'q shaxslar davlat organlari va tashkilotlarga murojaatlar qonunidagi tartibda ariza, taklif va shikoyat bilan murojaat qila oladi.",
+      "plain_ru": "Иностранцы и лица без гражданства вправе обращаться в госорганы и организации с заявлениями, предложениями и жалобами в порядке, установленном законом об обращениях.",
+      "simplified_by": "ai",
+      "categories": [
+        "foreign"
+      ],
+      "law_id": "foreign_status_law",
+      "paragraph": ""
     },
     {
       "id": "ex_edu_47_leave_stipend",
