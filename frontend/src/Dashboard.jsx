@@ -100,7 +100,7 @@ function TopicsTable({ topics, selected, onSelect, onGenerate, generating }) {
                 <td className="tabnum text-right">{t.misunderstanding_rate != null ? `${t.misunderstanding_rate}%` : "—"}</td>
                 <td className="pl-4"><StatusBadge verified={t.verified} reverify={t.needs_reverification} sourceChecked={t.source_checked} /></td>
                 <td className="pl-2 text-right">
-                  <Button size="sm" variant="primary" loading={generating === t.topic_id} icon="✨"
+                  <Button size="sm" variant="primary" className="whitespace-nowrap" loading={generating === t.topic_id} icon="✨"
                     onClick={(e) => { e.stopPropagation(); onGenerate(t.topic_id); }}>
                     Targ'ibot kontenti
                   </Button>
