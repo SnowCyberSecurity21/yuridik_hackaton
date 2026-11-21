@@ -1,6 +1,6 @@
 """STT (ovoz -> matn) va TTS (matn -> ovoz). Har biri timeout + fallback bilan.
 
-STT_PROVIDER: none | openai (Whisper-mos API) | faster_whisper (lokal)
+STT_PROVIDER: none | openai (Whisper-mos API) | faster_whisper (lokal) | gemini (GEMINI_API_KEY, audio inline_data)
 TTS_PROVIDER: edge (edge-tts, uz-UZ ovozlari) | none
 """
 from __future__ import annotations
@@ -25,8 +25,18 @@ _fw_model = None
 
 # ------------------------------------------------------------------ STT
 
+GEMINI_STT_TIMEOUT = 15.0
+GEMINI_STT_MAX_BYTES = 15 * 1024 * 1024  # inline_data chegarasi (~20 MB) dan pastroq
+GEMINI_STT_PROMPT = ("Faqat aytilgan so'zlarni o'zbek tilida (yoki aytilgan tilda) yozib ber, hech narsa qo'shma. "
+                     "Izoh, tarjima yoki javob yozma — faqat matn. Nutq bo'lmasa, bo'sh javob qaytar.")
+_MIME = {".ogg": "audio/ogg", ".oga": "audio/ogg", ".opus": "audio/ogg", ".mp3": "audio/mp3", ".wav": "audio/wav",
+         ".m4a": "audio/aac", ".aac": "audio/aac", ".flac": "audio/flac", ".webm": "audio/webm"}
+
+
 def stt_available() -> bool:
     s = get_settings()
+    if s.stt_provider == "gemini":
+        return bool(s.gemini_api_key.strip())
     if s.stt_provider == "openai":
         return bool(s.stt_api_key.strip())
     if s.stt_provider == "faster_whisper":
@@ -43,6 +53,8 @@ async def transcribe(audio: bytes, filename: str = "voice.ogg") -> str | None:
     if not stt_available() or not audio:
         return None
     try:
+        if s.stt_provider == "gemini":
+            return await asyncio.wait_for(_gemini_transcribe(audio, filename), timeout=GEMINI_STT_TIMEOUT)
         if s.stt_provider == "openai":
             async with httpx.AsyncClient(timeout=s.stt_timeout) as c:
                 r = await c.post(f"{s.stt_api_base.rstrip('/')}/audio/transcriptions",
@@ -54,8 +66,48 @@ async def transcribe(audio: bytes, filename: str = "voice.ogg") -> str | None:
         if s.stt_provider == "faster_whisper":
             return await asyncio.wait_for(asyncio.to_thread(_fw_transcribe, audio), timeout=s.stt_timeout * 2)
     except Exception as e:  # noqa: BLE001
-        log.warning("STT xatosi: %s", e)
+        log.warning("STT xatosi: %s", type(e).__name__)
     return None
+
+
+async def _gemini_transcribe(audio: bytes, filename: str) -> str | None:
+    """Gemini generateContent: audio inline_data (base64) + qat'iy "faqat transkripsiya" so'rovi."""
+    import base64
+
+    from . import llm
+
+    s = get_settings()
+    if len(audio) > GEMINI_STT_MAX_BYTES:
+        log.warning("STT: audio juda katta (%s bayt)", len(audio))
+        return None
+    model = llm._gemini.get("model") or s.gemini_model.strip()
+    mime = _MIME.get(Path(filename or "").suffix.lower(), "audio/ogg")
+    body = {
+        "contents": [{"role": "user", "parts": [
+            {"text": GEMINI_STT_PROMPT},
+            {"inline_data": {"mime_type": mime, "data": base64.b64encode(audio).decode("ascii")}},
+        ]}],
+        "generationConfig": {"temperature": 0.0, "maxOutputTokens": 1024},
+    }
+    url = f"{s.gemini_api_base.rstrip('/')}/models/{model}:generateContent"
+    headers = {"x-goog-api-key": s.gemini_api_key.strip(), "Content-Type": "application/json"}
+    async with httpx.AsyncClient(timeout=GEMINI_STT_TIMEOUT) as c:
+        r = await c.post(url, json=body, headers=headers)
+    if r.status_code != 200:
+        log.warning("Gemini STT HTTP %s", r.status_code)
+        return None
+    data = r.json()
+    if (data.get("promptFeedback") or {}).get("blockReason"):
+        log.warning("Gemini STT so'rovni blokladi")
+        return None
+    cands = data.get("candidates") or []
+    if not cands or cands[0].get("finishReason") not in (None, "STOP", "MAX_TOKENS"):
+        log.warning("Gemini STT javobi yo'q (%s)", cands[0].get("finishReason") if cands else "bo'sh")
+        return None
+    parts = (cands[0].get("content") or {}).get("parts") or []
+    text = " ".join(p.get("text", "") for p in parts if not p.get("thought")).strip()
+    text = re.sub(r"\s+", " ", text).strip(" \"'«»")
+    return text or None
 
 
 def _fw_transcribe(audio: bytes) -> str | None:
