@@ -1,3 +1,5 @@
+import { BookOpen, RefreshCw, ShieldCheck } from "lucide-react";
+
 const cx = (...a) => a.filter(Boolean).join(" ");
 
 /** Badge — tone: neutral | ok | warn | danger | info | verified | source | unverified */
@@ -7,12 +9,12 @@ export function Badge({ tone = "neutral", className = "", children, ...rest }) {
 
 /** Rasmiy manba huquqshunos tomonidan tekshirilgan */
 export function VerifiedBadge({ children = "Tekshirilgan manba" }) {
-  return <Badge tone="verified" title="Huquqshunos tasdiqlagan, rasmiy manba bilan solishtirilgan">✅ {children}</Badge>;
+  return <Badge tone="verified" title="Huquqshunos tasdiqlagan, rasmiy manba bilan solishtirilgan"><ShieldCheck size={14} strokeWidth={2.2} style={{ color: "var(--feruza)" }} /> {children}</Badge>;
 }
 
 /** Manba (lex.uz) havolasi va rekvizitlari tekshirilgan, lekin mazmun hali tasdiqlanmagan */
 export function SourceCheckedBadge({ children = "Manba tekshirildi" }) {
-  return <Badge tone="source" title="Hujjat nomi, raqami va lex.uz havolasi tekshirilgan">📚 {children}</Badge>;
+  return <Badge tone="source" title="Hujjat nomi, raqami va lex.uz havolasi tekshirilgan"><BookOpen size={14} strokeWidth={2.2} style={{ color: "var(--feruza)" }} /> {children}</Badge>;
 }
 
 /** Demo mazmun — huquqshunos tekshirmagan */
@@ -22,7 +24,7 @@ export function UnverifiedBadge({ children = "TEKSHIRILMAGAN" }) {
 
 /** Holatga qarab mos badge */
 export function TrustBadge({ verified, sourceChecked, reverify }) {
-  if (reverify) return <Badge tone="danger">🔄 Qayta tekshirish</Badge>;
+  if (reverify) return <Badge tone="danger"><RefreshCw size={13} strokeWidth={2.2} /> Qayta tekshirish</Badge>;
   if (verified) return <VerifiedBadge />;
   if (sourceChecked) return <SourceCheckedBadge />;
   return <UnverifiedBadge />;

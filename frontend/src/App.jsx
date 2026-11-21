@@ -26,7 +26,7 @@ function DashboardShell() {
     <div className="min-h-screen">
       <header className="site-header" data-scrolled={scrolled}>
         <div className="mx-auto flex h-[var(--header-h)] max-w-7xl items-center gap-3 px-4">
-          <span className="brand"><Logo size={30} textClassName="hidden sm:inline" /></span>
+          <span className="brand"><Logo height={32} /></span>
           <span className="secondary hidden text-sm font-medium sm:inline">Davlat dashboardi</span>
           <div className="ml-auto flex items-center gap-2">
             <Badge tone="warn" title="Analitika soxta demo ma'lumot">Demo ma'lumot</Badge>

@@ -3,6 +3,7 @@ import { Suspense, lazy, useCallback, useEffect, useState } from "react";
 import { api, localStorageSafe } from "./api.js";
 import { APP_NAME } from "./config.js";
 import { AnimatePresence, motion } from "motion/react";
+import { LogIn, LogOut, Moon, Sun, UserRound } from "lucide-react";
 import {
   Alert, Badge, Button, Card, EmptyState, Logo, Sheet, SkeletonCard, SkeletonList, TabPanel, Tabs, TrustBadge,
   toast, useScrolled, useTelegramBackButton, useTelegramMainButton,
@@ -26,7 +27,7 @@ const money = (n) => (n == null ? "—" : `${new Intl.NumberFormat("ru-RU").form
 // ---------------------------------------------------------------- umumiy
 
 export function useTheme() {
-  const [theme, setTheme] = useState(() => localStorageSafe("theme") || "");
+  const [theme, setTheme] = useState(() => (localStorageSafe("theme") === "light" ? "light" : ""));
   useEffect(() => {
     if (theme) document.documentElement.setAttribute("data-theme", theme);
     else document.documentElement.removeAttribute("data-theme");
@@ -37,11 +38,12 @@ export function useTheme() {
 
 export function ThemeToggle() {
   const [theme, setTheme] = useTheme();
-  const next = theme === "" ? "light" : theme === "light" ? "dark" : "";
-  const [icon, label] = theme === "" ? ["🖥️", "Tizim"] : theme === "light" ? ["☀️", "Yorug'"] : ["🌙", "Qorong'i"];
+  // Standart — qorong'i. Faqat ikki holat: qorong'i ↔ yorug'.
+  const light = theme === "light";
+  const label = light ? "Yorug' rejim" : "Qorong'i rejim";
   return (
-    <button className="btn btn-ghost px-3" onClick={() => setTheme(next)} aria-label={`Mavzu: ${label}. Almashtirish`} title={`Mavzu: ${label}`}>
-      <span aria-hidden>{icon}</span><span className="hidden sm:inline">{label}</span>
+    <button className="btn btn-icon" onClick={() => setTheme(light ? "" : "light")} aria-label={`${label}. Almashtirish`} title={label}>
+      {light ? <Sun size={20} strokeWidth={2} /> : <Moon size={20} strokeWidth={2} />}
     </button>
   );
 }
@@ -52,12 +54,12 @@ export function Header({ me, wide = false }) {
     <header className="site-header" data-scrolled={scrolled}>
       <div className={`mx-auto flex h-[var(--header-h)] items-center gap-2 px-4 ${wide ? "max-w-6xl" : "max-w-3xl"}`}>
         <span className="brand">
-          <Logo size={32} href="/" onClick={(e) => { e.preventDefault(); go("/"); }} />
+          <Logo height={36} href="/" onClick={(e) => { e.preventDefault(); go("/"); }} />
         </span>
         <nav className="ml-auto flex items-center gap-1" aria-label="Asosiy">
           {me?.logged_in
-            ? <button className="btn btn-ghost px-3" onClick={() => go("/kabinet")}><span aria-hidden>{me.icon || "👤"}</span> Kabinet</button>
-            : <button className="btn btn-ghost px-3" onClick={() => go("/kirish")}>Kirish</button>}
+            ? <Button size="sm" icon={UserRound} onClick={() => go("/kabinet")}>Kabinet</Button>
+            : <Button size="sm" icon={LogIn} onClick={() => go("/kirish")}>Kirish</Button>}
           <ThemeToggle />
         </nav>
       </div>
@@ -69,7 +71,7 @@ export function Footer({ wide = false }) {
   return (
     <footer className="border-t" style={{ borderColor: "var(--border)" }}>
       <div className={`muted mx-auto flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-6 text-xs ${wide ? "max-w-6xl" : "max-w-3xl"}`}>
-        <Logo size={20} textClassName="text-sm" />
+        <Logo height={24} />
         <span>Demo versiya. AI tushuntiradi; rasmiy manba — qonun hujjatining o'zi.</span>
         <a className="underline sm:ml-auto" href="https://lex.uz" target="_blank" rel="noreferrer">Manbalar: lex.uz</a>
       </div>
@@ -797,7 +799,7 @@ export function CabinetPage({ me, onReload }) {
         </div>
       )}
       <div className="flex">
-        <Button variant="ghost" onClick={logout} icon="🚪">Hisobdan chiqish</Button>
+        <Button variant="ghost" onClick={logout} icon={LogOut}>Hisobdan chiqish</Button>
       </div>
     </div>
   );

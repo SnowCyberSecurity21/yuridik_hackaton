@@ -45,7 +45,7 @@ export function Tabs({ items, value, onChange, orientation = "horizontal", ariaL
             className="seg-item" onClick={() => onChange(t.id)}>
             {active && <motion.span layoutId={`${group}-pill`} className="seg-pill" transition={springSnappy} />}
             <span className="seg-label">
-              {t.icon && <span aria-hidden>{t.icon}</span>}
+              {t.icon && <span aria-hidden className="inline-flex">{typeof t.icon === "string" ? t.icon : (() => { const I = t.icon; return <I size={17} strokeWidth={2} />; })()}</span>}
               <span>{t.label}</span>
               {t.count != null && <span className="seg-count">{t.count}</span>}
             </span>

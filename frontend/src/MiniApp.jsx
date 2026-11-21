@@ -2,6 +2,7 @@
 // Telegram ichida: ready/expand, themeParams → tokenlar, MainButton, BackButton, har bosishda haptik.
 // Oddiy brauzerda ochilsa ham ishlaydi (Telegram tugmalari o'rniga sahifadagi tugmalar).
 import { useEffect, useMemo, useState } from "react";
+import { ShieldCheck } from "lucide-react";
 import { api } from "./api.js";
 import { AnonView, CabinetView } from "./Site.jsx";
 import {
@@ -55,18 +56,18 @@ export default function MiniApp() {
   return (
     <div className="mx-auto min-h-screen max-w-md px-4 pb-24 pt-3" style={{ paddingTop: "max(12px, env(safe-area-inset-top))" }}>
       <header className="mb-4 flex items-center gap-2">
-        <Logo size={28} textClassName="text-base" />
-        {me?.verified && <Badge tone="verified" className="ml-auto">✅ {me.first_name}</Badge>}
+        <Logo height={30} />
+        {me?.verified && <Badge tone="verified" className="ml-auto"><ShieldCheck size={14} style={{ color: "var(--feruza)" }} /> {me.first_name}</Badge>}
         {!wa && wa !== undefined && !me?.verified && <Badge className="ml-auto">Brauzer rejimi</Badge>}
       </header>
       {!me && <SkeletonList count={3} />}
       {me?.verified && <CabinetView me={me} headers={headers} inMiniApp />}
       {needsVerify && (
         <div className="space-y-5">
-          <Card padding="md" style={{ background: "var(--primary-soft)", borderColor: "transparent" }}>
+          <Card padding="md">
             <div className="h3">Shaxsiy kabinet uchun OneID bilan tasdiqlang</div>
             <p className="secondary mt-1 text-sm">Saytda hisob oching, OneID (demo) orqali tasdiqlang va «Telegram'ni ulash» ni bosing. Imtiyozlar va muddatlar shu yerda ochiladi.</p>
-            {!wa && <Button variant="primary" block className="mt-4" onClick={openSite}>Saytda tasdiqlash</Button>}
+            {!wa && <Button variant="primary" block arrow className="mt-4" onClick={openSite}>Saytda tasdiqlash</Button>}
           </Card>
           <AnonView headers={headers} compact />
         </div>

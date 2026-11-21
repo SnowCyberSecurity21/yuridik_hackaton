@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { ArrowRight } from "lucide-react";
 
 const cx = (...a) => a.filter(Boolean).join(" ");
 
@@ -8,7 +9,7 @@ const cx = (...a) => a.filter(Boolean).join(" ");
  * `as="a"` bilan havola sifatida ham ishlatiladi.
  */
 export const Button = forwardRef(function Button(
-  { variant = "secondary", size = "md", block = false, loading = false, icon = null, as: Tag = "button", className = "", disabled, children, type, ...rest },
+  { variant = "secondary", size = "md", block = false, loading = false, icon = null, arrow = false, as: Tag = "button", className = "", disabled, children, type, ...rest },
   ref
 ) {
   const isButton = Tag === "button";
@@ -23,8 +24,9 @@ export const Button = forwardRef(function Button(
       data-loading={loading || undefined}
       {...rest}
     >
-      {loading ? <span className="spinner" aria-hidden /> : icon ? <span aria-hidden>{icon}</span> : null}
+      {loading ? <span className="spinner" aria-hidden /> : icon ? <span aria-hidden className="inline-flex">{typeof icon === "function" || icon?.render ? (() => { const I = icon; return <I size={18} strokeWidth={2} />; })() : icon}</span> : null}
       {children != null && <span>{children}</span>}
+      {arrow && !loading && <ArrowRight className="arr" size={18} strokeWidth={2} aria-hidden />}
     </Tag>
   );
 });
