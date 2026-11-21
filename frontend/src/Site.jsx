@@ -2,7 +2,11 @@
 import { Suspense, lazy, useCallback, useEffect, useState } from "react";
 import { api, localStorageSafe } from "./api.js";
 import { APP_NAME } from "./config.js";
-import { Logo, useScrolled } from "./ui/index.js";
+import { AnimatePresence, motion } from "motion/react";
+import {
+  Alert, Badge, Button, Card, EmptyState, Logo, Sheet, SkeletonCard, SkeletonList, TabPanel, Tabs, TrustBadge,
+  toast, useScrolled, useTelegramMainButton,
+} from "./ui/index.js";
 
 const Dashboard = lazy(() => import("./Dashboard.jsx"));
 const Edu = lazy(() => import("./Edu.jsx"));
@@ -141,10 +145,12 @@ export function LawsList({ laws }) {
 // ---------------------------------------------------------------- savol / SMS / feyk
 
 const ASK_MODES = [
-  { id: "question", label: "❓ Savol", ph: "Masalan: Bolamga nafaqa nega berilmadi?" },
-  { id: "sms", label: "🧾 SMS", ph: "Jarima yoki MIB SMS matnini shu yerga joylang" },
-  { id: "factcheck", label: "🕵️ Feyk tekshiruvi", ph: "Shubhali post matnini joylang" },
+  { id: "question", icon: "❓", label: "Savol", ph: "Masalan: Bolamga nafaqa nega berilmadi?", hint: "Vaziyatingizni o'z so'zingiz bilan yozing." },
+  { id: "sms", icon: "🧾", label: "SMS tahlili", ph: "Jarima yoki MIB SMS matnini shu yerga joylang", hint: "Ism va tug'ilgan sana avtomatik olib tashlanadi." },
+  { id: "factcheck", icon: "🕵️", label: "Feyk tekshiruvi", ph: "Shubhali post matnini joylang", hint: "Manba topilmasa — «Tasdiqlanmagan», taxmin qilinmaydi." },
 ];
+
+const VERDICT_TONE = { togri: "ok", notogri: "danger", qisman: "warn" };
 
 export function AskPanel({ legalStatus, headers = {}, suggestions = [] }) {
   const [mode, setMode] = useState("question");
@@ -152,6 +158,7 @@ export function AskPanel({ legalStatus, headers = {}, suggestions = [] }) {
   const [res, setRes] = useState(null);
   const [busy, setBusy] = useState(false);
   const [appeal, setAppeal] = useState(null);
+  const [appealBusy, setAppealBusy] = useState(false);
   const m = ASK_MODES.find((x) => x.id === mode);
   const send = async (q, forceMode) => {
     const body = (typeof q === "string" ? q : text).trim();
@@ -162,37 +169,66 @@ export function AskPanel({ legalStatus, headers = {}, suggestions = [] }) {
   };
   const ask = (q) => { setMode("question"); setText(q); send(q, "question"); };
   const disagree = async () => {
+    setAppealBusy(true);
     const r = await api.post("/api/appeal", { card_id: res.card_id, event_id: res.event_id || null, lang: "uz" });
+    setAppealBusy(false);
     setAppeal(r?.error ? { title: "Ariza", error: r.error } : { title: res.title, ...r });
   };
   return (
-    <div className="space-y-3">
-      <div className="tabs" role="tablist">
-        {ASK_MODES.map((x) => <button key={x.id} role="tab" aria-selected={mode === x.id} className="tab" onClick={() => { setMode(x.id); setRes(null); }}>{x.label}</button>)}
-      </div>
+    <div className="space-y-4">
+      <Tabs ariaLabel="So'rov turi" value={mode} onChange={(id) => { setMode(id); setRes(null); }}
+        items={ASK_MODES.map(({ id, icon, label }) => ({ id, icon, label }))} />
       {mode === "question" && suggestions.length > 0 && (
         <div>
-          <div className="muted mb-1 text-xs font-semibold">Tayyor savollar (manba: O'RQ-692)</div>
+          <div className="muted mb-2 text-xs font-semibold">Tayyor savollar</div>
           <div className="flex flex-wrap gap-2">
-            {suggestions.map((s) => <button key={s.q} className="chip text-left" disabled={busy} onClick={() => ask(s.q)}><span>💬 {s.q} {s.article ? <span className="muted text-xs">({s.article})</span> : null}</span></button>)}
+            {suggestions.map((s) => (
+              <button key={s.q} className="chip" disabled={busy} onClick={() => ask(s.q)}>
+                <span>{s.q} {s.article ? <span className="muted text-xs">({s.article})</span> : null}</span>
+              </button>
+            ))}
           </div>
         </div>
       )}
-      <label className="sr-only" htmlFor="ask">{m.label}</label>
-      <textarea id="ask" rows={mode === "question" ? 3 : 5} className="w-full" placeholder={m.ph} value={text} onChange={(e) => setText(e.target.value)} maxLength={4000} />
-      <button className="btn btn-primary w-full" disabled={busy || !text.trim()} onClick={() => send()}>{busy ? "Tekshirilmoqda…" : "Yuborish"}</button>
-      <Err error={res?.error} />
-      {res && !res.error && (
-        <div className="card p-4">
-          {res.verdict && <div className="mb-2"><span className={`badge ${res.verdict === "togri" ? "badge-ok" : res.verdict === "notogri" ? "badge-crit" : "badge-warn"}`}>{res.verdict_label || res.verdict}</span></div>}
-          <div className="whitespace-pre-wrap text-[15px] leading-relaxed">{res.text}</div>
-          {res.card_id && (
-            <div className="mt-3 flex flex-wrap gap-2">
-              <button className="btn" onClick={disagree}>❌ Baribir rozi emasman → ariza</button>
-            </div>
-          )}
+      <div>
+        <label className="sr-only" htmlFor="ask">{m.label}</label>
+        <textarea id="ask" rows={mode === "question" ? 3 : 5} className="w-full" placeholder={m.ph} value={text}
+          onChange={(e) => setText(e.target.value)} maxLength={4000}
+          onKeyDown={(e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) send(); }} />
+        <div className="mt-1 flex items-center gap-2">
+          <span className="muted text-xs">{m.hint}</span>
+          <span className="muted tabnum ml-auto text-xs">{text.length > 3000 ? `${text.length}/4000` : ""}</span>
         </div>
-      )}
+      </div>
+      <Button variant="primary" size="lg" block loading={busy} disabled={!text.trim()} onClick={() => send()}>
+        {busy ? "Tekshirilmoqda…" : mode === "factcheck" ? "Tekshirish" : mode === "sms" ? "Tahlil qilish" : "Javob olish"}
+      </Button>
+      <AnimatePresence mode="wait" initial={false}>
+        {busy && (
+          <motion.div key="wait" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <SkeletonCard lines={4} />
+          </motion.div>
+        )}
+        {!busy && res?.error && (
+          <motion.div key="err" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+            <Alert tone="danger">{res.error}</Alert>
+          </motion.div>
+        )}
+        {!busy && res && !res.error && (
+          <motion.div key="res" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}>
+            <Card padding="md" style={{ boxShadow: "inset 3px 0 0 var(--feruza), var(--shadow-1)" }}>
+              {res.verdict && <div className="mb-3"><Badge tone={VERDICT_TONE[res.verdict] || "warn"} className="text-sm">{res.verdict_label || res.verdict}</Badge></div>}
+              <div className="measure whitespace-pre-wrap text-[1.0625rem] leading-relaxed">{res.text}</div>
+              {res.card_id && (
+                <div className="mt-4 flex flex-wrap gap-2 border-t pt-4" style={{ borderColor: "var(--border)" }}>
+                  <Button loading={appealBusy} onClick={disagree} icon="❌">Baribir rozi emasman — ariza tuzish</Button>
+                </div>
+              )}
+            </Card>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <AppealSheet appeal={appeal} onClose={() => setAppeal(null)} />
     </div>
   );
@@ -202,31 +238,28 @@ export function AskPanel({ legalStatus, headers = {}, suggestions = [] }) {
 
 export function AppealSheet({ appeal, onClose }) {
   const [copied, setCopied] = useState(false);
-  if (!appeal) return null;
+  useEffect(() => { setCopied(false); }, [appeal]);
+  const doCopy = () => { copy(appeal.text); setCopied(true); toast("Ariza matni nusxalandi", { tone: "ok" }); };
+  useTelegramMainButton({ text: "📋 Nusxa olish", onClick: doCopy, active: !!appeal && !appeal.error });
   return (
-    <div className="fixed inset-0 z-30 flex items-end justify-center" style={{ background: "rgba(5,12,25,.55)" }} onClick={onClose} role="dialog" aria-modal="true">
-      <div className="card max-h-[88vh] w-full max-w-lg overflow-y-auto rounded-b-none p-4" onClick={(e) => e.stopPropagation()}>
-        <div className="mb-2 flex items-start gap-2">
-          <div className="min-w-0">
-            <h3 className="font-semibold">📝 {appeal.title}</h3>
-            <p className="muted text-xs">{appeal.hint}</p>
+    <Sheet open={!!appeal} onClose={onClose} title={appeal ? `📝 ${appeal.title}` : ""} description={appeal?.hint}
+      footer={appeal && !appeal.error ? (
+        <>
+          <Button variant="primary" onClick={doCopy} icon={copied ? "✅" : "📋"}>{copied ? "Nusxa olindi" : "Nusxa olish"}</Button>
+          {(appeal.submit_channels || []).map((c) => <Button key={c.url + c.name} as="a" href={c.url} target="_blank" rel="noreferrer" icon="↗">{c.name}</Button>)}
+        </>
+      ) : null}>
+      {appeal?.error ? <Alert tone="danger">{appeal.error}</Alert> : appeal && (
+        <>
+          {appeal.to_check?.length > 0 && (
+            <Alert tone="warn" title="Tekshirilishi kerak" className="mb-3">{appeal.to_check.join("; ")}</Alert>
+          )}
+          <div className="card card-inset p-4 sm:p-5">
+            <pre className="law whitespace-pre-wrap text-[0.95rem]" style={{ color: "var(--text-primary)", margin: 0 }}>{appeal.text}</pre>
           </div>
-          <button className="btn ml-auto px-3" onClick={onClose} aria-label="Yopish">✕</button>
-        </div>
-        {appeal.error ? <Err error={appeal.error} /> : (
-          <>
-            {appeal.to_check?.length > 0 && (
-              <div className="mb-2 text-sm"><span className="badge badge-warn">❔ Tekshirilishi kerak</span> <span className="secondary">{appeal.to_check.join("; ")}</span></div>
-            )}
-            <pre className="card whitespace-pre-wrap p-3 text-sm" style={{ fontFamily: "inherit", background: "var(--surface-2)", boxShadow: "none" }}>{appeal.text}</pre>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <button className="btn btn-primary" onClick={() => { copy(appeal.text); setCopied(true); }}>{copied ? "✅ Nusxa olindi" : "📋 Nusxa olish"}</button>
-              {(appeal.submit_channels || []).map((c) => <a key={c.url + c.name} className="btn" href={c.url} target="_blank" rel="noreferrer">↗ {c.name}</a>)}
-            </div>
-          </>
-        )}
-      </div>
-    </div>
+        </>
+      )}
+    </Sheet>
   );
 }
 
@@ -277,44 +310,6 @@ function Obligation({ o, onRemind, note }) {
         {o.reminder_date && <button className="btn px-3 text-sm" onClick={() => onRemind(o)}>⏰ {dmy(o.reminder_date)} kuni eslatish</button>}
       </div>
       {note && <div className="muted mt-1 text-xs">{note}</div>}
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------- bosh sahifa
-
-export function Home({ me }) {
-  return (
-    <div className="space-y-6">
-      <section className="pt-4">
-        <span className="badge badge-acc">LexHackathon 2026 · Huquqiy targ'ibot va ta'lim</span>
-        <h1 className="mt-3 text-3xl font-extrabold leading-tight">Huquqingizni murojaatdan oldin, oddiy tilda biling.</h1>
-        <p className="secondary mt-2">{APP_NAME} vaziyatingizni sodda tushuntiradi, har bir javobga rasmiy manba (lex.uz) havolasini qo'yadi va kerak bo'lsa tayyor ariza beradi. Telegram bot, sayt va Mini App — bitta platforma.</p>
-      </section>
-      <section className="grid gap-3 sm:grid-cols-2">
-        <button className="card p-5 text-left" onClick={() => go(me?.logged_in ? "/kabinet" : "/kirish?next=oneid")}>
-          <div className="text-3xl" aria-hidden>✅</div>
-          <div className="mt-2 text-lg font-bold">OneID bilan tasdiqlash</div>
-          <p className="secondary mt-1 text-sm">Shaxsiy imtiyozlar, jarima va qarz muddatlari, sizga ta'sir qiluvchi qonun o'zgarishlari, bir bosishda ariza.</p>
-          <span className="btn btn-primary mt-3 w-full">Davom etish</span>
-        </button>
-        <button className="card p-5 text-left" onClick={() => go("/anonim")}>
-          <div className="text-3xl" aria-hidden>👤</div>
-          <div className="mt-2 text-lg font-bold">Anonim foydalanish</div>
-          <p className="secondary mt-1 text-sm">Ro'yxatsiz: savol, SMS va feyk tekshiruvi, maqomingizga oid umumiy huquqlar. Shaxsiy ma'lumot so'ralmaydi.</p>
-          <span className="btn mt-3 w-full">Boshlash</span>
-        </button>
-      </section>
-      <section className="card p-5">
-        <h2 className="font-bold">Nega {APP_NAME}?</h2>
-        <ul className="secondary mt-2 space-y-1 text-sm">
-          <li>• Murojaatlarning katta qismi «huquqiy ma'lumot berish» bilan yakunlanadi — biz uni murojaatdan oldin beramiz.</li>
-          <li>• Har bir yozuvda hujjat nomi, raqami, sanasi va lex.uz havolasi; manbasiz ma'lumot ko'rsatilmaydi.</li>
-          <li>• O'zbekiston fuqarosi, chet el fuqarosi va fuqaroligi bo'lmagan shaxslar uchun alohida huquqlar bo'limi.</li>
-          <li>• Telegram: <a className="underline" href="https://t.me/Huquqim_official_bot" target="_blank" rel="noreferrer">@Huquqim_official_bot</a> — matn va ovoz.</li>
-        </ul>
-      </section>
-      <p className="muted text-xs">⚠️ Demo versiya: huquqiy mazmun huquqshunos tomonidan to'liq tekshirilmagan. OneID — simulyatsiya (DEMO ID), barcha shaxslar o'ylab topilgan. AI tushuntiradi; rasmiy manba — qonun hujjatining o'zi.</p>
     </div>
   );
 }

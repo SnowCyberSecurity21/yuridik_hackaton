@@ -3,7 +3,8 @@ import { AnimatePresence, MotionConfig } from "motion/react";
 import MiniApp from "./MiniApp.jsx";
 import { api } from "./api.js";
 import { APP_NAME } from "./config.js";
-import { AnonView, AuthPage, CabinetPage, Footer, Header, Home, ThemeToggle } from "./Site.jsx";
+import { AnonView, AuthPage, CabinetPage, Footer, Header, ThemeToggle } from "./Site.jsx";
+import Home from "./Home.jsx";
 import { Badge, Logo, PageTransition, SkeletonList, Toaster, useScrolled } from "./ui/index.js";
 
 // Davlat dashboardi (Recharts) alohida yuklanadi; /dashboard nginx basic auth ortida.
