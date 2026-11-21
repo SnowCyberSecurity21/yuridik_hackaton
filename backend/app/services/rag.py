@@ -24,7 +24,7 @@ def build() -> None:
         _vec = _mat = None
         return
     _vec = TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 5), sublinear_tf=True)
-    _mat = _vec.fit_transform([normalize(e["doc"] + " " + e["text"] + " " + e.get("keywords", "")) for e in _items])
+    _mat = _vec.fit_transform([normalize(" ".join((e["doc"], e["text"], e.get("plain_uz", ""), e.get("keywords", "")))) for e in _items])
 
 
 def search(text: str, top_k: int = 2) -> list[tuple[dict, float]]:

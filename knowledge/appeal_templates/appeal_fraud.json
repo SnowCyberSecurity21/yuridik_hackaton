@@ -23,5 +23,14 @@
       "url": "https://pm.gov.uz"
     }
   ],
-  "verified": false
+  "verified": false,
+  "title_uz": "Firibgarlik haqida ariza",
+  "applicant_type": "individual",
+  "legal_regime_uz": "Jinoyat-protsessual qonunchiligi (murojaatlar qonuni tatbiq etilmaydi — 2-modda). Rekvizitlarni huquqshunos tekshiradi",
+  "requirements": [],
+  "excerpt_ids": [
+    "ex_appeals_2_scope"
+  ],
+  "review_term_uz": null,
+  "law_checked_at": "2026-11-21"
 }

@@ -24,7 +24,7 @@
       "article": "15-modda",
       "lex_url": "https://lex.uz/docs/-5443899",
       "text": "Oʻzbekiston Respublikasi hududida mehnat faoliyatini amalga oshirayotgan chet el fuqarolari va fuqaroligi boʻlmagan shaxslar Oʻzbekiston Respublikasining mehnat toʻgʻrisidagi qonunchiligiga muvofiq huquqlardan foydalanadi hamda ularning zimmasida majburiyatlar boʻladi.\n…\nAgar Oʻzbekiston Respublikasining qonunchiligiga muvofiq muayyan lavozimlarga tayinlanish yoki muayyan mehnat faoliyati turi bilan shugʻullanish Oʻzbekiston Respublikasi fuqaroligiga mansublik bilan bogʻliq boʻlsa, chet el fuqarolari va fuqaroligi boʻlmagan shaxslar ushbu lavozimlarga tayinlanishi, saylanishi yoki muayyan mehnat faoliyati turi bilan shugʻullanishi mumkin emas.",
-      "keywords": "chet el fuqarosi ishlash ishlay oladimi ish mehnat ishga kirish",
+      "keywords": "chet el fuqarosi ishlash ishlay oladimi ish mehnat ishga kirish ishlashi mumkinmi ishlasa bo'ladimi ishlay oladimi mehnat faoliyati ishga olish",
       "retrieved_at": "2026-11-21",
       "source_type": "lex.uz",
       "source_checked": true,
@@ -1221,7 +1221,7 @@
       "categories": [
         "pensioner"
       ],
-      "keywords": "pensiya yoshi 60 55 staj 25 20",
+      "keywords": "pensiya yoshi necha yoshda pensiyaga chiqiladi 60 55 staj 25 20",
       "ref_id": "REF_PENSION_1"
     },
     {
@@ -1295,6 +1295,54 @@
       ],
       "keywords": "jarima ustidan shikoyat muddati o'n kun",
       "ref_id": "REF_ADMIN_CODE_TRAFFIC"
+    },
+    {
+      "id": "ex_tax_233_form",
+      "law_id": "tax_code",
+      "doc": "O'zbekiston Respublikasining Soliq kodeksi",
+      "article": "233-modda",
+      "paragraph": "",
+      "original_text": "Shikoyat va unga ilova qilinadigan hujjatlar soliq organiga yozma yoki elektron shaklda yuborilishi mumkin.\nShikoyat uni bergan shaxs yoki uning vakili tomonidan imzolanadi.\nShikoyatda quyidagilar koʻrsatiladi:\n1) jismoniy shaxsning familiyasi, ismi, otasining ismi hamda yashash joyi yoki shikoyat berayotgan yuridik shaxsning nomi va manzili;\n2) soliq organining normativ xususiyatga ega boʻlmagan hujjati, mansabdor shaxsning harakatlari (harakatsizligi) ustidan berilayotgan shikoyat;\n3) soliq organining nomi, normativ xususiyatga ega boʻlmagan hujjat, ustidan shikoyat berilayotgan mansabdor shaxslarning harakatlari (harakatsizligi);\n4) shikoyat berayotgan shaxs oʻzining huquqlari qaysi asoslarga koʻra buzilgan deb hisoblasa, oʻsha asoslar;\n5) shikoyat berayotgan shaxsning talablari.\n…\nShikoyatga shikoyat berayotgan shaxsning dalillarini tasdiqlovchi hujjatlar ilova qilinishi mumkin.",
+      "text": "Shikoyat va unga ilova qilinadigan hujjatlar soliq organiga yozma yoki elektron shaklda yuborilishi mumkin.\nShikoyat uni bergan shaxs yoki uning vakili tomonidan imzolanadi.\nShikoyatda quyidagilar koʻrsatiladi:\n1) jismoniy shaxsning familiyasi, ismi, otasining ismi hamda yashash joyi yoki shikoyat berayotgan yuridik shaxsning nomi va manzili;\n2) soliq organining normativ xususiyatga ega boʻlmagan hujjati, mansabdor shaxsning harakatlari (harakatsizligi) ustidan berilayotgan shikoyat;\n3) soliq organining nomi, normativ xususiyatga ega boʻlmagan hujjat, ustidan shikoyat berilayotgan mansabdor shaxslarning harakatlari (harakatsizligi);\n4) shikoyat berayotgan shaxs oʻzining huquqlari qaysi asoslarga koʻra buzilgan deb hisoblasa, oʻsha asoslar;\n5) shikoyat berayotgan shaxsning talablari.\n…\nShikoyatga shikoyat berayotgan shaxsning dalillarini tasdiqlovchi hujjatlar ilova qilinishi mumkin.",
+      "plain_uz": "Soliq organiga shikoyat yozma yoki elektron shaklda beriladi va imzolanadi. Unda: shikoyatchining F.I.Sh. va yashash joyi (yuridik shaxsda — nomi va manzili), qaysi soliq organi va qaysi hujjat yoki harakat ustidan shikoyat, huquq buzilgan deb hisoblash asoslari va talablaringiz ko'rsatiladi. Dalil hujjatlarini ilova qilish mumkin.",
+      "plain_ru": "Жалоба в налоговый орган подаётся письменно или электронно и подписывается. В ней указываются: Ф.И.О. и место жительства (у юрлица — наименование и адрес), налоговый орган и обжалуемый документ или действие, основания нарушения прав и ваши требования. Можно приложить доказательства.",
+      "lex_url": "https://lex.uz/docs/-4674902#-4681610",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_checked": true,
+      "source_checked_at": "2026-11-21",
+      "simplified_by": "ai",
+      "verified": false,
+      "verified_by": null,
+      "categories": [
+        "entrepreneur",
+        "appeal"
+      ],
+      "keywords": "soliq shikoyati shakli mazmuni rekvizitlar imzo yuridik shaxs nomi manzili"
+    },
+    {
+      "id": "ex_appeals_2_scope",
+      "law_id": "appeals_law",
+      "doc": "«Jismoniy va yuridik shaxslarning murojaatlari to'g'risida»gi Qonun (O'RQ-378, 03.12.2014)",
+      "article": "2-modda",
+      "paragraph": "uchinchi qism",
+      "original_text": "Ushbu Qonunning amal qilishi:\nkoʻrib chiqish tartibi maʼmuriy javobgarlik toʻgʻrisidagi, fuqarolik protsessual, jinoyat-protsessual, jinoyat-ijroiya, xoʻjalik protsessual qonun hujjatlari va boshqa qonunlar bilan belgilangan murojaatlarga;\ndavlat organlarining, shuningdek ular tarkibiy boʻlinmalarining oʻzaro yozishmalariga nisbatan tatbiq etilmaydi.",
+      "text": "Ushbu Qonunning amal qilishi:\nkoʻrib chiqish tartibi maʼmuriy javobgarlik toʻgʻrisidagi, fuqarolik protsessual, jinoyat-protsessual, jinoyat-ijroiya, xoʻjalik protsessual qonun hujjatlari va boshqa qonunlar bilan belgilangan murojaatlarga;\ndavlat organlarining, shuningdek ular tarkibiy boʻlinmalarining oʻzaro yozishmalariga nisbatan tatbiq etilmaydi.",
+      "plain_uz": "Ko'rib chiqish tartibi ma'muriy javobgarlik, protsessual va boshqa maxsus qonunlarda belgilangan murojaatlarga (masalan, jarima yoki soliq qarori ustidan shikoyat) bu Qonun emas, o'sha qonunlar qo'llaniladi.",
+      "plain_ru": "К обращениям, порядок рассмотрения которых установлен законодательством об административной ответственности, процессуальными и иными специальными законами (например, жалоба на штраф или налоговое решение), применяются эти законы, а не данный Закон.",
+      "lex_url": "https://lex.uz/docs/-2509996#-2510010",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_checked": true,
+      "source_checked_at": "2026-11-21",
+      "simplified_by": "ai",
+      "verified": false,
+      "verified_by": null,
+      "categories": [
+        "appeal"
+      ],
+      "keywords": "murojaatlar qonuni tatbiq etilmaydi ma'muriy protsessual",
+      "ref_id": "REF_APPEALS_LAW_1"
     },
     {
       "id": "ex_appeals_5_types",
@@ -1413,7 +1461,7 @@
       "categories": [
         "appeal"
       ],
-      "keywords": "murojaat ko'rib chiqish muddati o'n besh kun bir oy",
+      "keywords": "murojaat necha kunda ko'rib chiqiladi javob muddati ariza qachon ko'riladi o'n besh kun bir oy",
       "ref_id": "REF_APPEALS_LAW_1"
     }
   ]

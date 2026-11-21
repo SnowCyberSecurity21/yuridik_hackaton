@@ -22,14 +22,20 @@ def _legal_basis_text(card: dict) -> str:
     for b in card.get("legal_basis", []):
         doc = render.show_todo(b.get("doc", ""), "uz")
         art = b.get("article", "")
-        art_txt = "[moddani lex.uz'dan aniqlang]" if (not art or "TODO_LAWYER" in art) else f"{art}-modda"
+        if not art or "TODO_LAWYER" in art:
+            art_txt = "[moddani lex.uz'dan aniqlang]"
+        elif any(x in art for x in ("modda", "band", "ilova")):
+            art_txt = art  # «2, 6-bandlar», «404-modda» — allaqachon to'liq
+        else:
+            art_txt = f"{art}-modda"
         parts.append(f"{doc}, {art_txt}")
     return "; ".join(parts) or "[huquqiy asos]"
 
 
 def _fill(tpl: dict, item: dict, fields: dict, *, situation: str | None, lang: str, title: str = "") -> str:
-    values = {**PLACEHOLDERS, **fields}
-    values["situation"] = situation or PLACEHOLDERS["situation"]
+    base = {**PLACEHOLDERS, **(tpl.get("placeholders") or {})}  # yuridik shaxs shablonida boshqacha belgilar
+    values = {**base, **fields}
+    values["situation"] = situation or base["situation"]
     values["attachments"] = fields.get("attachments") or "; ".join(
         render.show_todo(d, "uz") for d in item.get("documents", [])[:3])
     text = tpl["body"].format(
@@ -56,10 +62,16 @@ async def _polish(situation: str | None) -> str | None:
 
 
 def _result(tpl: dict, item: dict, text: str, fields: dict, lang: str, **extra) -> dict:
+    from . import rights  # aylanma importsiz
+
     missing = [k for k in ("applicant_name", "address", "situation") if k not in fields]
     return {
         "addressee": render.show_todo(item.get("appeal_addressee") or "", lang), "template_id": tpl["id"],
+        "title": tpl.get("title_uz"), "doc_type": tpl.get("doc_type"), "applicant_type": tpl.get("applicant_type", "individual"),
         "text": text, "checklist": tpl.get("checklist", []), "submit_channels": tpl.get("submit_channels", []),
+        # Qonundagi rekvizitlar va muddat — faqat shu murojaatga tatbiq etiladigan qonundan (lex.uz abzasi bilan)
+        "legal_regime": tpl.get("legal_regime_uz"), "requirements": tpl.get("requirements", []),
+        "review_term": tpl.get("review_term_uz"), "excerpts": rights.excerpts_by_ids(tpl.get("excerpt_ids")),
         "missing_fields": missing, "verified": bool(item.get("verified") and tpl.get("verified")),
         "header": t(lang, "appeal_title"), "hint": t(lang, "appeal_hint"), **extra,
     }

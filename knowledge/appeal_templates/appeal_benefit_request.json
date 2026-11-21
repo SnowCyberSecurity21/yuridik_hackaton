@@ -5,12 +5,13 @@
   "request": "arizamni ko'rib chiqishingizni va qaror haqida yozma ravishda xabar berishingizni so'rayman.",
   "body": "{addressee}\n{region} hududida yashovchi fuqaro {applicant_name}dan\nManzil: {address}\nAloqa: {contact}\n\n{doc_type}\n\n{intro}\n\nVaziyat: {situation}\n\nHuquqiy asos: {legal_basis}\n\nYuqoridagilarni inobatga olib, {request}\n\nIlova: {attachments}\n\nSana: {date}                Imzo: ____________\n",
   "checklist": [
-    "Adresat to'g'ri ko'rsatilgan",
-    "Ariza beruvchining F.I.Sh. va manzili",
-    "Mos keladigan shartlar sanab o'tilgan",
+    "Adresat — masalani hal qiluvchi organ yoki uning yuqori organi (16-modda)",
+    "F.I.Sh. va yashash joyi (6-modda)",
+    "Vaziyat qisqa va aniq bayon qilingan (6-modda: murojaat mohiyati)",
     "Huquqiy asos ko'rsatilgan",
-    "Ilovalar ro'yxati",
-    "Sana va imzo"
+    "Aniq talab",
+    "Ilovalar: avvalgi qaror nusxasi va boshqa hujjatlar (16-modda)",
+    "Sana va imzo (6-modda; imzosiz — anonim murojaat)"
   ],
   "submit_channels": [
     {
@@ -23,5 +24,42 @@
     }
   ],
   "verified": false,
-  "_note": "PLACEHOLDER: shakl va rekvizitlarni huquqshunos tasdiqlashi shart."
+  "_note": "PLACEHOLDER: shakl va rekvizitlarni huquqshunos tasdiqlashi shart.",
+  "title_uz": "Imtiyoz yoki nafaqa so'rash arizasi",
+  "applicant_type": "individual",
+  "legal_regime_uz": "«Jismoniy va yuridik shaxslarning murojaatlari to'g'risida»gi Qonun",
+  "requirements": [
+    {
+      "text": "Familiya, ism, otasining ismi",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Yashash joyi (manzil)",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Murojaat mohiyati: nima bo'ldi va nima so'rayapsiz",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Imzo (elektron murojaatda — elektron raqamli imzo). Ism, manzil yoki imzo bo'lmasa — murojaat anonim hisoblanadi",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Vakil orqali berilsa — vakolatni tasdiqlovchi hujjat",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Masalani hal qilish vakolati bor organga yoki uning yuqori organiga beriladi; avvalgi qaror nusxasini ilova qilish mumkin",
+      "excerpt_id": "ex_appeals_16_order"
+    }
+  ],
+  "review_term_uz": "15 kun; qo'shimcha o'rganish kerak bo'lsa — 1 oygacha (istisno tariqasida yana ko'pi bilan 1 oyga uzaytirilishi mumkin, sizga xabar qilinadi)",
+  "excerpt_ids": [
+    "ex_appeals_6_requisites",
+    "ex_appeals_19_term",
+    "ex_appeals_16_order",
+    "ex_appeals_17_term"
+  ],
+  "law_checked_at": "2026-11-21"
 }

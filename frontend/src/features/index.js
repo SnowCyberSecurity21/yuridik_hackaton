@@ -30,4 +30,5 @@
 export { default as LawView, LawExcerpt } from "./LawView.jsx";
 export { default as RightsCategories } from "./RightsCategories.jsx";
 export { default as AskBox } from "./AskBox.jsx";
+export { default as AppealForm } from "./AppealForm.jsx";
 export { featuresApi } from "./api.js";

@@ -23,5 +23,25 @@
       "url": "https://pm.gov.uz"
     }
   ],
-  "verified": false
+  "verified": false,
+  "title_uz": "Jarima qarori ustidan shikoyat",
+  "applicant_type": "individual",
+  "legal_regime_uz": "Ma'muriy javobgarlik to'g'risidagi kodeks (murojaatlar qonuni tatbiq etilmaydi — 2-modda)",
+  "requirements": [
+    {
+      "text": "Shikoyat qaror nusxasini olgan kundan 10 kun ichida beriladi; uzrli sabab bilan o'tkazilgan muddat tiklanishi mumkin",
+      "excerpt_id": "ex_admin_316_complaint"
+    },
+    {
+      "text": "Chegirma bilan to'lash: 15 kun ichida — 50%, 30 kun ichida — 70%",
+      "excerpt_id": "ex_admin_332_1_discount"
+    }
+  ],
+  "excerpt_ids": [
+    "ex_admin_316_complaint",
+    "ex_admin_332_1_discount",
+    "ex_appeals_2_scope"
+  ],
+  "review_term_uz": null,
+  "law_checked_at": "2026-11-21"
 }

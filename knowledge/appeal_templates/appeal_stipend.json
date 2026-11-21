@@ -1,0 +1,69 @@
+{
+  "id": "appeal_stipend",
+  "title_uz": "Stipendiya bo'yicha ariza (rektorga)",
+  "doc_type": "ARIZA",
+  "applicant_type": "individual",
+  "legal_regime_uz": "«Jismoniy va yuridik shaxslarning murojaatlari to'g'risida»gi Qonun + Stipendiyalar to'g'risidagi Nizom (VM 59, 2020)",
+  "intro": "Men Sizning oliy ta'lim muassasangizda kunduzgi ta'lim shaklida o'qiyman. Joriy semestr uchun menga stipendiya tayinlanmadi (yoki kamaytirildi).",
+  "request": "stipendiya tayinlanmagani (kamaytirilgani) sababini yozma ravishda tushuntirishingizni va stipendiya komissiyasi orqali masalani Nizom talablariga muvofiq qayta ko'rib chiqishingizni so'rayman.",
+  "body": "{addressee}\n{region} hududida yashovchi talaba {applicant_name}dan\nFakultet, kurs, guruh: [to'ldiring]\nManzil: {address}\nAloqa: {contact}\n\n{doc_type}\n\n{intro}\n\nVaziyat: {situation}\n\nHuquqiy asos: {legal_basis}\n\nYuqoridagilarni inobatga olib, {request}\n\nIlova: {attachments}\n\nSana: {date}                Imzo: ____________\n",
+  "requirements": [
+    {
+      "text": "Familiya, ism, otasining ismi",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Yashash joyi (manzil)",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Murojaat mohiyati: nima bo'ldi va nima so'rayapsiz",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Imzo (elektron murojaatda — elektron raqamli imzo). Ism, manzil yoki imzo bo'lmasa — murojaat anonim hisoblanadi",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Vakil orqali berilsa — vakolatni tasdiqlovchi hujjat",
+      "excerpt_id": "ex_appeals_6_requisites"
+    },
+    {
+      "text": "Masalani hal qilish vakolati bor organga yoki uning yuqori organiga beriladi; avvalgi qaror nusxasini ilova qilish mumkin",
+      "excerpt_id": "ex_appeals_16_order"
+    },
+    {
+      "text": "Stipendiya baholarga bog'liq: «a'lo» — +20%, «qoniqarli» 30% va ko'p bo'lsa — tayinlanmaydi",
+      "excerpt_id": "ex_stip_grades"
+    }
+  ],
+  "review_term_uz": "15 kun; qo'shimcha o'rganish kerak bo'lsa — 1 oygacha (istisno tariqasida yana ko'pi bilan 1 oyga uzaytirilishi mumkin, sizga xabar qilinadi)",
+  "excerpt_ids": [
+    "ex_appeals_6_requisites",
+    "ex_appeals_19_term",
+    "ex_appeals_16_order",
+    "ex_appeals_17_term",
+    "ex_stip_grades"
+  ],
+  "checklist": [
+    "Adresat — masalani hal qiluvchi organ yoki uning yuqori organi (16-modda)",
+    "F.I.Sh. va yashash joyi (6-modda)",
+    "Vaziyat qisqa va aniq bayon qilingan (6-modda: murojaat mohiyati)",
+    "Huquqiy asos ko'rsatilgan",
+    "Aniq talab",
+    "Ilovalar: avvalgi qaror nusxasi va boshqa hujjatlar (16-modda)",
+    "Sana va imzo (6-modda; imzosiz — anonim murojaat)"
+  ],
+  "submit_channels": [
+    {
+      "name": "OTM devonxonasi yoki elektron hujjat aylanishi",
+      "url": "https://edu.uz"
+    },
+    {
+      "name": "my.gov.uz",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "verified": false,
+  "law_checked_at": "2026-11-21"
+}

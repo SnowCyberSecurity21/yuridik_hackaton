@@ -60,9 +60,9 @@
     "ex_tax_126_registration"
   ],
   "related_card_id": "business_tax_regime",
-  "appeal_template_id": "appeal_tax_audit_complaint",
+  "appeal_template_id": "appeal_benefit_request",
   "appeal_addressee": "Hududiy soliq organi rahbariga",
-  "appeal_label_uz": "Soliq organiga murojaat",
+  "appeal_label_uz": "Soliq organidan tushuntirish so'rash",
   "verified": false,
   "verified_by": null,
   "verified_at": null,

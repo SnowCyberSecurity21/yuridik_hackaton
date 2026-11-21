@@ -1,0 +1,62 @@
+{
+  "id": "appeal_tax_audit_complaint",
+  "title_uz": "Soliq tekshiruvi natijasi ustidan shikoyat (yuridik shaxs)",
+  "doc_type": "SHIKOYAT",
+  "applicant_type": "legal_entity",
+  "legal_regime_uz": "Soliq kodeksi, 232–233-moddalar (murojaatlar qonuni tatbiq etilmaydi — 2-modda)",
+  "placeholders": {
+    "applicant_name": "[yuridik shaxsning to'liq nomi]",
+    "address": "[joylashgan yeri (pochta manzili)]",
+    "situation": "[tekshiruv turi, buyruq va dalolatnoma raqami/sanasi, qaror mazmuni, nimaga rozi emassiz]"
+  },
+  "intro": "Soliq organining sayyor soliq tekshiruvi (soliq auditi) natijalari bo'yicha qabul qilingan qaroriga rozi emasmiz.",
+  "request": "qarorni bekor qilishingizni (o'zgartirishingizni) va shikoyat natijasi haqida yozma javob berishingizni so'raymiz.",
+  "body": "{addressee}\n\nShikoyat beruvchi (yuridik shaxs): {applicant_name}\nJoylashgan yeri (pochta manzili): {address}\nSTIR: [to'ldiring]\nAloqa: {contact}\n\n{doc_type}\n\nShikoyat qilinayotgan soliq organi va hujjat: [soliq organi nomi; qaror yoki dalolatnoma raqami va sanasi]\n\n{intro}\n\nVaziyat: {situation}\n\nHuquqlarimiz buzilgan deb hisoblash asoslari: {legal_basis}\n\nTalablarimiz: {request}\n\nIlova: {attachments}\n\nSana: {date}\nRahbar (vakolatli shaxs): ____________ / [F.I.Sh.]\n",
+  "requirements": [
+    {
+      "text": "Yuridik shaxsning nomi va manzili",
+      "excerpt_id": "ex_tax_233_form"
+    },
+    {
+      "text": "Qaysi soliq organi va qaysi hujjat yoki harakat ustidan shikoyat",
+      "excerpt_id": "ex_tax_233_form"
+    },
+    {
+      "text": "Huquq buzilgan deb hisoblash asoslari va talablaringiz",
+      "excerpt_id": "ex_tax_233_form"
+    },
+    {
+      "text": "Imzo: rahbar yoki vakil (vakil — vakolat hujjati bilan); yozma yoki elektron shaklda",
+      "excerpt_id": "ex_tax_233_form"
+    },
+    {
+      "text": "Muddat: huquq buzilganini bilgan kundan 1 oy ichida, qaror chiqargan soliq organi orqali yuqori organga",
+      "excerpt_id": "ex_tax_232_appeal"
+    }
+  ],
+  "review_term_uz": null,
+  "excerpt_ids": [
+    "ex_tax_233_form",
+    "ex_tax_232_appeal",
+    "ex_tax_21_rights",
+    "ex_tax_139_onsite",
+    "ex_appeals_2_scope"
+  ],
+  "checklist": [
+    "Adresat — yuqori turuvchi soliq organi (qaror chiqargan organ orqali) (232-modda)",
+    "Yuridik shaxs nomi va manzili (233-modda)",
+    "Shikoyat qilinayotgan organ va hujjat (233-modda)",
+    "Asoslar va talablar (233-modda)",
+    "Muddat: 1 oy (232-modda)",
+    "Ilova: dalolatnoma, qaror, dalillar (233-modda)",
+    "Rahbar yoki vakil imzosi (233-modda)"
+  ],
+  "submit_channels": [
+    {
+      "name": "Soliq organi (yozma yoki elektron — my.soliq.uz)",
+      "url": "https://my.soliq.uz"
+    }
+  ],
+  "verified": false,
+  "law_checked_at": "2026-11-21"
+}

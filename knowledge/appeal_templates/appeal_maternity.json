@@ -1,0 +1,47 @@
+{
+  "id": "appeal_maternity",
+  "title_uz": "Dekret yoki bola parvarishi ta'tili so'rash arizasi (ish beruvchiga)",
+  "doc_type": "ARIZA",
+  "applicant_type": "individual",
+  "legal_regime_uz": "Mehnat kodeksi (ish beruvchiga ariza)",
+  "intro": "Men Sizning tashkilotingizda mehnat shartnomasi asosida ishlayman.",
+  "request": "Mehnat kodeksining 404 va 405-moddalariga muvofiq menga homiladorlik va tug'ish ta'tilini (yoki bola parvarishi ta'tilini) berishingizni va tegishli nafaqani rasmiylashtirishingizni so'rayman.",
+  "body": "{addressee}\n{applicant_name}dan\nLavozim: [lavozimingiz]\nManzil: {address}\nAloqa: {contact}\n\n{doc_type}\n\n{intro}\n\nVaziyat: {situation}\n\nHuquqiy asos: {legal_basis}\n\nYuqoridagilarni inobatga olib, {request}\n\nIlova: {attachments}\n\nSana: {date}                Imzo: ____________\n",
+  "requirements": [
+    {
+      "text": "Ta'til: tug'ruqqacha 70, tug'ruqdan keyin 56 kalendar kun (qiyin tug'ruq yoki egizakda — 70); nafaqa o'rtacha oylikning kamida 75%",
+      "excerpt_id": "ex_labor_404_maternity"
+    },
+    {
+      "text": "Bola parvarishi: 2 yoshgacha nafaqa bilan, 3 yoshgacha haq to'lanmaydigan; ish joyi saqlanadi",
+      "excerpt_id": "ex_labor_405_childcare"
+    },
+    {
+      "text": "Homiladorlik yoki farzand sababli rad etish taqiqlangan; rad etilsa — 3 kun ichida yozma sabab talab qilasiz",
+      "excerpt_id": "ex_labor_392_no_discrimination"
+    }
+  ],
+  "review_term_uz": null,
+  "excerpt_ids": [
+    "ex_labor_404_maternity",
+    "ex_labor_405_childcare",
+    "ex_labor_405_job_kept",
+    "ex_labor_392_no_discrimination"
+  ],
+  "checklist": [
+    "Adresat — ish beruvchi (tashkilot rahbari)",
+    "F.I.Sh. va lavozim",
+    "Qaysi ta'til va qaysi sanadan",
+    "Huquqiy asos (Mehnat kodeksi 404/405-moddalar)",
+    "Ilova: tibbiy hujjat yoki bolaning tug'ilganlik guvohnomasi",
+    "Sana va imzo"
+  ],
+  "submit_channels": [
+    {
+      "name": "Ish beruvchi devonxonasi (qo'lda yoki elektron hujjat aylanishi)",
+      "url": null
+    }
+  ],
+  "verified": false,
+  "law_checked_at": "2026-11-21"
+}
