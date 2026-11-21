@@ -375,6 +375,7 @@ export function AuthPage({ onAuthed }) {
   const [mode, setMode] = useState("register");
   const [username, setU] = useState("");
   const [password, setP] = useState("");
+  const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState(null);
   const [busy, setBusy] = useState(false);
   const submit = async (e) => {
@@ -387,29 +388,62 @@ export function AuthPage({ onAuthed }) {
     if (next === "oneid" && !r.verified) window.location.href = "/api/oneid/start";
     else go("/kabinet");
   };
+  const steps = [
+    ["Hisob oching", `${APP_NAME} hisobi: faqat login va parol. Ism, PINFL yoki telefon so'ralmaydi.`],
+    ["OneID bilan tasdiqlang", "DEMO ID sahifasida rozilik berasiz. Ma'lumot faqat kerak bo'lganda so'raladi."],
+    ["Kabinetingiz tayyor", "Imtiyozlar, muddatli majburiyatlar va sizga taalluqli o'zgarishlar."],
+  ];
   return (
-    <div className="mx-auto max-w-md space-y-4 pt-2">
+    <div className="grid grid-cols-1 gap-8 pt-2 sm:pt-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:gap-10">
+      <div className="md:pt-2">
+        <h1 className="h1">{mode === "register" ? "Hisob ochish" : "Hisobga kirish"}</h1>
+        <p className="secondary mt-2">Shaxsiy imtiyozlar va muddatlarni ko'rish uchun uch qadam.</p>
+        <ol className="mt-6 space-y-4">
+          {steps.map(([t, d], i) => (
+            <li key={t} className="flex gap-3">
+              <span className="tabnum grid h-7 w-7 flex-none place-items-center rounded-full text-sm font-semibold"
+                style={i === 0 ? { background: "var(--primary)", color: "var(--text-on-primary)" } : { background: "var(--surface-2)", color: "var(--text-secondary)" }}>{i + 1}</span>
+              <div>
+                <div className="font-semibold leading-snug">{t}</div>
+                <p className="secondary mt-0.5 text-sm">{d}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
       <div>
-        <h1 className="text-2xl font-bold">{mode === "register" ? "Huquqim hisobini ochish" : "Huquqim hisobiga kirish"}</h1>
-        <p className="secondary mt-1 text-sm">Bu — {APP_NAME} platformasining o'z hisobi. Keyingi qadamda uni OneID (demo) orqali tasdiqlaysiz.</p>
+        <Card padding="lg">
+          <Tabs ariaLabel="Kirish turi" value={mode} onChange={(id) => { setMode(id); setError(null); }}
+            items={[{ id: "register", label: "Ro'yxatdan o'tish" }, { id: "login", label: "Kirish" }]} />
+          <form className="mt-5 space-y-4" onSubmit={submit} noValidate={false}>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium" htmlFor="u">Login</label>
+              <input id="u" className="w-full" autoComplete="username" autoCapitalize="none" spellCheck={false}
+                value={username} onChange={(e) => setU(e.target.value)} required minLength={3} maxLength={30} placeholder="masalan: malika94" />
+            </div>
+            <div>
+              <div className="mb-1.5 flex items-center">
+                <label className="text-sm font-medium" htmlFor="p">Parol</label>
+                <button type="button" className="btn btn-ghost btn-sm ml-auto -mr-2" onClick={() => setShowPw((v) => !v)}
+                  aria-pressed={showPw} aria-controls="p">{showPw ? "Yashirish" : "Ko'rsatish"}</button>
+              </div>
+              <input id="p" className="w-full" type={showPw ? "text" : "password"} autoComplete={mode === "register" ? "new-password" : "current-password"}
+                value={password} onChange={(e) => setP(e.target.value)} required minLength={8} maxLength={128} placeholder="kamida 8 belgi" />
+            </div>
+            <AnimatePresence initial={false}>
+              {error && (
+                <motion.div initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+                  <Alert tone="danger">{error}</Alert>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <Button type="submit" variant="primary" size="lg" block loading={busy}>
+              {mode === "register" ? "Hisob ochish" : "Kirish"}
+            </Button>
+          </form>
+        </Card>
+        <p className="muted mt-3 text-xs">Parol xeshlangan holda saqlanadi. Hisobda F.I.Sh., PINFL yoki telefon saqlanmaydi.</p>
       </div>
-      <div className="tabs" role="tablist">
-        <button role="tab" className="tab" aria-selected={mode === "register"} onClick={() => setMode("register")}>Ro'yxatdan o'tish</button>
-        <button role="tab" className="tab" aria-selected={mode === "login"} onClick={() => setMode("login")}>Kirish</button>
-      </div>
-      <form className="card space-y-3 p-4" onSubmit={submit}>
-        <div>
-          <label className="secondary mb-1 block text-sm" htmlFor="u">Login</label>
-          <input id="u" className="w-full" autoComplete="username" value={username} onChange={(e) => setU(e.target.value)} required minLength={3} maxLength={30} placeholder="masalan: malika94" />
-        </div>
-        <div>
-          <label className="secondary mb-1 block text-sm" htmlFor="p">Parol</label>
-          <input id="p" className="w-full" type="password" autoComplete={mode === "register" ? "new-password" : "current-password"} value={password} onChange={(e) => setP(e.target.value)} required minLength={8} maxLength={128} placeholder="kamida 8 belgi" />
-        </div>
-        <Err error={error} />
-        <button className="btn btn-primary w-full" disabled={busy}>{busy ? "…" : mode === "register" ? "Hisob ochish" : "Kirish"}</button>
-      </form>
-      <p className="muted text-xs">Parol xeshlangan holda saqlanadi. Hisobda F.I.Sh., PINFL yoki telefon saqlanmaydi.</p>
     </div>
   );
 }
