@@ -12,7 +12,7 @@ from urllib.parse import parse_qs, urlparse
 
 import httpx
 
-PERSONS = ["Azizbek", "Malika", "Karim", "Sardor", "Dilnoza", "Erlan"]
+PERSONS = ["Azizbek", "Malika", "Karim", "Sardor", "Dilnoza", "Erlan", "Jasur"]
 ok_all = True
 
 

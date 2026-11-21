@@ -21,15 +21,7 @@ def person_status(person: dict) -> str:
 
 
 def person_situations(person: dict) -> list[str]:
-    sits = list(person.get("situations") or [])
-    f = profile_svc.facts(person)
-    if f["minor_children"] and "parent" not in sits:
-        sits.append("parent")
-    if f["has_license"] and "driver" not in sits:
-        sits.append("driver")
-    if f["is_pensioner"] and "pensioner" not in sits:
-        sits.append("pensioner")
-    return [s for s in sits if s in rights.SITUATION_IDS]
+    return [s for s in profile_svc.situations_of(person) if s in rights.SITUATION_IDS]
 
 
 def as_profile(person: dict) -> dict:

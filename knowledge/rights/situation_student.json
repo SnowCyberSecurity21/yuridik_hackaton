@@ -2,8 +2,248 @@
   "id": "student",
   "type": "situation",
   "title_uz": "Talaba",
+  "title_ru": "Студент",
   "icon": "🎓",
+  "intro_uz": "Stipendiya, yotoqxona, akademik ta'til va talabaning majburiyatlari — qonundagi asl matn yonida oddiy tilda.",
   "items": [
+    {
+      "id": "st_stipend",
+      "kind": "benefit",
+      "title_uz": "Oylik stipendiya",
+      "plain_uz": "Kunduzgi ta'limda davlat granti yoki stipendiyali kontrakt asosida o'qisangiz, har oy stipendiya to'lanadi. 1-kursda birinchi semestr natijasigacha — bazaviy miqdorda.",
+      "law_id": "stipend_regulation",
+      "article": "2, 5-bandlar",
+      "excerpt_ids": [
+        "ex_stip_def",
+        "ex_stip_first_course"
+      ],
+      "excerpt": "",
+      "title_ru": "Ежемесячная стипендия",
+      "conditions_uz": [
+        "Davlat OTMida kunduzgi ta'lim",
+        "Davlat granti yoki stipendiyali to'lov-kontrakt",
+        "Xorijiy talaba emassiz"
+      ]
+    },
+    {
+      "id": "st_stipend_grades",
+      "kind": "benefit",
+      "title_uz": "A'lochilarga oshirilgan stipendiya",
+      "plain_uz": "Hamma fan «a'lo» (86 ball va yuqori) bo'lsa — bazaviy stipendiya 20% ga oshiriladi. «Qoniqarli» baholar 30% va undan ko'p bo'lsa — keyingi semestrda stipendiya tayinlanmaydi.",
+      "law_id": "stipend_regulation",
+      "article": "6-band",
+      "excerpt_ids": [
+        "ex_stip_grades"
+      ],
+      "excerpt": "",
+      "title_ru": "Повышенная стипендия отличникам",
+      "conditions_uz": [
+        "Oldingi semestr baholari",
+        "Grant asosida o'qish"
+      ]
+    },
+    {
+      "id": "st_stipend_contract",
+      "kind": "benefit",
+      "title_uz": "Kontrakt talabasiga stipendiya",
+      "plain_uz": "Kontraktni «stipendiyali» shaklda to'lasangiz, baholardan qat'i nazar bazaviy stipendiya olasiz — kontrakt summasi to'langandan keyin.",
+      "law_id": "stipend_regulation",
+      "article": "7–9-bandlar",
+      "excerpt_ids": [
+        "ex_stip_contract"
+      ],
+      "excerpt": "",
+      "title_ru": "Стипендия для контрактников",
+      "conditions_uz": [
+        "Stipendiyali to'lov-kontrakt tanlangan",
+        "Kontrakt summasi to'langan"
+      ]
+    },
+    {
+      "id": "st_stipend_girls",
+      "kind": "benefit",
+      "title_uz": "Qizlar uchun maxsus stipendiya",
+      "plain_uz": "Ijtimoiy reyestrdagi oiladan bo'lgan, hamma fandan «a'lo» o'qiydigan kunduzgi bakalavr talaba-qizlarga oddiy stipendiyaga qo'shimcha maxsus stipendiya beriladi.",
+      "law_id": "stipend_regulation",
+      "article": "10²-band",
+      "excerpt_ids": [
+        "ex_stip_girls"
+      ],
+      "excerpt": "",
+      "title_ru": "Специальная стипендия для девушек",
+      "conditions_uz": [
+        "Talaba-qiz, kunduzgi bakalavriat",
+        "Oila Ijtimoiy reyestrda",
+        "Barcha fanlar «a'lo»"
+      ]
+    },
+    {
+      "id": "st_stipend_disability",
+      "kind": "benefit",
+      "title_uz": "Nogironligi bo'lgan talabaga oshirilgan stipendiya",
+      "plain_uz": "1 va 2-guruh nogironligi bo'lgan, akademik qarzi yo'q talabaga bazaviy stipendiyadan 50% yuqori stipendiya to'lanadi.",
+      "law_id": "stipend_regulation",
+      "article": "13-band",
+      "excerpt_ids": [
+        "ex_stip_disability"
+      ],
+      "excerpt": "",
+      "conditions_uz": [
+        "1 yoki 2-guruh nogironligi",
+        "Akademik qarz yo'q"
+      ]
+    },
+    {
+      "id": "st_stipend_orphans",
+      "kind": "benefit",
+      "title_uz": "Yetim talabalarga oshirilgan stipendiya",
+      "plain_uz": "To'liq davlat ta'minotidagi yetim va ota-ona qaramog'idan mahrum talabalarga oshirilgan stipendiya tayinlanadi.",
+      "law_id": "stipend_regulation",
+      "article": "15-band",
+      "excerpt_ids": [
+        "ex_stip_orphans"
+      ],
+      "excerpt": "",
+      "conditions_uz": [
+        "To'liq davlat ta'minotida"
+      ]
+    },
+    {
+      "id": "st_material_aid",
+      "kind": "benefit",
+      "title_uz": "Bir martalik moddiy yordam",
+      "plain_uz": "Og'ir kasallik yoki yaqin qarindosh vafoti kabi hollarda OTM kengashi mezonlari bo'yicha bir martalik moddiy yordam berilishi mumkin.",
+      "law_id": "stipend_regulation",
+      "article": "20-band",
+      "excerpt_ids": [
+        "ex_stip_aid"
+      ],
+      "excerpt": "",
+      "conditions_uz": [
+        "OTM kengashi tasdiqlagan mezonlar"
+      ]
+    },
+    {
+      "id": "st_dorm",
+      "kind": "benefit",
+      "title_uz": "Yotoqxona to'lovini davlat qoplashi",
+      "plain_uz": "Oilangiz Ijtimoiy reyestrda bo'lsa va davlat OTMi yotoqxonasida shartnoma bilan yashasangiz, yotoqxona to'lovi Davlat budjetidan qoplanadi. Yotoqxonaga navbatsiz joylashasiz.",
+      "law_id": "dormitory_regulation",
+      "article": "2–5-bandlar",
+      "excerpt_ids": [
+        "ex_dorm_scope",
+        "ex_dorm_priority"
+      ],
+      "excerpt": "",
+      "title_ru": "Компенсация оплаты общежития",
+      "conditions_uz": [
+        "Oila Ijtimoiy reyestrda",
+        "Davlat OTMi, kunduzgi ta'lim",
+        "Yotoqxonada shartnoma bilan yashaysiz"
+      ]
+    },
+    {
+      "id": "st_credit",
+      "kind": "benefit",
+      "title_uz": "Imtiyozli ta'lim krediti",
+      "plain_uz": "Kontrakt asosida o'qiyotgan talabaga imtiyozli bank krediti berilishi mumkin.",
+      "law_id": "education_law",
+      "article": "52-modda",
+      "excerpt_ids": [
+        "ex_edu_52_social"
+      ],
+      "excerpt": "",
+      "conditions_uz": [
+        "To'lov-kontrakt asosida o'qish"
+      ]
+    },
+    {
+      "id": "st_academic_leave",
+      "kind": "right",
+      "title_uz": "Akademik ta'til, o'qishni tiklash va ko'chirish",
+      "plain_uz": "Akademik ta'til olish, o'qishni tiklash, boshqa OTMga yoki yo'nalishga ko'chish — qonundagi huquqingiz.",
+      "law_id": "education_law",
+      "article": "47-modda",
+      "excerpt_ids": [
+        "ex_edu_47_leave_stipend"
+      ],
+      "excerpt": "",
+      "title_ru": "Академический отпуск, восстановление и перевод"
+    },
+    {
+      "id": "st_facilities",
+      "kind": "right",
+      "title_uz": "OTM obyektlaridan bepul foydalanish",
+      "plain_uz": "O'quv, ilmiy, sport va maishiy obyektlardan bepul foydalanasiz.",
+      "law_id": "education_law",
+      "article": "47-modda",
+      "excerpt_ids": [
+        "ex_edu_47_facilities"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "st_no_forced_work",
+      "kind": "right",
+      "title_uz": "O'qishga aloqasi yo'q ishga jalb qilish taqiqlangan",
+      "plain_uz": "Talabani o'qish bilan bog'liq bo'lmagan ishlarga jalb qilish mumkin emas.",
+      "law_id": "education_law",
+      "article": "47-modda",
+      "excerpt_ids": [
+        "ex_edu_47_no_forced_work"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "st_duties",
+      "kind": "duty",
+      "title_uz": "Talabaning majburiyatlari",
+      "plain_uz": "Darsga qatnashish, topshiriqlarni bajarish, ichki tartib va yotoqxona qoidalariga rioya qilish, OTM mulkini asrash.",
+      "law_id": "education_law",
+      "article": "48-modda",
+      "excerpt_ids": [
+        "ex_edu_48_duties"
+      ],
+      "excerpt": "",
+      "title_ru": "Обязанности студента"
+    },
+    {
+      "id": "st_doc_dorm",
+      "kind": "document",
+      "title_uz": "Yotoqxona to'lovini qoplash: ariza va ma'lumotnoma",
+      "plain_uz": "Rektor nomiga ariza kontrakt.edu.uz orqali, oyning 7-sanasigacha. Oila reyestrda ekanligi avtomatik yoki my.gov.uz ma'lumotnomasi bilan tasdiqlanadi.",
+      "law_id": "dormitory_regulation",
+      "article": "4, 9–10-bandlar",
+      "excerpt_ids": [
+        "ex_dorm_apply",
+        "ex_dorm_registry_proof"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "st_doc_girls",
+      "kind": "document",
+      "title_uz": "Qizlar stipendiyasi: Ijtimoiy reyestr ma'lumotnomasi",
+      "plain_uz": "Maxsus stipendiya Ijtimoiy reyestrga kiritilganlik haqidagi ma'lumotnoma asosida tayinlanadi.",
+      "law_id": "stipend_regulation",
+      "article": "10²-band",
+      "excerpt_ids": [
+        "ex_stip_girls"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "st_doc_dorm_refusal",
+      "kind": "document",
+      "title_uz": "Yotoqxona qoplanishi rad etilsa",
+      "plain_uz": "Rad etish sabablari qonunda sanab o'tilgan; xatoni tuzatish uchun besh ish kuni beriladi.",
+      "law_id": "dormitory_regulation",
+      "article": "27–28-bandlar",
+      "excerpt_ids": [
+        "ex_dorm_refusal"
+      ],
+      "excerpt": ""
+    },
     {
       "id": "st_edu",
       "kind": "right",
@@ -30,6 +270,46 @@
       "law_id": "labor_code",
       "article": "",
       "excerpt": ""
+    }
+  ],
+  "where_to_go": [
+    {
+      "name": "O'z OTMingiz: dekanat va stipendiya komissiyasi",
+      "url": "https://edu.uz"
+    },
+    {
+      "name": "Talabalarga shartnoma asosidagi xizmatlar tizimi (kontrakt.edu.uz)",
+      "url": "https://kontrakt.edu.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Qonunchilik ma'lumotlari milliy bazasi (lex.uz)",
+      "url": "https://lex.uz"
+    }
+  ],
+  "news": [
+    {
+      "id": "nw_stip_social_card",
+      "date": "2027-01-01",
+      "title_uz": "Stipendiya faqat ijtimoiy karta orqali",
+      "plain_uz": "2027-yil 1-yanvardan stipendiya faqat ijtimoiy karta orqali to'lanadi. Undan oldin — naqd yoki bank kartasi orqali.",
+      "law_id": "stipend_regulation",
+      "excerpt_ids": [
+        "ex_stip_social_card"
+      ]
+    },
+    {
+      "id": "nw_dorm_2026",
+      "date": "2026-01-28",
+      "title_uz": "Yotoqxona to'lovini qoplash tartibi tasdiqlandi",
+      "plain_uz": "Ijtimoiy reyestrdagi oilalar farzandlari uchun yotoqxona xarajatini davlat qoplash tartibi kuchga kirdi.",
+      "law_id": "dormitory_regulation",
+      "excerpt_ids": [
+        "ex_dorm_scope"
+      ]
     }
   ]
 }

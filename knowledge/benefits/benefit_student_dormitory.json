@@ -1,0 +1,93 @@
+{
+  "id": "benefit_student_dormitory",
+  "order": 11,
+  "kind": "benefit",
+  "icon": "🏠",
+  "category": "student",
+  "title_uz": "Yotoqxona to'lovini davlat qoplashi",
+  "title_ru": "Компенсация оплаты общежития",
+  "summary_uz": "Ijtimoiy reyestrdagi oila farzandi bo'lgan, davlat OTMida kunduzgi ta'limda o'qib, yotoqxonada shartnoma bilan yashaydigan talabaning yotoqxona to'lovi Davlat budjetidan qoplanadi.",
+  "amount": "Yotoqxona to'lovi miqdorida (OTM kengashi tasdiqlaydi)",
+  "rule": {
+    "all": [
+      {
+        "fact": "is_student",
+        "op": "==",
+        "value": true,
+        "label_uz": "Siz OTM talabasisiz",
+        "appeal_uz": "Men OTM talabasiman"
+      },
+      {
+        "fact": "student_state_institution",
+        "op": "==",
+        "value": true,
+        "label_uz": "Davlat oliy ta'lim tashkiloti",
+        "appeal_uz": "Davlat oliy ta'lim tashkilotida o'qiyman"
+      },
+      {
+        "fact": "student_fulltime",
+        "op": "==",
+        "value": true,
+        "label_uz": "Kunduzgi ta'lim shakli",
+        "appeal_uz": "Kunduzgi ta'lim shaklida o'qiyman"
+      },
+      {
+        "fact": "student_dormitory",
+        "op": "==",
+        "value": true,
+        "label_uz": "Yotoqxonada shartnoma asosida yashaysiz",
+        "appeal_uz": "Talabalar turar joyida shartnoma asosida yashayman"
+      },
+      {
+        "fact": "low_income_registry",
+        "op": "==",
+        "value": true,
+        "label_uz": "Oilangiz Ijtimoiy reyestrga kiritilgan",
+        "appeal_uz": "Oilam Ijtimoiy reyestrga kiritilgan"
+      }
+    ]
+  },
+  "documents": [
+    "Ariza (rektor nomiga, kontrakt.edu.uz orqali, oyning 7-sanasigacha)",
+    "Oila Ijtimoiy reyestrda ekanligi — avtomatik yoki my.gov.uz ma'lumotnomasi",
+    "Yotoqxona shartnomasi"
+  ],
+  "where_to_go": [
+    {
+      "name": "kontrakt.edu.uz",
+      "url": "https://kontrakt.edu.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_DORM_1",
+      "doc": "Vazirlar Mahkamasining 28.01.2026 dagi 32-son qarori, 1-ilova — Talabalar turar joyi xarajatlarini qoplab berish tartibi to'g'risida Nizom",
+      "article": "3, 4, 9, 10-bandlar",
+      "lex_url": "https://lex.uz/docs/-8022224",
+      "doc_date": "2026-01-28",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "excerpt_ids": [
+    "ex_dorm_scope",
+    "ex_dorm_apply",
+    "ex_dorm_registry_proof"
+  ],
+  "related_card_id": "student_dormitory",
+  "appeal_template_id": "appeal_benefit_request",
+  "appeal_addressee": "Oliy ta'lim tashkiloti rektoriga",
+  "appeal_label_uz": "Yotoqxona to'lovini qoplash arizasi",
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "_note": "Asl matn: knowledge/lex/excerpts.json (excerpt_ids). Huquqshunos tasdig'i kutilmoqda."
+}

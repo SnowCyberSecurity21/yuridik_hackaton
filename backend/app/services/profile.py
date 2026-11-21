@@ -22,6 +22,10 @@ REGION_NAME = {r["id"]: r["name"] for r in REGIONS}
 MINOR_AGE = 18  # "voyaga yetmagan" ta'rifi; loyiha brifi dalillari: "child allowance (under 18)"
 SINGLE_PARENT_STATUSES = {"ajrashgan", "beva", "alohida yashaydi", "nikohda emas"}
 CONSENT_SCOPE = ["family", "children_ages", "social_status", "fines_debts", "region"]
+STIPEND_FUNDING = {"davlat granti", "stipendiyali kontrakt"}  # VM 59 (2020), Nizom 2-band
+EMPLOYED_TYPES = {"worker", "civil_servant"}  # mehnat shartnomasi bilan ishlovchilar
+BUSINESS_TYPES = {"entrepreneur", "legal_entity_head"}
+TURNOVER_TAX_LIMIT = 1_000_000_000  # Soliq kodeksi 461-modda: «bir milliard so'mdan oshmagan»
 
 OPS = {"==": operator.eq, "!=": operator.ne, ">=": operator.ge, "<=": operator.le, ">": operator.gt, "<": operator.lt,
        "in": lambda a, b: a in b}
@@ -39,16 +43,47 @@ def facts(profile: dict) -> dict:
     obligations = profile.get("obligations") or []
     active_discount = sum(1 for o in obligations if o.get("kind") == "traffic_fine"
                           and isinstance(o.get("discount_due_in_days"), int) and o["discount_due_in_days"] >= 0)
-    return {
+    occ = profile.get("occupation") or {}
+    occ_type = occ.get("type")
+    edu = occ.get("education") or {}
+    company = occ.get("company") or {}
+    out = {
         "minor_children": minors,
+        "children_under_2": sum(1 for a in ages if a < 2),
         "single_parent": minors > 0 and fam.get("marital_status") in SINGLE_PARENT_STATUSES,
+        "is_mother": minors > 0 and fam.get("parent_role") == "ona",
         "low_income_registry": bool(soc.get("low_income_registry")),
         "is_pensioner": bool(soc.get("pensioner")),
         "lives_alone": bool(soc.get("lives_alone")),
         "has_license": bool(drv.get("has_license")),
         "fines_with_active_discount": active_discount,
         "region": profile.get("region"),
+        # talaba
+        "is_student": occ_type == "student",
+        "student_fulltime": edu.get("form") == "kunduzgi",
+        "student_state_institution": edu.get("institution_type") == "davlat",
+        "student_stipend_basis": edu.get("funding") in STIPEND_FUNDING,
+        "student_dormitory": bool(edu.get("dormitory")),
+        # ish va biznes
+        "employed": occ_type in EMPLOYED_TYPES,
+        "is_business": occ_type in BUSINESS_TYPES,
     }
+    # Noma'lum fakt kalitsiz qoladi -> qoida sharti «tekshirilishi kerak» bo'ladi (taxmin qilinmaydi)
+    if isinstance(company.get("annual_income"), (int, float)):
+        out["business_income_le_1bn"] = company["annual_income"] <= TURNOVER_TAX_LIMIT
+    return out
+
+
+def situations_of(profile: dict) -> list[str]:
+    """Profil -> «Mening huquqlarim» toifalari (aniq ko'rsatilgan + faktlardan kelib chiqqan)."""
+    sits = list(profile.get("situations") or [])
+    f = facts(profile)
+    derived = [("parent", f["minor_children"] > 0), ("mother", f["is_mother"]), ("student", f["is_student"]),
+               ("entrepreneur", f["is_business"]), ("driver", f["has_license"]), ("pensioner", f["is_pensioner"])]
+    for sid, ok in derived:
+        if ok and sid not in sits:
+            sits.append(sid)
+    return sits
 
 
 def _label(cond: dict, lang: str) -> str:
@@ -112,9 +147,13 @@ def obligations_of(profile: dict, today: date, lang: str = "uz") -> list[dict]:
 
 def benefits_of(profile: dict, lang: str = "uz") -> tuple[list[dict], list[dict]]:
     f = facts(profile)
+    sits = set(situations_of(profile))
     eligible, not_eligible = [], []
     for b in knowledge.benefits().values():
         ev = evaluate(b, f, lang)
+        # Boshqa toifaga oid imtiyoz (masalan, pensionerga stipendiya) «mos emas» ro'yxatini to'ldirmasin
+        if ev["status"] != "mumkin" and b.get("category") and b["category"] not in sits:
+            continue
         item = {
             "id": b["id"], "icon": b.get("icon", "🎁"), "kind": b.get("kind", "benefit"), "title": _title(b, lang),
             "summary": render.show_todo(b.get("summary_uz", ""), lang),
@@ -129,6 +168,8 @@ def benefits_of(profile: dict, lang: str = "uz") -> tuple[list[dict], list[dict]
             "verified": bool(b.get("verified") and b.get("verified_by")), "badge": render.badge(b, lang),
             "source_checked": bool(b.get("source_checked")),
             "related_card_id": b.get("related_card_id"),
+            "category": b.get("category"),
+            "excerpt_ids": b.get("excerpt_ids", []),
             "appeal_label": b.get("appeal_label_uz") or t(lang, "btn_benefit_appeal"),
         }
         (eligible if ev["status"] == "mumkin" else not_eligible).append(item)

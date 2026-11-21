@@ -1,0 +1,73 @@
+{
+  "id": "benefit_turnover_tax",
+  "order": 13,
+  "kind": "benefit",
+  "icon": "🧾",
+  "category": "entrepreneur",
+  "title_uz": "Aylanmadan olinadigan soliq rejimi",
+  "title_ru": "Режим налога с оборота",
+  "summary_uz": "Yillik jami daromadi bir milliard so'mdan oshmagan yuridik shaxs yoki YaTT aylanmadan olinadigan soliq to'lovchisi hisoblanadi (461-moddadagi istisnolardan tashqari).",
+  "amount": "TODO_LAWYER: soliq stavkasi (Soliq kodeksi, 66-bob)",
+  "rule": {
+    "all": [
+      {
+        "fact": "is_business",
+        "op": "==",
+        "value": true,
+        "label_uz": "Yuridik shaxs yoki YaTT sifatida faoliyat yuritasiz",
+        "appeal_uz": "Tadbirkorlik faoliyatini yuritaman"
+      },
+      {
+        "fact": "business_income_le_1bn",
+        "op": "==",
+        "value": true,
+        "label_uz": "Yillik daromad 1 mlrd so'mdan oshmaydi",
+        "appeal_uz": "Yillik daromadim bir milliard so'mdan oshmaydi"
+      },
+      {
+        "todo": "Faoliyat turi bo'yicha istisnolar (import, aksiz, yoqilg'i savdosi va b.) soliq organi tomonidan tekshiriladi",
+        "label_uz": "461-moddadagi istisnolarga tushmaysiz"
+      }
+    ]
+  },
+  "documents": [
+    "Davlat ro'yxatidan o'tganlik guvohnomasi (soliq hisobini ham tasdiqlaydi)"
+  ],
+  "where_to_go": [
+    {
+      "name": "Soliq qo'mitasi (soliq.uz)",
+      "url": "https://soliq.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_TAX_TURNOVER",
+      "doc": "O'zbekiston Respublikasining Soliq kodeksi",
+      "article": "461-modda",
+      "lex_url": "https://lex.uz/docs/-4674902",
+      "doc_date": "2019-12-30",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "excerpt_ids": [
+    "ex_tax_461_turnover",
+    "ex_tax_126_registration"
+  ],
+  "related_card_id": "business_tax_regime",
+  "appeal_template_id": "appeal_tax_audit_complaint",
+  "appeal_addressee": "Hududiy soliq organi rahbariga",
+  "appeal_label_uz": "Soliq organiga murojaat",
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "_note": "Asl matn: knowledge/lex/excerpts.json (excerpt_ids). Huquqshunos tasdig'i kutilmoqda."
+}

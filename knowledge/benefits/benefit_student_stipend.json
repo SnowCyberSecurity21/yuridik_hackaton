@@ -1,0 +1,94 @@
+{
+  "id": "benefit_student_stipend",
+  "order": 10,
+  "kind": "benefit",
+  "icon": "🎓",
+  "category": "student",
+  "title_uz": "Talaba stipendiyasi",
+  "title_ru": "Стипендия студента",
+  "summary_uz": "Davlat OTMida kunduzgi ta'limda davlat granti yoki stipendiyali kontrakt asosida o'qisangiz, har oy stipendiya to'lanadi. Hamma fan «a'lo» bo'lsa — 20% oshiriladi.",
+  "amount": "TODO_LAWYER: bazaviy stipendiya miqdori (amaldagi qaror bilan belgilanadi)",
+  "rule": {
+    "all": [
+      {
+        "fact": "is_student",
+        "op": "==",
+        "value": true,
+        "label_uz": "Siz OTM talabasisiz",
+        "label_ru": "Вы студент вуза",
+        "appeal_uz": "Men OTM talabasiman"
+      },
+      {
+        "fact": "student_fulltime",
+        "op": "==",
+        "value": true,
+        "label_uz": "Kunduzgi ta'lim shakli",
+        "label_ru": "Очная форма",
+        "appeal_uz": "Kunduzgi ta'lim shaklida o'qiyman"
+      },
+      {
+        "fact": "student_state_institution",
+        "op": "==",
+        "value": true,
+        "label_uz": "Davlat oliy ta'lim muassasasi",
+        "label_ru": "Государственный вуз",
+        "appeal_uz": "Davlat oliy ta'lim muassasasida o'qiyman"
+      },
+      {
+        "fact": "student_stipend_basis",
+        "op": "==",
+        "value": true,
+        "label_uz": "Davlat granti yoki stipendiyali to'lov-kontrakt",
+        "label_ru": "Госгрант или контракт со стипендией",
+        "appeal_uz": "Davlat granti (yoki stipendiyali kontrakt) asosida o'qiyman"
+      },
+      {
+        "todo": "Semestr baholari demo profilda yo'q — stipendiya komissiyasi tekshiradi",
+        "label_uz": "Oldingi semestrda «qoniqarli» baholar 30% dan kam (grant talabalari uchun)",
+        "label_ru": "Доля «удовлетворительно» за прошлый семестр менее 30% (для грантников)"
+      }
+    ]
+  },
+  "documents": [
+    "Alohida hujjat shart emas: stipendiya komissiyasi xulosasi va rektor buyrug'i asosida tayinlanadi",
+    "Stipendiya tayinlanmasa — rektor nomiga yozma ariza"
+  ],
+  "where_to_go": [
+    {
+      "name": "OTM dekanati va stipendiya komissiyasi",
+      "url": "https://edu.uz"
+    },
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_STIPEND_1",
+      "doc": "Vazirlar Mahkamasining 31.01.2020 dagi 59-son qarori, 1-ilova — Stipendiyalar tayinlash va to'lash tartibi to'g'risida Nizom",
+      "article": "2, 5, 6, 22-bandlar",
+      "lex_url": "https://lex.uz/docs/-4725554",
+      "doc_date": "2020-01-31",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "excerpt_ids": [
+    "ex_stip_def",
+    "ex_stip_grades",
+    "ex_stip_timing"
+  ],
+  "related_card_id": "student_stipend",
+  "appeal_template_id": "appeal_stipend",
+  "appeal_addressee": "Oliy ta'lim muassasasi rektoriga",
+  "appeal_label_uz": "Stipendiya bo'yicha ariza",
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "_note": "Asl matn: knowledge/lex/excerpts.json (excerpt_ids). Huquqshunos tasdig'i kutilmoqda."
+}

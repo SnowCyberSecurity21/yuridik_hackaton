@@ -1,9 +1,156 @@
 {
   "id": "entrepreneur",
   "type": "situation",
-  "title_uz": "Tadbirkor",
-  "icon": "💼",
+  "title_uz": "Yuridik shaxs / tadbirkor",
+  "title_ru": "Юрлицо / предприниматель",
+  "icon": "🏢",
+  "intro_uz": "Ro'yxatdan o'tish, soliq rejimlari, soliq tekshiruvida huquqlaringiz va shikoyat muddatlari.",
   "items": [
+    {
+      "id": "en_registration",
+      "kind": "benefit",
+      "title_uz": "Ro'yxatdan o'tganda soliq hisobiga avtomatik qo'yish",
+      "plain_uz": "Yuridik shaxs davlat ro'yxatidan o'tganda bir vaqtda soliq va statistika hisobiga qo'yiladi. Soliq hisobiga qo'yish bepul.",
+      "law_id": "tax_code",
+      "article": "126-modda",
+      "excerpt_ids": [
+        "ex_tax_126_registration"
+      ],
+      "excerpt": "",
+      "title_ru": "Автоматическая постановка на налоговый учёт"
+    },
+    {
+      "id": "en_turnover_tax",
+      "kind": "benefit",
+      "title_uz": "Aylanmadan olinadigan soliq (soddalashtirilgan rejim)",
+      "plain_uz": "Yillik daromad bir milliard so'mdan oshmasa, yuridik shaxs va YaTT aylanmadan olinadigan soliq to'laydi (461-moddadagi istisnolardan tashqari).",
+      "law_id": "tax_code",
+      "article": "461-modda",
+      "excerpt_ids": [
+        "ex_tax_461_turnover"
+      ],
+      "excerpt": "",
+      "title_ru": "Налог с оборота",
+      "conditions_uz": [
+        "Yillik daromad 1 mlrd so'mdan oshmaydi",
+        "461-modda istisnolariga tushmaysiz (import, aksiz, yoqilg'i savdosi va b.)"
+      ]
+    },
+    {
+      "id": "en_vat",
+      "kind": "info",
+      "title_uz": "QQS kimga tatbiq etiladi",
+      "plain_uz": "QQS to'lovchilar: yuridik shaxslar va daromadi 1 mlrd so'mdan oshgan yoki ixtiyoriy o'tgan YaTT.",
+      "law_id": "tax_code",
+      "article": "237-modda",
+      "excerpt_ids": [
+        "ex_tax_237_vat"
+      ],
+      "excerpt": "",
+      "title_ru": "Кто платит НДС"
+    },
+    {
+      "id": "en_aaa",
+      "kind": "benefit",
+      "title_uz": "«AAA» reytingdagilarda soliq tekshiruvi yo'q",
+      "plain_uz": "Barqarorlik reytingi «AAA» bo'lgan tadbirkorlarda soliq tekshiruvlari o'tkazilmaydi (davlat ulushi 50%+ va jinoiy ishlar bundan mustasno).",
+      "law_id": "tax_code",
+      "article": "137-modda",
+      "excerpt_ids": [
+        "ex_tax_137_types"
+      ],
+      "excerpt": "",
+      "conditions_uz": [
+        "Barqarorlik reytingi «AAA»",
+        "Davlat ulushi 50% dan kam"
+      ]
+    },
+    {
+      "id": "en_tax_rights",
+      "kind": "right",
+      "title_uz": "Soliq to'lovchining huquqlari",
+      "plain_uz": "Bepul tushuntirish, kechiktirish yoki bo'lib to'lash, tekshiruvda hozir bo'lish, dalolatnoma olish, noqonuniy talabni bajarmaslik va shikoyat qilish.",
+      "law_id": "tax_code",
+      "article": "21-modda",
+      "excerpt_ids": [
+        "ex_tax_21_rights"
+      ],
+      "excerpt": "",
+      "title_ru": "Права налогоплательщика"
+    },
+    {
+      "id": "en_desk_audit",
+      "kind": "right",
+      "title_uz": "Kameral tekshiruvda kirish va hujjat talab qilish mumkin emas",
+      "plain_uz": "Kameral tekshiruvda (QQS qaytarishdan tashqari) hududingizga kirish, binoni ko'rish va hujjat talab qilish taqiqlanadi.",
+      "law_id": "tax_code",
+      "article": "138-modda",
+      "excerpt_ids": [
+        "ex_tax_138_desk"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "en_onsite_audit",
+      "kind": "right",
+      "title_uz": "Sayyor tekshiruv — faqat buyruq bilan, 10 kundan oshmaydi",
+      "plain_uz": "Tekshiruvchidan buyruqni ko'rsatishni so'rang: unda tekshiruvchilar, muddat va maqsad yozilgan bo'lishi shart.",
+      "law_id": "tax_code",
+      "article": "139-modda",
+      "excerpt_ids": [
+        "ex_tax_139_onsite"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "en_audit_appeal",
+      "kind": "right",
+      "title_uz": "Tekshiruv natijasi ustidan shikoyat — 1 oy ichida",
+      "plain_uz": "Sayyor tekshiruv yoki audit qarori ustidan yuqori soliq organiga, qaror chiqargan organ orqali, bir oy ichida shikoyat qilasiz.",
+      "law_id": "tax_code",
+      "article": "232-modda",
+      "excerpt_ids": [
+        "ex_tax_232_appeal"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "en_tax_duties",
+      "kind": "duty",
+      "title_uz": "Soliq to'lovchining majburiyatlari",
+      "plain_uz": "Soliqni o'z vaqtida to'lash, chek yoki hisobvaraq-faktura berish, tekshiruvchiga hujjatlarni ko'rsatish, hisobotlarni uch yil saqlash.",
+      "law_id": "tax_code",
+      "article": "22-modda",
+      "excerpt_ids": [
+        "ex_tax_22_duties"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "en_doc_registration",
+      "kind": "document",
+      "title_uz": "Davlat ro'yxatidan o'tganlik guvohnomasi",
+      "plain_uz": "Bu guvohnoma soliq hisobiga qo'yilganingizni ham tasdiqlaydi — alohida hujjat shart emas.",
+      "law_id": "tax_code",
+      "article": "126-modda",
+      "excerpt_ids": [
+        "ex_tax_126_registration"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "en_doc_appeal",
+      "kind": "document",
+      "title_uz": "Shikoyat uchun: tekshiruv dalolatnomasi va qaror",
+      "plain_uz": "Tekshiruv materiallari bilan tanishish va dalolatnoma olish huquqingiz bor — shikoyatga ilova qiling.",
+      "law_id": "tax_code",
+      "article": "21, 232-moddalar",
+      "excerpt_ids": [
+        "ex_tax_21_rights",
+        "ex_tax_232_appeal"
+      ],
+      "excerpt": ""
+    },
     {
       "id": "en_tax",
       "kind": "duty",
@@ -31,5 +178,20 @@
       "article": "41-modda",
       "excerpt": "Ҳар бир шахс мулкдор бўлишга ҳақли."
     }
-  ]
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Soliq qo'mitasi (soliq.uz)",
+      "url": "https://soliq.uz"
+    },
+    {
+      "name": "Qonunchilik ma'lumotlari milliy bazasi (lex.uz)",
+      "url": "https://lex.uz"
+    }
+  ],
+  "news": []
 }

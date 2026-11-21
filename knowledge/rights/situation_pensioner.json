@@ -2,8 +2,63 @@
   "id": "pensioner",
   "type": "situation",
   "title_uz": "Pensioner",
+  "title_ru": "Пенсионер",
   "icon": "👴",
+  "intro_uz": "Pensiya turlari, pensiya yoshi va staj, proaktiv tayinlash.",
   "items": [
+    {
+      "id": "pe_age",
+      "kind": "benefit",
+      "title_uz": "Yoshga doir pensiya",
+      "plain_uz": "Erkaklar 60 yosh va 25 yil staj, ayollar 55 yosh va 20 yil staj bilan yoshga doir pensiya olish huquqiga ega.",
+      "law_id": "pension_law",
+      "article": "7-modda",
+      "excerpt_ids": [
+        "ex_pens_7_age"
+      ],
+      "excerpt": "",
+      "title_ru": "Пенсия по возрасту",
+      "conditions_uz": [
+        "Yosh",
+        "Ish staji"
+      ]
+    },
+    {
+      "id": "pe_proactive",
+      "kind": "right",
+      "title_uz": "Yoshga doir pensiya arizasiz tayinlanadi",
+      "plain_uz": "Yoshga doir pensiya murojaatingizni kutmasdan — proaktiv tayinlanadi. Boshqa hollarda huquq paydo bo'lgach istalgan vaqtda murojaat qilasiz.",
+      "law_id": "pension_law",
+      "article": "3-modda",
+      "excerpt_ids": [
+        "ex_pens_3_proactive"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "pe_types",
+      "kind": "info",
+      "title_uz": "Davlat pensiyasi turlari",
+      "plain_uz": "Yoshga doir, nogironlik va boquvchisini yo'qotganlik pensiyasi.",
+      "law_id": "pension_law",
+      "article": "2-modda",
+      "excerpt_ids": [
+        "ex_pens_2_types"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "pe_right",
+      "kind": "right",
+      "title_uz": "Pensiya olish huquqi",
+      "plain_uz": "Fuqarolar, shuningdek doimiy yashovchi chet el fuqarolari va fuqaroligi yo'q shaxslar teng ravishda pensiya olish huquqiga ega.",
+      "law_id": "pension_law",
+      "article": "1-modda",
+      "excerpt_ids": [
+        "ex_pens_1_right"
+      ],
+      "excerpt": ""
+    },
     {
       "id": "pe_social",
       "kind": "right",
@@ -22,5 +77,16 @@
       "article": "3-modda",
       "excerpt": "Фуқаролар пенсия олиш ҳуқуқи пайдо бўлганидан сўнг исталган пайтда пенсия тайинлашни сўраб мурожаат этишлари мумкин."
     }
-  ]
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Qonunchilik ma'lumotlari milliy bazasi (lex.uz)",
+      "url": "https://lex.uz"
+    }
+  ],
+  "news": []
 }

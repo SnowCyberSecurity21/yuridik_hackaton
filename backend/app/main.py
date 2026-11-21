@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from .api import account, citizen, gov, profile
+from .api import account, citizen, gov, lex, profile
 from .oneid_demo import models as _oneid_models  # noqa: F401  (jadvallar)
 from .oneid_demo import router as oneid_router
 from .oneid_demo import service as oneid_service
@@ -61,6 +61,7 @@ app.include_router(citizen.router)
 app.include_router(gov.router)
 app.include_router(profile.router)
 app.include_router(account.router)
+app.include_router(lex.router)
 app.include_router(oneid_router.router)
 
 

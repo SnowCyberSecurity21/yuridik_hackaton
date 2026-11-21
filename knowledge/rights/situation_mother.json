@@ -1,0 +1,188 @@
+{
+  "id": "mother",
+  "type": "situation",
+  "title_uz": "Bolali ona",
+  "title_ru": "Мама с детьми",
+  "icon": "👩‍👧",
+  "intro_uz": "Bolalar nafaqasi, aliment, homiladorlik va tug'ish ta'tili, bola parvarishi ta'tili hamda ishda kafolatlar.",
+  "items": [
+    {
+      "id": "m_child_allowance",
+      "kind": "benefit",
+      "title_uz": "Bolalar nafaqasi (Ijtimoiy reyestrdagi oilalarga)",
+      "plain_uz": "Eng kichik yoki yagona bolasi 18 yoshga to'lmagan, Ijtimoiy reyestrdagi oilaga bolalar nafaqasi tayinlanadi. Rad etish asosi bo'lmasa — keyingi oydan avtomatik.",
+      "law_id": "child_allowance_regulation",
+      "article": "11, 13-bandlar",
+      "excerpt_ids": [
+        "ex_child_until18",
+        "ex_child_timing"
+      ],
+      "excerpt": "",
+      "title_ru": "Детское пособие",
+      "conditions_uz": [
+        "Oila Ijtimoiy reyestrda",
+        "Eng kichik bola 18 yoshga to'lmagan",
+        "Rad etish asoslari yo'q (12-band)"
+      ]
+    },
+    {
+      "id": "m_maternity",
+      "kind": "benefit",
+      "title_uz": "Homiladorlik va tug'ish ta'tili va nafaqasi",
+      "plain_uz": "Ishlaydigan ayolga tug'ruqdan oldin 70, keyin 56 kun (qiyin tug'ruq yoki egizakda 70 kun) ta'til va o'rtacha oylikning kamida 75% miqdorida nafaqa.",
+      "law_id": "labor_code",
+      "article": "404-modda",
+      "excerpt_ids": [
+        "ex_labor_404_maternity"
+      ],
+      "excerpt": "",
+      "title_ru": "Отпуск и пособие по беременности и родам",
+      "conditions_uz": [
+        "Mehnat shartnomasi bilan ishlaysiz",
+        "Homiladorlik tibbiy hujjat bilan tasdiqlangan"
+      ]
+    },
+    {
+      "id": "m_childcare",
+      "kind": "benefit",
+      "title_uz": "Bola parvarishi ta'tili (2 va 3 yoshgacha)",
+      "plain_uz": "Bola 2 yoshga to'lguncha nafaqali parvarish ta'tili va 3 yoshgacha haq to'lanmaydigan qo'shimcha ta'til. Ish joyingiz saqlanadi.",
+      "law_id": "labor_code",
+      "article": "405-modda",
+      "excerpt_ids": [
+        "ex_labor_405_childcare",
+        "ex_labor_405_job_kept"
+      ],
+      "excerpt": "",
+      "title_ru": "Отпуск по уходу за ребёнком",
+      "conditions_uz": [
+        "Mehnat shartnomasi bilan ishlaysiz",
+        "Bola 2 (yoki 3) yoshga to'lmagan"
+      ]
+    },
+    {
+      "id": "m_alimony",
+      "kind": "benefit",
+      "title_uz": "Bolalar uchun aliment",
+      "plain_uz": "Kelishuv bo'lmasa, sud daromadning bir bolaga 1/4, ikki bolaga 1/3, uch va undan ko'piga 1/2 qismini undiradi. Sud jarayonida vaqtincha aliment so'rash mumkin.",
+      "law_id": "family_code",
+      "article": "96, 99, 112-moddalar",
+      "excerpt_ids": [
+        "ex_family_96_duty",
+        "ex_family_99_amount",
+        "ex_family_112_temp"
+      ],
+      "excerpt": "",
+      "title_ru": "Алименты на детей",
+      "conditions_uz": [
+        "Voyaga yetmagan bola bor",
+        "Ikkinchi ota-ona ixtiyoriy ta'minlamaydi"
+      ]
+    },
+    {
+      "id": "m_no_discrimination",
+      "kind": "right",
+      "title_uz": "Homiladorlik yoki bola sababli ishdan bo'shatish taqiqlangan",
+      "plain_uz": "Homiladorlik yoki farzand borligi sababli ishga olmaslik, bo'shatish yoki maoshni kamaytirish mumkin emas; rad etishsa, uch kunda yozma sabab talab qilasiz.",
+      "law_id": "labor_code",
+      "article": "392-modda",
+      "excerpt_ids": [
+        "ex_labor_392_no_discrimination"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "m_pregnant_dismissal",
+      "kind": "right",
+      "title_uz": "Homilador ayolni ish beruvchi bo'shata olmaydi",
+      "plain_uz": "Tashkilot tugatilgan holdan tashqari, homilador ayol bilan mehnat shartnomasini ish beruvchi bekor qila olmaydi.",
+      "law_id": "labor_code",
+      "article": "408-modda",
+      "excerpt_ids": [
+        "ex_labor_408_pregnant"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "m_alimony_liability",
+      "kind": "right",
+      "title_uz": "Aliment to'lamaganga javobgarlik",
+      "plain_uz": "Sud qarorini bajarmagan ota (ona) ota-onalik huquqidan mahrum qilinishi yoki jinoiy javobgarlikka tortilishi mumkin.",
+      "law_id": "family_code",
+      "article": "116-modda",
+      "excerpt_ids": [
+        "ex_family_116_liability"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "m_duty",
+      "kind": "duty",
+      "title_uz": "Ota-onaning majburiyati",
+      "plain_uz": "Ota-ona voyaga yetmagan bolasini ta'minlashi shart.",
+      "law_id": "family_code",
+      "article": "96-modda",
+      "excerpt_ids": [
+        "ex_family_96_duty"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "m_doc_allowance",
+      "kind": "document",
+      "title_uz": "Bolalar nafaqasi: ariza va shaxsni tasdiqlash",
+      "plain_uz": "Ariza davlat xizmatlari markazi, ijtimoiy xodim, my.gov.uz yoki «Ijtimoiy karta» ilovasi orqali. Shaxs raqamli tasdiqlanadi, bo'lmasa — ID-karta, pasport yoki yashash guvohnomasi. Yig'im olinmaydi.",
+      "law_id": "child_allowance_regulation",
+      "article": "4, 6, 7-bandlar",
+      "excerpt_ids": [
+        "ex_child_apply",
+        "ex_child_id",
+        "ex_child_free"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "m_doc_refusal",
+      "kind": "document",
+      "title_uz": "Nafaqa rad etilishi mumkin bo'lgan hollar",
+      "plain_uz": "Rad etish asoslari 12-bandda sanab o'tilgan — arizadan oldin tekshiring.",
+      "law_id": "child_allowance_regulation",
+      "article": "12-band",
+      "excerpt_ids": [
+        "ex_child_refusal"
+      ],
+      "excerpt": ""
+    }
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Tuman (shahar) «Inson» ijtimoiy xizmatlar markazi / davlat xizmatlari markazi",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Sud (aliment bo'yicha) — my.sud.uz",
+      "url": "https://my.sud.uz"
+    },
+    {
+      "name": "Qonunchilik ma'lumotlari milliy bazasi (lex.uz)",
+      "url": "https://lex.uz"
+    }
+  ],
+  "news": [
+    {
+      "id": "nw_child_allowance_2026",
+      "date": "2026-01-29",
+      "title_uz": "Bolalar nafaqasi bo'yicha yangi Nizom",
+      "plain_uz": "Bolalar nafaqasi va moddiy yordam tayinlashning yangi tartibi tasdiqlandi: ariza onlayn yoki markaz orqali, tayinlash avtomatik.",
+      "law_id": "child_allowance_regulation",
+      "excerpt_ids": [
+        "ex_child_apply",
+        "ex_child_timing"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "benefit_childcare_leave",
+  "order": 12,
+  "kind": "right",
+  "icon": "🍼",
+  "category": "mother",
+  "title_uz": "Bola parvarishi ta'tili (2 yoshgacha nafaqa bilan)",
+  "title_ru": "Отпуск по уходу за ребёнком до 2 лет",
+  "summary_uz": "Mehnat shartnomasi bilan ishlasangiz, bola 2 yoshga to'lguncha nafaqali parvarish ta'tili va 3 yoshgacha qo'shimcha ta'til olishingiz mumkin. Ish joyingiz saqlanadi.",
+  "amount": "TODO_LAWYER: nafaqa miqdori (Vazirlar Mahkamasi belgilaydi)",
+  "rule": {
+    "all": [
+      {
+        "fact": "employed",
+        "op": "==",
+        "value": true,
+        "label_uz": "Mehnat shartnomasi bilan ishlaysiz",
+        "appeal_uz": "Mehnat shartnomasi asosida ishlayman"
+      },
+      {
+        "fact": "children_under_2",
+        "op": ">=",
+        "value": 1,
+        "label_uz": "2 yoshga to'lmagan bolangiz bor",
+        "appeal_uz": "2 yoshga to'lmagan bolam bor"
+      }
+    ]
+  },
+  "documents": [
+    "Ish beruvchi nomiga ariza",
+    "Bolaning tug'ilganlik haqidagi guvohnomasi"
+  ],
+  "where_to_go": [
+    {
+      "name": "Ish beruvchingiz (kadrlar bo'limi)",
+      "url": "https://my.gov.uz"
+    }
+  ],
+  "legal_basis": [
+    {
+      "ref_id": "REF_LABOR_CHILDCARE",
+      "doc": "O'zbekiston Respublikasining Mehnat kodeksi",
+      "article": "405-modda",
+      "lex_url": "https://lex.uz/docs/-6257288",
+      "doc_date": "2022-10-28",
+      "retrieved_at": "2026-11-21",
+      "source_type": "lex.uz",
+      "source_verified": true
+    }
+  ],
+  "excerpt_ids": [
+    "ex_labor_405_childcare",
+    "ex_labor_405_job_kept"
+  ],
+  "related_card_id": "maternity_childcare",
+  "appeal_template_id": "appeal_maternity",
+  "appeal_addressee": "Ish beruvchi (tashkilot rahbari)ga",
+  "appeal_label_uz": "Ta'til so'rash arizasi",
+  "verified": false,
+  "verified_by": null,
+  "verified_at": null,
+  "source_checked": true,
+  "source_checked_at": "2026-11-21",
+  "source_checked_by": "Huquqim jamoasi (lex.uz'da matn bilan solishtirildi)",
+  "_note": "Asl matn: knowledge/lex/excerpts.json (excerpt_ids). Huquqshunos tasdig'i kutilmoqda."
+}

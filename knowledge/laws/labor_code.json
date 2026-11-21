@@ -10,7 +10,8 @@
   "situations": [
     "worker",
     "student",
-    "civil_servant"
+    "civil_servant",
+    "mother"
   ],
   "retrieved_at": "2026-11-21",
   "source_type": "lex.uz",

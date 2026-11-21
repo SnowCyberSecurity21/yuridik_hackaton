@@ -20,8 +20,9 @@ router = Router()
 
 STATUSES = [("uz_citizen", "🏠 O'zbekiston fuqarosi"), ("foreign", "🌍 Chet el fuqarosi"),
             ("stateless", "🕊️ Fuqaroligi bo'lmagan shaxs"), ("unknown", "❔ Bilmayman")]
-SITUATIONS = [("student", "🎓 Talaba"), ("parent", "👨‍👩‍👧 Ota-ona"), ("pensioner", "👴 Pensioner"),
-              ("driver", "🚗 Haydovchi"), ("entrepreneur", "💼 Tadbirkor")]
+SITUATIONS = [("student", "🎓 Talaba"), ("mother", "👩‍👧 Bolali ona"), ("parent", "👨‍👩‍👧 Ota-ona"),
+              ("entrepreneur", "🏢 Yuridik shaxs / tadbirkor"), ("pensioner", "👴 Pensioner"),
+              ("driver", "🚗 Haydovchi")]
 
 # Xotiradagi anonim tanlov (shaxsiy ma'lumot emas): chat_id -> {"status", "situations"}
 anon: dict[int, dict] = {}

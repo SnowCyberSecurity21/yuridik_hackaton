@@ -10,13 +10,40 @@
       "full_name": "Azizbek Rustamov (DEMO)",
       "first_name": "Azizbek",
       "birth_date": "2006-03-14",
-      "citizenship": {"status": "uz_citizen", "document": "ID-karta (DEMO)"},
+      "citizenship": {
+        "status": "uz_citizen",
+        "document": "ID-karta (DEMO)"
+      },
       "region": "toshkent_sh",
-      "occupation": {"type": "student", "title": "Yuridik fakultet talabasi, 3-kurs (DEMO)"},
-      "situations": ["student"],
-      "family": {"marital_status": "turmush qurmagan", "household_size": 4, "children": []},
-      "social": {"employment": "talaba", "pensioner": false, "lives_alone": false, "low_income_registry": false, "disability_group": null},
-      "driver": {"has_license": false},
+      "occupation": {
+        "type": "student",
+        "title": "Yuridik fakultet talabasi, 3-kurs (DEMO)",
+        "education": {
+          "institution_type": "davlat",
+          "form": "kunduzgi",
+          "funding": "davlat granti",
+          "dormitory": true,
+          "course": 3
+        }
+      },
+      "situations": [
+        "student"
+      ],
+      "family": {
+        "marital_status": "turmush qurmagan",
+        "household_size": 4,
+        "children": []
+      },
+      "social": {
+        "employment": "talaba",
+        "pensioner": false,
+        "lives_alone": false,
+        "low_income_registry": false,
+        "disability_group": null
+      },
+      "driver": {
+        "has_license": false
+      },
       "obligations": []
     },
     {
@@ -28,16 +55,52 @@
       "full_name": "Malika Sobirova (DEMO)",
       "first_name": "Malika",
       "birth_date": "1994-07-02",
-      "citizenship": {"status": "uz_citizen", "document": "ID-karta (DEMO)"},
+      "citizenship": {
+        "status": "uz_citizen",
+        "document": "ID-karta (DEMO)"
+      },
       "region": "samarqand",
-      "occupation": {"type": "unemployed", "title": "Vaqtincha ishsiz (DEMO)"},
-      "situations": ["parent"],
-      "family": {"marital_status": "ajrashgan", "household_size": 3, "children": [{"age": 6}, {"age": 3}]},
-      "social": {"employment": "vaqtincha ishsiz", "pensioner": false, "lives_alone": false, "low_income_registry": true, "disability_group": null},
-      "driver": {"has_license": false},
+      "occupation": {
+        "type": "unemployed",
+        "title": "Vaqtincha ishsiz (DEMO)"
+      },
+      "situations": [
+        "parent",
+        "mother"
+      ],
+      "family": {
+        "marital_status": "ajrashgan",
+        "household_size": 3,
+        "children": [
+          {
+            "age": 6
+          },
+          {
+            "age": 3
+          }
+        ],
+        "parent_role": "ona"
+      },
+      "social": {
+        "employment": "vaqtincha ishsiz",
+        "pensioner": false,
+        "lives_alone": false,
+        "low_income_registry": true,
+        "disability_group": null
+      },
+      "driver": {
+        "has_license": false
+      },
       "obligations": [
-        {"id": "ob_malika_utility", "kind": "utility_debt", "title_uz": "Kommunal xizmat qarzi (gaz) — DEMO", "amount": 186000, "due_in_days": 15,
-         "card_id": "utility_debt_court_order", "issuer": "Gaz ta'minoti tashkiloti (DEMO)"}
+        {
+          "id": "ob_malika_utility",
+          "kind": "utility_debt",
+          "title_uz": "Kommunal xizmat qarzi (gaz) — DEMO",
+          "amount": 186000,
+          "due_in_days": 15,
+          "card_id": "utility_debt_court_order",
+          "issuer": "Gaz ta'minoti tashkiloti (DEMO)"
+        }
       ]
     },
     {
@@ -49,13 +112,40 @@
       "full_name": "Karim Toshmatov (DEMO)",
       "first_name": "Karim ota",
       "birth_date": "1956-01-20",
-      "citizenship": {"status": "uz_citizen", "document": "Biometrik pasport (DEMO)"},
+      "citizenship": {
+        "status": "uz_citizen",
+        "document": "Biometrik pasport (DEMO)"
+      },
       "region": "toshkent_vil",
-      "occupation": {"type": "pensioner", "title": "Pensiyada (DEMO)"},
-      "situations": ["pensioner"],
-      "family": {"marital_status": "beva", "household_size": 1, "children": [{"age": 44}, {"age": 39}]},
-      "social": {"employment": "pensiyada", "pensioner": true, "lives_alone": true, "low_income_registry": false, "disability_group": null},
-      "driver": {"has_license": false},
+      "occupation": {
+        "type": "pensioner",
+        "title": "Pensiyada (DEMO)"
+      },
+      "situations": [
+        "pensioner"
+      ],
+      "family": {
+        "marital_status": "beva",
+        "household_size": 1,
+        "children": [
+          {
+            "age": 44
+          },
+          {
+            "age": 39
+          }
+        ]
+      },
+      "social": {
+        "employment": "pensiyada",
+        "pensioner": true,
+        "lives_alone": true,
+        "low_income_registry": false,
+        "disability_group": null
+      },
+      "driver": {
+        "has_license": false
+      },
       "obligations": []
     },
     {
@@ -67,19 +157,63 @@
       "full_name": "Sardor Alimov (DEMO)",
       "first_name": "Sardor",
       "birth_date": "1998-11-05",
-      "citizenship": {"status": "uz_citizen", "document": "ID-karta (DEMO)"},
+      "citizenship": {
+        "status": "uz_citizen",
+        "document": "ID-karta (DEMO)"
+      },
       "region": "toshkent_sh",
-      "occupation": {"type": "entrepreneur", "title": "Yakka tadbirkor — yuk tashish (DEMO)"},
-      "situations": ["driver", "entrepreneur"],
-      "family": {"marital_status": "uylangan", "household_size": 3, "children": [{"age": 2}]},
-      "social": {"employment": "yakka tadbirkor", "pensioner": false, "lives_alone": false, "low_income_registry": false, "disability_group": null},
-      "driver": {"has_license": true, "license_year": 2017},
+      "occupation": {
+        "type": "entrepreneur",
+        "title": "Yakka tadbirkor — yuk tashish (DEMO)"
+      },
+      "situations": [
+        "driver",
+        "entrepreneur"
+      ],
+      "family": {
+        "marital_status": "uylangan",
+        "household_size": 3,
+        "children": [
+          {
+            "age": 2
+          }
+        ]
+      },
+      "social": {
+        "employment": "yakka tadbirkor",
+        "pensioner": false,
+        "lives_alone": false,
+        "low_income_registry": false,
+        "disability_group": null
+      },
+      "driver": {
+        "has_license": true,
+        "license_year": 2017
+      },
       "obligations": [
-        {"id": "ob_sardor_fine", "kind": "traffic_fine", "title_uz": "Yo'l harakati jarimasi (kamera) — DEMO", "amount": 44000, "discount_amount": 22000,
-         "discount_pct": 50, "discount_due_in_days": 6, "due_in_days": 30, "invoice": "DEMO-0000000001", "card_id": "traffic_fine", "issuer": "YHXB (DEMO)"},
-        {"id": "ob_sardor_mib", "kind": "mib_debt", "title_uz": "MIB'dagi ijro hujjati bo'yicha qarz — DEMO", "amount": 1250000, "due_in_days": null,
-         "card_id": "mib_debt_travel_ban", "issuer": "Majburiy ijro byurosi (DEMO)",
-         "warning_uz": "Qarz uzilmasa, chet elga chiqish cheklanishi mumkin (shartlari: huquqshunos tasdiqlashi kutilmoqda)."}
+        {
+          "id": "ob_sardor_fine",
+          "kind": "traffic_fine",
+          "title_uz": "Yo'l harakati jarimasi (kamera) — DEMO",
+          "amount": 44000,
+          "discount_amount": 22000,
+          "discount_pct": 50,
+          "discount_due_in_days": 6,
+          "due_in_days": 30,
+          "invoice": "DEMO-0000000001",
+          "card_id": "traffic_fine",
+          "issuer": "YHXB (DEMO)"
+        },
+        {
+          "id": "ob_sardor_mib",
+          "kind": "mib_debt",
+          "title_uz": "MIB'dagi ijro hujjati bo'yicha qarz — DEMO",
+          "amount": 1250000,
+          "due_in_days": null,
+          "card_id": "mib_debt_travel_ban",
+          "issuer": "Majburiy ijro byurosi (DEMO)",
+          "warning_uz": "Qarz uzilmasa, chet elga chiqish cheklanishi mumkin (shartlari: huquqshunos tasdiqlashi kutilmoqda)."
+        }
       ]
     },
     {
@@ -91,13 +225,42 @@
       "full_name": "Dilnoza Yusupova (DEMO)",
       "first_name": "Dilnoza",
       "birth_date": "1990-05-17",
-      "citizenship": {"status": "uz_citizen", "document": "ID-karta (DEMO)"},
+      "citizenship": {
+        "status": "uz_citizen",
+        "document": "ID-karta (DEMO)"
+      },
       "region": "fargona",
-      "occupation": {"type": "civil_servant", "title": "Tuman adliya bo'limi bosh mutaxassisi (DEMO)"},
-      "situations": ["civil_servant", "worker"],
-      "family": {"marital_status": "turmush qurgan", "household_size": 4, "children": [{"age": 9}, {"age": 5}]},
-      "social": {"employment": "davlat xizmatchisi", "pensioner": false, "lives_alone": false, "low_income_registry": false, "disability_group": null},
-      "driver": {"has_license": false},
+      "occupation": {
+        "type": "civil_servant",
+        "title": "Tuman adliya bo'limi bosh mutaxassisi (DEMO)"
+      },
+      "situations": [
+        "civil_servant",
+        "worker"
+      ],
+      "family": {
+        "marital_status": "turmush qurgan",
+        "household_size": 4,
+        "children": [
+          {
+            "age": 9
+          },
+          {
+            "age": 5
+          }
+        ],
+        "parent_role": "ona"
+      },
+      "social": {
+        "employment": "davlat xizmatchisi",
+        "pensioner": false,
+        "lives_alone": false,
+        "low_income_registry": false,
+        "disability_group": null
+      },
+      "driver": {
+        "has_license": false
+      },
       "obligations": []
     },
     {
@@ -109,13 +272,92 @@
       "full_name": "Erlan Nurlanov (DEMO)",
       "first_name": "Erlan",
       "birth_date": "1987-09-30",
-      "citizenship": {"status": "foreign", "residence": "permanent", "document": "Chet el fuqarosining ID-kartasi — doimiy yashash (DEMO)"},
+      "citizenship": {
+        "status": "foreign",
+        "residence": "permanent",
+        "document": "Chet el fuqarosining ID-kartasi — doimiy yashash (DEMO)"
+      },
       "region": "toshkent_sh",
-      "occupation": {"type": "worker", "title": "Xususiy kompaniyada muhandis (DEMO)"},
-      "situations": ["worker", "parent"],
-      "family": {"marital_status": "uylangan", "household_size": 3, "children": [{"age": 7}]},
-      "social": {"employment": "yollanib ishlaydi", "pensioner": false, "lives_alone": false, "low_income_registry": false, "disability_group": null},
-      "driver": {"has_license": true, "license_year": 2010},
+      "occupation": {
+        "type": "worker",
+        "title": "Xususiy kompaniyada muhandis (DEMO)"
+      },
+      "situations": [
+        "worker",
+        "parent"
+      ],
+      "family": {
+        "marital_status": "uylangan",
+        "household_size": 3,
+        "children": [
+          {
+            "age": 7
+          }
+        ]
+      },
+      "social": {
+        "employment": "yollanib ishlaydi",
+        "pensioner": false,
+        "lives_alone": false,
+        "low_income_registry": false,
+        "disability_group": null
+      },
+      "driver": {
+        "has_license": true,
+        "license_year": 2010
+      },
+      "obligations": []
+    },
+    {
+      "sub": "demo-id-0007",
+      "login": "Jasur",
+      "password": "12345678",
+      "icon": "🏢",
+      "persona_uz": "Yuridik shaxs rahbari (MChJ direktori)",
+      "full_name": "Jasur Qodirov (DEMO)",
+      "first_name": "Jasur",
+      "birth_date": "1985-04-12",
+      "citizenship": {
+        "status": "uz_citizen",
+        "document": "ID-karta (DEMO)"
+      },
+      "region": "buxoro",
+      "occupation": {
+        "type": "legal_entity_head",
+        "title": "«Demo Savdo» MChJ direktori (DEMO)",
+        "company": {
+          "name": "«Demo Savdo» MChJ (DEMO)",
+          "legal_form": "MChJ",
+          "annual_income": 750000000,
+          "tax_regime": "aylanmadan olinadigan soliq (DEMO)"
+        }
+      },
+      "situations": [
+        "entrepreneur"
+      ],
+      "family": {
+        "marital_status": "uylangan",
+        "household_size": 4,
+        "children": [
+          {
+            "age": 12
+          },
+          {
+            "age": 8
+          }
+        ]
+      },
+      "social": {
+        "employment": "yuridik shaxs rahbari",
+        "pensioner": false,
+        "lives_alone": false,
+        "low_income_registry": false,
+        "disability_group": null
+      },
+      "driver": {
+        "has_license": true,
+        "license_year": 2005
+      },
       "obligations": []
     }
   ]

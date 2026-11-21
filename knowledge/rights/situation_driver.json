@@ -2,8 +2,51 @@
   "id": "driver",
   "type": "situation",
   "title_uz": "Haydovchi",
+  "title_ru": "Водитель",
   "icon": "🚗",
+  "intro_uz": "Jarimani chegirma bilan to'lash, to'lash muddati va shikoyat qilish.",
   "items": [
+    {
+      "id": "dr_discount",
+      "kind": "benefit",
+      "title_uz": "Jarimani chegirma bilan to'lash",
+      "plain_uz": "Qaror topshirilgan kundan 15 kun ichida jarimaning 50% ini yoki 30 kun ichida 70% ini to'lasangiz, qolgani kechiriladi (ayrim moddalar bundan mustasno).",
+      "law_id": "admin_code",
+      "article": "332¹-modda",
+      "excerpt_ids": [
+        "ex_admin_332_1_discount"
+      ],
+      "excerpt": "",
+      "title_ru": "Оплата штрафа со скидкой",
+      "conditions_uz": [
+        "Qaror topshirilgan sana",
+        "Huquqbuzarlik 332¹-moddaning ikkinchi qismidagi istisnolarga kirmaydi"
+      ]
+    },
+    {
+      "id": "dr_complaint",
+      "kind": "right",
+      "title_uz": "Jarima ustidan shikoyat — 10 kun ichida",
+      "plain_uz": "Qaror nusxasini olgan kundan 10 kun ichida shikoyat qilasiz; uzrli sabab bilan o'tkazilgan muddat tiklanishi mumkin.",
+      "law_id": "admin_code",
+      "article": "316-modda",
+      "excerpt_ids": [
+        "ex_admin_316_complaint"
+      ],
+      "excerpt": ""
+    },
+    {
+      "id": "dr_pay_term",
+      "kind": "duty",
+      "title_uz": "YHQ jarimasini to'lash muddati",
+      "plain_uz": "Jarima qaror chiqqan kundan 60 kun ichida to'lanadi; shikoyat rad etilsa — xabar olingan kundan 30 kun ichida.",
+      "law_id": "admin_code",
+      "article": "332-modda",
+      "excerpt_ids": [
+        "ex_admin_332_term"
+      ],
+      "excerpt": ""
+    },
     {
       "id": "dr_admin",
       "kind": "info",
@@ -22,5 +65,20 @@
       "article": "55-modda",
       "excerpt": "... қонунга хилоф қарорлари, ҳаракатлари ва ҳаракатсизлиги устидан судга шикоят қилиш ҳуқуқи кафолатланади."
     }
-  ]
+  ],
+  "where_to_go": [
+    {
+      "name": "Yagona interaktiv davlat xizmatlari portali (my.gov.uz)",
+      "url": "https://my.gov.uz"
+    },
+    {
+      "name": "Sud (ma'muriy ishlar) — my.sud.uz",
+      "url": "https://my.sud.uz"
+    },
+    {
+      "name": "Qonunchilik ma'lumotlari milliy bazasi (lex.uz)",
+      "url": "https://lex.uz"
+    }
+  ],
+  "news": []
 }
