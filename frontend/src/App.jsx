@@ -1,8 +1,10 @@
 import { Suspense, lazy, useCallback, useEffect, useState } from "react";
+import { AnimatePresence, MotionConfig } from "motion/react";
 import MiniApp from "./MiniApp.jsx";
 import { api } from "./api.js";
 import { APP_NAME } from "./config.js";
-import { AnonView, AuthPage, CabinetPage, Header, Home, ThemeToggle, go } from "./Site.jsx";
+import { AnonView, AuthPage, CabinetPage, Footer, Header, Home, ThemeToggle } from "./Site.jsx";
+import { Badge, Logo, PageTransition, SkeletonList, Toaster, useScrolled } from "./ui/index.js";
 
 // Davlat dashboardi (Recharts) alohida yuklanadi; /dashboard nginx basic auth ortida.
 const Dashboard = lazy(() => import("./Dashboard.jsx"));
@@ -17,6 +19,27 @@ function useMe() {
   return [me, reload, setMe];
 }
 
+function DashboardShell() {
+  const scrolled = useScrolled();
+  return (
+    <div className="min-h-screen">
+      <header className="site-header" data-scrolled={scrolled}>
+        <div className="mx-auto flex h-[var(--header-h)] max-w-7xl items-center gap-3 px-4">
+          <span className="brand"><Logo size={30} textClassName="hidden sm:inline" /></span>
+          <span className="secondary hidden text-sm font-medium sm:inline">Davlat dashboardi</span>
+          <div className="ml-auto flex items-center gap-2">
+            <Badge tone="warn" title="Analitika soxta demo ma'lumot">Demo ma'lumot</Badge>
+            <ThemeToggle />
+          </div>
+        </div>
+      </header>
+      <main className="mx-auto max-w-7xl px-4 py-6">
+        <Suspense fallback={<SkeletonList count={3} />}><Dashboard /></Suspense>
+      </main>
+    </div>
+  );
+}
+
 export default function App() {
   const [path, setPath] = useState(window.location.pathname);
   const [me, reload, setMe] = useMe();
@@ -26,42 +49,36 @@ export default function App() {
     return () => window.removeEventListener("popstate", onPop);
   }, []);
   useEffect(() => { window.scrollTo(0, 0); }, [path]);
+  useEffect(() => { document.title = path.startsWith("/dashboard") ? `${APP_NAME} — dashboard` : APP_NAME; }, [path]);
 
-  if (path.startsWith("/miniapp")) return <MiniApp />;
-
-  if (path.startsWith("/dashboard")) {
-    return (
-      <div className="min-h-screen">
-        <header className="sticky top-0 z-10 border-b" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3">
-            <span className="hero-mark" style={{ width: 32, height: 32, fontSize: 14 }}>H</span>
-            <span className="text-lg font-bold">{APP_NAME} — davlat dashboardi</span>
-            <div className="ml-auto flex items-center gap-2">
-              <span className="badge badge-warn" title="Analitika soxta demo ma'lumot">⚠️ DEMO ma'lumot</span>
-              <ThemeToggle />
-            </div>
-          </div>
-        </header>
-        <main className="mx-auto max-w-7xl px-4 py-6">
-          <Suspense fallback={<div className="muted py-10 text-center">Yuklanmoqda…</div>}><Dashboard /></Suspense>
+  let content;
+  if (path.startsWith("/miniapp")) content = <MiniApp />;
+  else if (path.startsWith("/dashboard")) content = <DashboardShell />;
+  else {
+    let page;
+    let key = "home";
+    if (path.startsWith("/anonim")) { page = <AnonView />; key = "anon"; }
+    else if (path.startsWith("/kirish")) { page = <AuthPage onAuthed={(r) => setMe(r)} />; key = "auth"; }
+    else if (path.startsWith("/kabinet")) { page = <CabinetPage me={me} onReload={reload} />; key = "cabinet"; }
+    else page = <Home me={me} />;
+    const wide = key === "home" || key === "cabinet";
+    content = (
+      <div className="flex min-h-screen flex-col">
+        <Header me={me} wide={wide} />
+        <main className={`mx-auto w-full flex-1 px-4 pb-16 pt-4 ${wide ? "max-w-6xl" : "max-w-3xl"}`}>
+          <AnimatePresence mode="wait" initial={false}>
+            <PageTransition key={key} id={key}>{page}</PageTransition>
+          </AnimatePresence>
         </main>
+        <Footer wide={wide} />
       </div>
     );
   }
 
-  let page;
-  if (path.startsWith("/anonim")) page = <AnonView />;
-  else if (path.startsWith("/kirish")) page = <AuthPage onAuthed={(r) => setMe(r)} />;
-  else if (path.startsWith("/kabinet")) page = <CabinetPage me={me} onReload={reload} />;
-  else page = <Home me={me} />;
-
   return (
-    <div className="min-h-screen">
-      <Header me={me} />
-      <main className="mx-auto max-w-3xl px-4 pb-16 pt-4">{page}</main>
-      <footer className="mx-auto max-w-3xl px-4 pb-8 text-xs muted">
-        {APP_NAME} · Demo · <a className="underline" href="/" onClick={(e) => { e.preventDefault(); go("/"); }}>Bosh sahifa</a> · Manbalar: lex.uz
-      </footer>
-    </div>
+    <MotionConfig reducedMotion="user">
+      {content}
+      <Toaster />
+    </MotionConfig>
   );
 }

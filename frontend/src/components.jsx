@@ -1,4 +1,6 @@
-// Umumiy UI bo'laklari
+// Umumiy UI bo'laklari (dashboard). Yangi komponentlar — src/ui/.
+import { Alert, TrustBadge } from "./ui/index.js";
+
 export const REGION_NAMES = {};
 
 export function fmt(n) {
@@ -17,10 +19,7 @@ export function Wow({ pct }) {
 }
 
 export function StatusBadge({ verified, reverify, sourceChecked }) {
-  if (reverify) return <span className="badge badge-crit">🔄 Qayta tekshirish</span>;
-  if (!verified && sourceChecked) return <span className="badge badge-acc">📚 Manba tekshirildi</span>;
-  if (!verified) return <span className="badge badge-warn">⚠️ Tekshirilmagan</span>;
-  return <span className="badge badge-ok">✅ Tekshirilgan</span>;
+  return <TrustBadge verified={verified} reverify={reverify} sourceChecked={sourceChecked} />;
 }
 
 export function Section({ title, subtitle, right, children, className = "" }) {
@@ -28,7 +27,7 @@ export function Section({ title, subtitle, right, children, className = "" }) {
     <section className={`card p-5 ${className}`}>
       <div className="mb-4 flex flex-wrap items-start gap-3">
         <div className="min-w-0">
-          <h2 className="text-base font-semibold">{title}</h2>
+          <h2 className="h3">{title}</h2>
           {subtitle && <p className="muted mt-0.5 text-sm">{subtitle}</p>}
         </div>
         {right && <div className="flex w-full flex-wrap items-center gap-2 sm:ml-auto sm:w-auto">{right}</div>}
@@ -40,7 +39,7 @@ export function Section({ title, subtitle, right, children, className = "" }) {
 
 export function ErrorNote({ error }) {
   if (!error) return null;
-  return <div className="badge badge-crit my-2">⚠️ {error}</div>;
+  return <Alert tone="danger" className="my-2">{error}</Alert>;
 }
 
 export function DiffBlock({ oldText, newText }) {

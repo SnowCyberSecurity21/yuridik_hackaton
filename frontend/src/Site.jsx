@@ -2,6 +2,7 @@
 import { Suspense, lazy, useCallback, useEffect, useState } from "react";
 import { api, localStorageSafe } from "./api.js";
 import { APP_NAME } from "./config.js";
+import { Logo, useScrolled } from "./ui/index.js";
 
 const Dashboard = lazy(() => import("./Dashboard.jsx"));
 const Edu = lazy(() => import("./Edu.jsx"));
@@ -36,22 +37,34 @@ export function ThemeToggle() {
   return <button className="btn btn-ghost px-3" onClick={() => setTheme(next)} aria-label={`Mavzu: ${label}. Almashtirish`}>{label}</button>;
 }
 
-export function Header({ me }) {
+export function Header({ me, wide = false }) {
+  const scrolled = useScrolled();
   return (
-    <header className="sticky top-0 z-20 border-b" style={{ background: "var(--bg)", borderColor: "var(--border)" }}>
-      <div className="mx-auto flex max-w-3xl items-center gap-2 px-4 py-2">
-        <a href="/" onClick={(e) => { e.preventDefault(); go("/"); }} className="flex items-center gap-2 no-underline">
-          <span className="hero-mark" style={{ width: 32, height: 32, fontSize: 14 }}>H</span>
-          <span className="text-lg font-bold">{APP_NAME}</span>
-        </a>
-        <div className="ml-auto flex items-center gap-1">
+    <header className="site-header" data-scrolled={scrolled}>
+      <div className={`mx-auto flex h-[var(--header-h)] items-center gap-2 px-4 ${wide ? "max-w-6xl" : "max-w-3xl"}`}>
+        <span className="brand">
+          <Logo size={32} href="/" onClick={(e) => { e.preventDefault(); go("/"); }} />
+        </span>
+        <nav className="ml-auto flex items-center gap-1" aria-label="Asosiy">
           {me?.logged_in
-            ? <button className="btn btn-ghost px-3" onClick={() => go("/kabinet")}>{me.icon || "👤"} Kabinet</button>
+            ? <button className="btn btn-ghost px-3" onClick={() => go("/kabinet")}><span aria-hidden>{me.icon || "👤"}</span> Kabinet</button>
             : <button className="btn btn-ghost px-3" onClick={() => go("/kirish")}>Kirish</button>}
           <ThemeToggle />
-        </div>
+        </nav>
       </div>
     </header>
+  );
+}
+
+export function Footer({ wide = false }) {
+  return (
+    <footer className="border-t" style={{ borderColor: "var(--border)" }}>
+      <div className={`muted mx-auto flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-6 text-xs ${wide ? "max-w-6xl" : "max-w-3xl"}`}>
+        <Logo size={20} textClassName="text-sm" />
+        <span>Demo versiya. AI tushuntiradi; rasmiy manba — qonun hujjatining o'zi.</span>
+        <a className="underline sm:ml-auto" href="https://lex.uz" target="_blank" rel="noreferrer">Manbalar: lex.uz</a>
+      </div>
+    </footer>
   );
 }
 
