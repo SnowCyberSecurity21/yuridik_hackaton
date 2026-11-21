@@ -36,7 +36,7 @@ export function SkeletonList({ count = 3, lines = 3 }) {
 export function EmptyState({ icon = "🗂️", title, children, action, className = "" }) {
   return (
     <div className={cx("empty", className)}>
-      <span className="empty-icon" aria-hidden>{icon}</span>
+      <span className="ico" aria-hidden>{typeof icon === "string" ? icon : (() => { const I = icon; return <I strokeWidth={2} />; })()}</span>
       {title && <div className="font-semibold">{title}</div>}
       {children && <div className="secondary small measure">{children}</div>}
       {action && <div className="mt-2">{action}</div>}

@@ -3,10 +3,14 @@ import { Suspense, lazy, useCallback, useEffect, useState } from "react";
 import { api, localStorageSafe } from "./api.js";
 import { APP_NAME } from "./config.js";
 import { AnimatePresence, motion } from "motion/react";
-import { LogIn, LogOut, Moon, Sun, UserRound } from "lucide-react";
+import {
+  ArrowRight, BadgeCheck, Bell, BookOpen, CalendarClock, Check, CircleHelp, Clock, Compass, Copy, ExternalLink, FileText, Gift,
+  IdCard, Info, Landmark, Lock, LogIn, LogOut, Moon, Pin, RefreshCw, Send, ShieldCheck, Sun, TicketPercent, UserRound, X,
+} from "lucide-react";
 import {
   Alert, Badge, Button, Card, EmptyState, Logo, Sheet, SkeletonCard, SkeletonList, TabPanel, Tabs, TrustBadge,
   toast, useScrolled, useTelegramBackButton, useTelegramMainButton,
+  Ico, iconFor,
 } from "./ui/index.js";
 import { AppealForm, RightsCategories } from "./features/index.js";
 
@@ -88,7 +92,7 @@ function Source({ law, article }) {
   if (!law) return null;
   return (
     <p className="source mt-3">
-      <span aria-hidden>📚 </span>
+      <BookOpen size={14} strokeWidth={2} className="mr-1 inline align-[-2px]" aria-hidden />
       <a className="law" style={{ color: "inherit" }} href={law.url} target="_blank" rel="noreferrer">«{law.title}»</a>
       {law.number ? `, ${law.number}` : <> <Badge tone="warn">raqami: tekshirilishi kerak</Badge></>}
       {` (${law.date_text})`}{article ? `, ${article}` : ""}
@@ -97,13 +101,13 @@ function Source({ law, article }) {
   );
 }
 
-const KIND_ICON = { duty: "📌", info: "ℹ️" };
+const KIND_ICON = { duty: Pin, info: Info };
 
 function RightItem({ i }) {
   return (
     <li className="card p-4 sm:p-5">
       <div className="flex gap-3">
-        <span aria-hidden className="mt-0.5">{KIND_ICON[i.kind] || "✅"}</span>
+        <Ico icon={KIND_ICON[i.kind] || Check} size="sm" tone={i.kind ? undefined : "ok"} />
         <div className="min-w-0">
           <div className="font-semibold leading-snug">{i.title}</div>
           <p className="secondary mt-1 text-[0.95rem] leading-relaxed">{i.plain}</p>
@@ -119,7 +123,7 @@ export function RightsView({ status, situations }) {
   return (
     <div className="space-y-8">
       <section>
-        <h3 className="h2"><span aria-hidden>{status.icon}</span> {status.title}</h3>
+        <h3 className="h2 flex items-center gap-3"><Ico id={status.id} /> {status.title}</h3>
         <p className="secondary mt-1 measure">{status.intro}</p>
         <h4 className="mt-5 mb-2 text-sm font-semibold">Huquqlar va imtiyozlar</h4>
         <ul className="space-y-2.5">{status.rights.map((i) => <RightItem key={i.id} i={i} />)}</ul>
@@ -130,7 +134,7 @@ export function RightsView({ status, situations }) {
       </section>
       {(situations || []).map((s) => (
         <section key={s.id}>
-          <h3 className="h3 mb-2"><span aria-hidden>{s.icon}</span> {s.title}</h3>
+          <h3 className="h3 mb-2 flex items-center gap-3"><Ico id={s.id} size="sm" /> {s.title}</h3>
           <ul className="space-y-2.5">{[...s.rights, ...s.duties].map((i) => <RightItem key={i.id} i={i} />)}</ul>
         </section>
       ))}
@@ -140,7 +144,7 @@ export function RightsView({ status, situations }) {
 }
 
 export function LawsList({ laws }) {
-  if (!laws?.length) return <EmptyState icon="📚" title="Hozircha qonunlar yo'q">Maqom yoki holatni tanlang — tegishli hujjatlar shu yerda chiqadi.</EmptyState>;
+  if (!laws?.length) return <EmptyState icon={BookOpen} title="Hozircha qonunlar yo'q">Maqom yoki holatni tanlang — tegishli hujjatlar shu yerda chiqadi.</EmptyState>;
   return (
     <ul className="space-y-2.5">
       {laws.map((l) => (
@@ -151,7 +155,7 @@ export function LawsList({ laws }) {
             <span>{l.date_text}</span>
           </div>
           <p className="secondary mt-2 text-[0.95rem] leading-relaxed">{l.plain}</p>
-          <div className="source mt-3">📚 <a href={l.url} target="_blank" rel="noreferrer">{l.url.replace("https://", "")}</a> · tekshirildi {dmy(l.retrieved_at)}</div>
+          <div className="source mt-3"><BookOpen size={14} strokeWidth={2} className="mr-1 inline align-[-2px]" aria-hidden /><a href={l.url} target="_blank" rel="noreferrer">{l.url.replace("https://", "")}</a> · tekshirildi {dmy(l.retrieved_at)}</div>
         </li>
       ))}
     </ul>
@@ -161,9 +165,9 @@ export function LawsList({ laws }) {
 // ---------------------------------------------------------------- savol / SMS / feyk
 
 const ASK_MODES = [
-  { id: "question", icon: "❓", label: "Savol", ph: "Masalan: Bolamga nafaqa nega berilmadi?", hint: "Vaziyatingizni o'z so'zingiz bilan yozing." },
-  { id: "sms", icon: "🧾", label: "SMS tahlili", ph: "Jarima yoki MIB SMS matnini shu yerga joylang", hint: "Ism va tug'ilgan sana avtomatik olib tashlanadi." },
-  { id: "factcheck", icon: "🕵️", label: "Feyk tekshiruvi", ph: "Shubhali post matnini joylang", hint: "Manba topilmasa — «Tasdiqlanmagan», taxmin qilinmaydi." },
+  { id: "question", icon: iconFor("question"), label: "Savol", ph: "Masalan: Bolamga nafaqa nega berilmadi?", hint: "Vaziyatingizni o'z so'zingiz bilan yozing." },
+  { id: "sms", icon: iconFor("sms"), label: "SMS tahlili", ph: "Jarima yoki MIB SMS matnini shu yerga joylang", hint: "Ism va tug'ilgan sana avtomatik olib tashlanadi." },
+  { id: "factcheck", icon: iconFor("factcheck"), label: "Feyk tekshiruvi", ph: "Shubhali post matnini joylang", hint: "Manba topilmasa — «Tasdiqlanmagan», taxmin qilinmaydi." },
 ];
 
 const VERDICT_TONE = { togri: "ok", notogri: "danger", qisman: "warn" };
@@ -238,7 +242,7 @@ export function AskPanel({ legalStatus, headers = {}, suggestions = [] }) {
               <div className="measure whitespace-pre-wrap text-[1.0625rem] leading-relaxed">{res.text}</div>
               {res.card_id && (
                 <div className="mt-4 flex flex-wrap gap-2 border-t pt-4" style={{ borderColor: "var(--border)" }}>
-                  <Button loading={appealBusy} onClick={disagree} icon="❌">Baribir rozi emasman — ariza tuzish</Button>
+                  <Button loading={appealBusy} onClick={disagree} icon={X}>Baribir rozi emasman — ariza tuzish</Button>
                 </div>
               )}
             </Card>
@@ -255,7 +259,7 @@ export function AskPanel({ legalStatus, headers = {}, suggestions = [] }) {
 /** Murojaat shakli (features/AppealForm) — Sheet ichida. open: { cardId?, title? } | null */
 export function AppealFormSheet({ open, onClose }) {
   return (
-    <Sheet open={!!open} onClose={onClose} title={open?.title ? `📝 ${open.title}` : "📝 Murojaat tayyorlash"}
+    <Sheet open={!!open} onClose={onClose} title={open?.title || "Murojaat tayyorlash"}
       description="Rekvizitlarni to'ldiring — tayyor matnni nusxalang yoki PDF qiling.">
       {open && <AppealForm cardId={open.cardId || undefined} onDone={(r) => { if (!r?.error) toast("Murojaat matni tayyor", { tone: "ok" }); }} />}
     </Sheet>
@@ -268,13 +272,13 @@ export function AppealSheet({ appeal, onClose }) {
   const [copied, setCopied] = useState(false);
   useEffect(() => { setCopied(false); }, [appeal]);
   const doCopy = () => { copy(appeal.text); setCopied(true); toast("Ariza matni nusxalandi", { tone: "ok" }); };
-  useTelegramMainButton({ text: "📋 Nusxa olish", onClick: doCopy, active: !!appeal && !appeal.error });
+  useTelegramMainButton({ text: "Nusxa olish", onClick: doCopy, active: !!appeal && !appeal.error });
   return (
-    <Sheet open={!!appeal} onClose={onClose} title={appeal ? `📝 ${appeal.title}` : ""} description={appeal?.hint}
+    <Sheet open={!!appeal} onClose={onClose} title={appeal ? appeal.title : ""} description={appeal?.hint}
       footer={appeal && !appeal.error ? (
         <>
-          <Button variant="primary" onClick={doCopy} icon={copied ? "✅" : "📋"}>{copied ? "Nusxa olindi" : "Nusxa olish"}</Button>
-          {(appeal.submit_channels || []).map((c) => <Button key={c.url + c.name} as="a" href={c.url} target="_blank" rel="noreferrer" icon="↗">{c.name}</Button>)}
+          <Button variant="primary" onClick={doCopy} icon={copied ? Check : Copy}>{copied ? "Nusxa olindi" : "Nusxa olish"}</Button>
+          {(appeal.submit_channels || []).map((c) => <Button key={c.url + c.name} as="a" href={c.url} target="_blank" rel="noreferrer" icon={ExternalLink}>{c.name}</Button>)}
         </>
       ) : null}>
       {appeal?.error ? <Alert tone="danger">{appeal.error}</Alert> : appeal && (
@@ -293,36 +297,38 @@ export function AppealSheet({ appeal, onClose }) {
 
 function Benefit({ b, onAppeal, busy }) {
   return (
-    <article className="card p-4 sm:p-5">
-      <div className="flex items-start gap-3">
-        <span className="grid h-11 w-11 flex-none place-items-center rounded-[var(--radius-md)] text-2xl" style={{ background: "var(--primary-soft)" }} aria-hidden>{b.icon}</span>
-        <div className="min-w-0 flex-1">
-          <h3 className="h3">{b.title}</h3>
-          <div className="mt-1.5 flex flex-wrap gap-1.5">
-            <Badge tone="ok">✓ {b.status_text}</Badge>
-            {b.verified ? <Badge tone="verified">✅ Huquqshunos tasdiqlagan</Badge>
-              : b.source_checked ? <Badge tone="source">{b.badge}</Badge>
+    <button type="button" className="tap" disabled={busy} onClick={() => onAppeal(b)} aria-busy={busy || undefined}>
+      <span className="flex items-start gap-3">
+        <Ico id={b.id} />
+        <span className="min-w-0 flex-1">
+          <span className="h3 block">{b.title}</span>
+          <span className="mt-1.5 flex flex-wrap gap-1.5">
+            <Badge tone="ok"><Check size={13} strokeWidth={2.4} /> {b.status_text}</Badge>
+            {b.verified ? <Badge tone="verified"><ShieldCheck size={14} style={{ color: "var(--feruza)" }} /> Huquqshunos tasdiqlagan</Badge>
+              : b.source_checked ? <Badge tone="source"><BookOpen size={14} style={{ color: "var(--feruza)" }} /> {String(b.badge || "").replace(/^\W+\s*/u, "")}</Badge>
               : <Badge tone="unverified">TEKSHIRILMAGAN (demo)</Badge>}
-          </div>
-        </div>
-      </div>
-      <p className="secondary mt-3 text-[0.95rem] leading-relaxed">{b.summary}</p>
-      {b.status_note && <Alert tone="warn" className="mt-3">{b.status_note}</Alert>}
+          </span>
+        </span>
+      </span>
+      <span className="secondary mt-4 block text-[0.95rem] leading-relaxed">{b.summary}</span>
+      {b.status_note && <span className="alert alert-warn mt-3">{b.status_note}</span>}
       {(b.met.length > 0 || b.to_check.length > 0) && (
-        <ul className="mt-3 space-y-1.5 text-sm">
+        <span className="mt-3 block space-y-1.5 text-sm">
           {b.met.map((m) => (
-            <li key={m} className="flex gap-2"><span aria-hidden style={{ color: "var(--ok-ink)" }}>✓</span><span>{m}</span></li>
+            <span key={m} className="flex gap-2"><Check size={16} strokeWidth={2.4} className="mt-0.5 flex-none" style={{ color: "var(--feruza)" }} aria-hidden /><span>{m}</span></span>
           ))}
           {b.to_check.map((m) => (
-            <li key={m} className="flex gap-2"><span aria-hidden className="muted">❔</span><span className="secondary">{m} <span className="muted">— tekshirilishi kerak</span></span></li>
+            <span key={m} className="flex gap-2"><CircleHelp size={16} strokeWidth={2} className="muted mt-0.5 flex-none" aria-hidden /><span className="secondary">{m} <span className="muted">— tekshirilishi kerak</span></span></span>
           ))}
-        </ul>
+        </span>
       )}
-      <div className="source law mt-3">{b.source_line}</div>
-      <Button variant="primary" block className="mt-4" loading={busy} icon="📝" onClick={() => onAppeal(b)}>
+      <span className="source law mt-3 block">{b.source_line}</span>
+      <span className="mt-5 inline-flex items-center gap-2 font-semibold" style={{ color: "var(--primary-ink)" }}>
+        {busy ? <span className="spinner" aria-hidden /> : <FileText size={18} strokeWidth={2} aria-hidden />}
         {busy ? "Tayyorlanmoqda…" : `${b.appeal_label} — tayyor ariza`}
-      </Button>
-    </article>
+        {!busy && <ArrowRight className="tap-arrow" size={18} strokeWidth={2} aria-hidden />}
+      </span>
+    </button>
   );
 }
 
@@ -341,14 +347,14 @@ function Obligation({ o, onRemind, note }) {
       </div>
       {disc && (
         <div className="mt-3 rounded-[var(--radius-md)] p-3 text-sm" style={{ background: "var(--ok-bg)", color: "var(--ok-ink)" }}>
-          💸 Chegirma bilan <b className="tabnum">{money(o.discount_amount)}</b> ({o.discount_pct}%) — <b className="tabnum">{dmy(o.discount_deadline)}</b> gacha
+          <TicketPercent size={16} className="mr-1 inline align-[-3px]" aria-hidden />Chegirma bilan <b className="tabnum">{money(o.discount_amount)}</b> ({o.discount_pct}%) — <b className="tabnum">{dmy(o.discount_deadline)}</b> gacha
         </div>
       )}
-      {!disc && o.deadline && <div className="mt-3 text-sm">📅 Muddat: <b className="tabnum">{dmy(o.deadline)}</b></div>}
+      {!disc && o.deadline && <div className="mt-3 text-sm"><CalendarClock size={16} className="mr-1 inline align-[-3px]" aria-hidden />Muddat: <b className="tabnum">{dmy(o.deadline)}</b></div>}
       {o.warning && <Alert tone="warn" className="mt-3">{o.warning}</Alert>}
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        {left != null && <Badge tone={tone} className="tabnum">⏳ {left} kun qoldi</Badge>}
-        {o.reminder_date && <Button size="sm" icon="⏰" onClick={() => onRemind(o)}>{dmy(o.reminder_date)} kuni eslatish</Button>}
+        {left != null && <Badge tone={tone} className="tabnum"><Clock size={13} /> {left} kun qoldi</Badge>}
+        {o.reminder_date && <Button size="sm" icon={Bell} onClick={() => onRemind(o)}>{dmy(o.reminder_date)} kuni eslatish</Button>}
       </div>
       {note && <div className="muted mt-2 text-xs" role="status">{note}</div>}
     </article>
@@ -381,10 +387,10 @@ export function AnonView({ headers = {}, compact = false }) {
   }, [status, sits]);
   const toggle = (id) => setSits((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
   const tabs = [
-    { id: "mine", icon: "🧩", label: "Mening huquqlarim" },
-    { id: "rights", icon: "⚖️", label: "Umumiy huquqlar" },
-    { id: "laws", icon: "📚", label: "Siz uchun qonunlar", count: data?.laws?.length || undefined },
-    { id: "ask", icon: "❓", label: "Savol · SMS · Feyk" },
+    { id: "mine", icon: iconFor("mine"), label: "Mening huquqlarim" },
+    { id: "rights", icon: iconFor("rights"), label: "Umumiy huquqlar" },
+    { id: "laws", icon: iconFor("laws"), label: "Siz uchun qonunlar", count: data?.laws?.length || undefined },
+    { id: "ask", icon: iconFor("ask"), label: "Savol · SMS · Feyk" },
   ];
 
   return (
@@ -400,13 +406,13 @@ export function AnonView({ headers = {}, compact = false }) {
           <legend className="font-semibold">Huquqiy maqomingiz <span className="muted text-sm font-normal">(ixtiyoriy)</span></legend>
           <div className="mt-2.5 flex flex-wrap gap-2">
             {!meta && [1, 2, 3, 4].map((i) => <span key={i} className="skeleton inline-block h-10 w-32 rounded-full" />)}
-            {(meta?.statuses || []).map((s) => <button key={s.id} className="chip" aria-pressed={status === s.id} onClick={() => setStatus(s.id)}><span aria-hidden>{s.icon}</span> {s.title}</button>)}
+            {(meta?.statuses || []).map((s) => <button key={s.id} className="chip" aria-pressed={status === s.id} onClick={() => setStatus(s.id)}>{(() => { const I = iconFor(s.id); return <I size={17} strokeWidth={2} style={{ color: "var(--primary-ink)" }} aria-hidden />; })()} {s.title}</button>)}
           </div>
         </fieldset>
         <fieldset className="mt-5">
           <legend className="font-semibold">Holatingiz <span className="muted text-sm font-normal">(bir nechtasini tanlash mumkin)</span></legend>
           <div className="mt-2.5 flex flex-wrap gap-2">
-            {(meta?.situations || []).map((s) => <button key={s.id} className="chip" aria-pressed={sits.includes(s.id)} onClick={() => toggle(s.id)}><span aria-hidden>{s.icon}</span> {s.title}</button>)}
+            {(meta?.situations || []).map((s) => <button key={s.id} className="chip" aria-pressed={sits.includes(s.id)} onClick={() => toggle(s.id)}>{(() => { const I = iconFor(s.id); return <I size={17} strokeWidth={2} style={{ color: "var(--primary-ink)" }} aria-hidden />; })()} {s.title}</button>)}
           </div>
         </fieldset>
       </Card>
@@ -415,7 +421,7 @@ export function AnonView({ headers = {}, compact = false }) {
         {tab === "ask" && <Card padding="lg"><AskPanel legalStatus={status} headers={headers} suggestions={data?.status?.suggested_questions || []} /></Card>}
         {tab === "mine" && <RightsCategories initial={sits[0]} onAppeal={(it) => setFormOpen(appealFromItem(it))} />}
         {tab !== "ask" && tab !== "mine" && !status && (
-          <EmptyState icon="🧭" title="Avval maqomni tanlang">
+          <EmptyState icon={Compass} title="Avval maqomni tanlang">
             Yuqoridan maqomingizni belgilang (yoki «Bilmayman») — huquqlar va tegishli qonunlar shu yerda chiqadi.
           </EmptyState>
         )}
@@ -527,7 +533,7 @@ function TelegramPanel({ linked, onChange }) {
   const unlink = async () => { setBusy(true); await api.post("/api/me/telegram/unlink", {}); setBusy(false); setLink(null); toast("Telegram uzildi"); onChange?.(); };
   return (
     <Card>
-      <h3 className="h3">📲 Telegram bot</h3>
+      <div className="flex items-center gap-3"><Ico icon={Send} /><h3 className="h3">Telegram bot</h3></div>
       {linked ? (
         <>
           <p className="secondary mt-1 text-sm">Hisobingiz @Huquqim_official_bot'ga ulangan: eslatma va o'zgarishlar botga keladi.</p>
@@ -537,7 +543,7 @@ function TelegramPanel({ linked, onChange }) {
         <>
           <p className="secondary mt-1 text-sm">Bir martalik havola 10 daqiqa amal qiladi. Botda «Start» ni bosing.</p>
           {link ? (
-            <Button as="a" variant="primary" block className="mt-4" href={link.url} target="_blank" rel="noreferrer" icon="↗">Telegram'da ochish va ulash</Button>
+            <Button as="a" variant="primary" block className="mt-4" href={link.url} target="_blank" rel="noreferrer" icon={ExternalLink}>Telegram'da ochish va ulash</Button>
           ) : (
             <Button variant="primary" block className="mt-4" loading={busy} onClick={make}>Telegram'ni ulash</Button>
           )}
@@ -562,7 +568,7 @@ function ConsentPanel({ me, onRevoked }) {
   };
   return (
     <Card>
-      <h3 className="h3">🔐 Rozilik (OneID — DEMO)</h3>
+      <div className="flex items-center gap-3"><Ico icon={Lock} /><h3 className="h3">Rozilik (OneID — DEMO)</h3></div>
       <p className="secondary mt-1 text-sm">Berilgan: <span className="tabnum">{dmy(me?.consent_at)}</span>. {APP_NAME} quyidagilarni kerak bo'lganda so'raydi va bazada saqlamaydi:</p>
       <ul className="secondary mt-2 list-disc space-y-0.5 pl-5 text-sm">{(me?.consent_scope || []).map((s) => <li key={s}>{s}</li>)}</ul>
       <Button className="mt-4" onClick={() => setAsk(true)}>Rozilikni bekor qilish</Button>
@@ -596,17 +602,17 @@ function ProfileCard({ p, v }) {
   return (
     <Card padding="md">
       <div className="flex items-center gap-3">
-        <span className="grid h-12 w-12 flex-none place-items-center rounded-full text-3xl" style={{ background: "var(--surface-2)" }} aria-hidden>{p.icon}</span>
+        <Ico icon={UserRound} />
         <div className="min-w-0">
           <div className="text-lg font-bold leading-tight">Salom, {p.first_name}!</div>
           <div className="secondary truncate text-sm">{p.persona}</div>
         </div>
       </div>
       <div className="mt-3 flex flex-wrap gap-1.5">
-        <Badge tone="verified">✅ DEMO ID</Badge>
+        <Badge tone="verified"><ShieldCheck size={14} style={{ color: "var(--feruza)" }} /> DEMO ID</Badge>
         <Badge tone="info">{p.status_title}</Badge>
-        {v.situations.map((s) => <Badge key={s.id} tone="info">{s.icon} {s.title}</Badge>)}
-        {v.roles.includes("gov") && <Badge tone="warn">🏛️ Davlat xodimi</Badge>}
+        {v.situations.map((s) => <Badge key={s.id} tone="info">{s.title}</Badge>)}
+        {v.roles.includes("gov") && <Badge tone="warn"><Landmark size={13} /> Davlat xodimi</Badge>}
       </div>
       <p className="muted mt-3 text-xs leading-relaxed">{p.full_name} · {p.document} · {p.region_name}<br />{v.source}</p>
     </Card>
@@ -637,7 +643,7 @@ export function CabinetView({ me, headers = {}, onReload, inMiniApp = false }) {
   if (!inMiniApp && v.roles.includes("gov")) sections.push(["gov", "Davlat kabineti", "🏛️"]);
   if (inMiniApp) sections.splice(sections.findIndex((s) => s[0] === "account"), 1);
   const counts = { benefits: v.benefits.length, obligations: v.obligations.length, laws: v.laws.length, changes: v.changes.length };
-  const items = sections.map(([id, label, icon]) => ({ id, label, icon, count: counts[id] || undefined }));
+  const items = sections.map(([id, label]) => ({ id, label, icon: iconFor(id), count: counts[id] || undefined }));
   const current = sections.find((s) => s[0] === tab) || sections[0];
 
   const makeAppeal = async (b) => {
@@ -648,7 +654,7 @@ export function CabinetView({ me, headers = {}, onReload, inMiniApp = false }) {
   };
   const remind = async (o) => {
     const r = await api.post("/api/me/remind", { obligation_id: o.id }, { headers });
-    setNotes((n) => ({ ...n, [o.id]: r?.error ? `⚠️ ${r.error}` : r.text }));
+    setNotes((n) => ({ ...n, [o.id]: r?.error ? r.error : r.text }));
     if (!r?.error) toast("Eslatma qo'yildi", { tone: "ok", icon: "⏰" });
   };
   const refresh = async () => { setReloading(true); await load(); setReloading(false); };
@@ -661,7 +667,7 @@ export function CabinetView({ me, headers = {}, onReload, inMiniApp = false }) {
             <h2 className="h2">Haqli bo'lishingiz mumkin</h2>
             <span className="muted tabnum">{v.benefits.length}</span>
           </div>
-          {v.benefits.length === 0 && <EmptyState icon="🎁" title="Hozircha mos imtiyoz topilmadi">Holatingiz o'zgarsa yoki yangi imtiyoz qo'shilsa, shu yerda ko'rinadi.</EmptyState>}
+          {v.benefits.length === 0 && <EmptyState icon={Gift} title="Hozircha mos imtiyoz topilmadi">Holatingiz o'zgarsa yoki yangi imtiyoz qo'shilsa, shu yerda ko'rinadi.</EmptyState>}
           {v.benefits.map((b) => <Benefit key={b.id} b={b} onAppeal={makeAppeal} busy={busyId === b.id} />)}
           {v.not_eligible.length > 0 && (
             <details className="card card-inset p-4 text-sm">
@@ -686,7 +692,7 @@ export function CabinetView({ me, headers = {}, onReload, inMiniApp = false }) {
       {tab === "obligations" && (
         <section className="space-y-3">
           <h2 className="h2">Muddatli majburiyatlar</h2>
-          {v.obligations.length === 0 && <EmptyState icon="✅" title="Muddatli majburiyat yo'q">Jarima yoki qarz paydo bo'lsa, muddati va chegirmasi bilan shu yerda ko'rasiz.</EmptyState>}
+          {v.obligations.length === 0 && <EmptyState icon={BadgeCheck} title="Muddatli majburiyat yo'q">Jarima yoki qarz paydo bo'lsa, muddati va chegirmasi bilan shu yerda ko'rasiz.</EmptyState>}
           {v.obligations.map((o) => <Obligation key={o.id} o={o} onRemind={remind} note={notes[o.id]} />)}
           {v.rights.status?.duties?.length > 0 && (<>
             <h3 className="h3 pt-4">Maqomingiz bo'yicha umumiy majburiyatlar</h3>
@@ -699,10 +705,10 @@ export function CabinetView({ me, headers = {}, onReload, inMiniApp = false }) {
         <section className="space-y-3">
           <div className="flex items-center gap-2">
             <h2 className="h2">Sizga taalluqli o'zgarishlar</h2>
-            <Button size="sm" variant="ghost" className="ml-auto" loading={reloading} onClick={refresh} icon="🔄">Yangilash</Button>
+            <Button size="sm" variant="ghost" className="ml-auto" loading={reloading} onClick={refresh} icon={RefreshCw}>Yangilash</Button>
           </div>
           {v.changes.length === 0 ? (
-            <EmptyState icon="🔔" title="Hozircha o'zgarish yo'q">Sizga taalluqli qonun o'zgarsa, shu yerda va Telegram'da xabar olasiz — nega aynan sizga ekani bilan.</EmptyState>
+            <EmptyState icon={Bell} title="Hozircha o'zgarish yo'q">Sizga taalluqli qonun o'zgarsa, shu yerda va Telegram'da xabar olasiz — nega aynan sizga ekani bilan.</EmptyState>
           ) : (
             <ol className="relative space-y-3 border-l pl-5" style={{ borderColor: "var(--border-strong)" }}>
               {v.changes.map((c) => (
@@ -789,7 +795,7 @@ export function CabinetPage({ me, onReload }) {
             <div className="muted text-sm">Hisob: <b style={{ color: "var(--text-primary)" }}>{me.username}</b></div>
             <h1 className="h1 mt-2">Bir qadam qoldi: OneID bilan tasdiqlang</h1>
             <p className="secondary mt-2">Imtiyozlar, muddatli majburiyatlar va siz uchun qonunlar faqat tasdiqlangan hisobda ochiladi.</p>
-            <Button as="a" variant="primary" size="lg" block className="mt-5" href="/api/oneid/start" icon="🪪">OneID orqali tasdiqlash (DEMO)</Button>
+            <Button as="a" variant="primary" size="lg" block className="mt-5" href="/api/oneid/start" icon={IdCard}>OneID orqali tasdiqlash (DEMO)</Button>
             <p className="muted mt-3 text-xs">Siz alohida DEMO ID sahifasiga o'tasiz. U yerda haqiqiy OneID login va parolingizni kiritmang.</p>
           </Card>
           <div>
