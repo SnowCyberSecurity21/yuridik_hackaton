@@ -7,6 +7,7 @@ import {
   Alert, Badge, Button, Card, EmptyState, Logo, Sheet, SkeletonCard, SkeletonList, TabPanel, Tabs, TrustBadge,
   toast, useScrolled, useTelegramBackButton, useTelegramMainButton,
 } from "./ui/index.js";
+import { AppealForm, RightsCategories } from "./features/index.js";
 
 const Dashboard = lazy(() => import("./Dashboard.jsx"));
 const Edu = lazy(() => import("./Edu.jsx"));
@@ -249,6 +250,18 @@ export function AskPanel({ legalStatus, headers = {}, suggestions = [] }) {
 
 // ---------------------------------------------------------------- imtiyoz, majburiyat, ariza
 
+/** Murojaat shakli (features/AppealForm) — Sheet ichida. open: { cardId?, title? } | null */
+export function AppealFormSheet({ open, onClose }) {
+  return (
+    <Sheet open={!!open} onClose={onClose} title={open?.title ? `📝 ${open.title}` : "📝 Murojaat tayyorlash"}
+      description="Rekvizitlarni to'ldiring — tayyor matnni nusxalang yoki PDF qiling.">
+      {open && <AppealForm cardId={open.cardId || undefined} onDone={(r) => { if (!r?.error) toast("Murojaat matni tayyor", { tone: "ok" }); }} />}
+    </Sheet>
+  );
+}
+export const appealFromItem = (item) => ({ cardId: item?.card_id || item?.card || item?.appeal_card_id || null, title: item?.title });
+
+
 export function AppealSheet({ appeal, onClose }) {
   const [copied, setCopied] = useState(false);
   useEffect(() => { setCopied(false); }, [appeal]);
@@ -356,6 +369,7 @@ export function AnonView({ headers = {}, compact = false }) {
   const [tab, setTab] = useState("rights");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [formOpen, setFormOpen] = useState(null);
   useEffect(() => { localStorageSafe("anonStatus", status); localStorageSafe("anonSituations", sits.join(",")); }, [status, sits]);
   useEffect(() => {
     if (!status) return;
@@ -365,6 +379,7 @@ export function AnonView({ headers = {}, compact = false }) {
   }, [status, sits]);
   const toggle = (id) => setSits((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
   const tabs = [
+    { id: "mine", icon: "🧩", label: "Mening huquqlarim" },
     { id: "rights", icon: "⚖️", label: "Umumiy huquqlar" },
     { id: "laws", icon: "📚", label: "Siz uchun qonunlar", count: data?.laws?.length || undefined },
     { id: "ask", icon: "❓", label: "Savol · SMS · Feyk" },
@@ -396,18 +411,20 @@ export function AnonView({ headers = {}, compact = false }) {
       <Tabs ariaLabel="Anonim bo'limlar" value={tab} onChange={setTab} items={tabs} />
       <TabPanel id={tab} key={tab}>
         {tab === "ask" && <Card padding="lg"><AskPanel legalStatus={status} headers={headers} suggestions={data?.status?.suggested_questions || []} /></Card>}
-        {tab !== "ask" && !status && (
+        {tab === "mine" && <RightsCategories initial={sits[0]} onAppeal={(it) => setFormOpen(appealFromItem(it))} />}
+        {tab !== "ask" && tab !== "mine" && !status && (
           <EmptyState icon="🧭" title="Avval maqomni tanlang">
             Yuqoridan maqomingizni belgilang (yoki «Bilmayman») — huquqlar va tegishli qonunlar shu yerda chiqadi.
           </EmptyState>
         )}
-        {tab !== "ask" && status && (loading && !data ? <SkeletonList count={3} /> : (
+        {tab !== "ask" && tab !== "mine" && status && (loading && !data ? <SkeletonList count={3} /> : (
           <div style={{ opacity: loading ? 0.6 : 1, transition: "opacity var(--dur-base) ease" }}>
             {tab === "rights" && data && <RightsView status={data.status} situations={data.situations} />}
             {tab === "laws" && data && <LawsList laws={data.laws} />}
           </div>
         ))}
       </TabPanel>
+      <AppealFormSheet open={formOpen} onClose={() => setFormOpen(null)} />
     </div>
   );
 }
@@ -602,6 +619,7 @@ export function CabinetView({ me, headers = {}, onReload, inMiniApp = false }) {
   const [busyId, setBusyId] = useState(null);
   const [notes, setNotes] = useState({});
   const [reloading, setReloading] = useState(false);
+  const [formOpen, setFormOpen] = useState(null);
   const load = useCallback(async () => {
     const r = await api.get("/api/me/cabinet", { headers });
     if (r?.error) setError(r.error); else setV(r);
@@ -652,7 +670,17 @@ export function CabinetView({ me, headers = {}, onReload, inMiniApp = false }) {
           <p className="muted text-xs">«Haqli bo'lishingiz mumkin» — yakuniy qarorni vakolatli organ qabul qiladi. {v.disclaimer}</p>
         </section>
       )}
-      {tab === "rights" && <RightsView status={v.rights.status} situations={v.rights.situations} />}
+      {tab === "rights" && (
+        <div className="space-y-8">
+          {v.situations.length > 0 && (
+            <section className="space-y-3">
+              <h2 className="h2">Mening huquqlarim</h2>
+              <RightsCategories only={v.situations.map((s) => s.id)} onAppeal={(it) => setFormOpen(appealFromItem(it))} />
+            </section>
+          )}
+          <RightsView status={v.rights.status} situations={v.rights.situations} />
+        </div>
+      )}
       {tab === "obligations" && (
         <section className="space-y-3">
           <h2 className="h2">Muddatli majburiyatlar</h2>
@@ -715,6 +743,7 @@ export function CabinetView({ me, headers = {}, onReload, inMiniApp = false }) {
         </div>
         {panel}
         <AppealSheet appeal={appeal} onClose={() => setAppeal(null)} />
+        <AppealFormSheet open={formOpen} onClose={() => setFormOpen(null)} />
       </div>
     );
   }
@@ -734,6 +763,7 @@ export function CabinetView({ me, headers = {}, onReload, inMiniApp = false }) {
         {panel}
       </div>
       <AppealSheet appeal={appeal} onClose={() => setAppeal(null)} />
+      <AppealFormSheet open={formOpen} onClose={() => setFormOpen(null)} />
     </div>
   );
 }

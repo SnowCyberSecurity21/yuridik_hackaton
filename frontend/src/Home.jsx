@@ -1,7 +1,9 @@
 // Bosh sahifa: hero (qonun tili → oddiy til), 2 yo'l, «Qanday ishlaydi» (5 muammo → yechim), savol bloki, dalillar.
+import { useState } from "react";
 import { motion } from "motion/react";
 import { APP_NAME } from "./config.js";
-import { AskPanel, go } from "./Site.jsx";
+import { AppealFormSheet, go } from "./Site.jsx";
+import { AskBox } from "./features/index.js";
 import { Badge, Card, CountUp, Reveal, RevealGroup, RevealItem, UnverifiedBadge } from "./ui/index.js";
 
 const ease = [0.23, 1, 0.32, 1];
@@ -127,6 +129,7 @@ function Evidence() {
 
 export default function Home({ me }) {
   const toCabinet = () => go(me?.logged_in ? "/kabinet" : "/kirish?next=oneid");
+  const [formOpen, setFormOpen] = useState(null);
   return (
     <div className="space-y-16 sm:space-y-24">
       <section className="grid grid-cols-1 items-center gap-10 pt-4 sm:pt-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-14">
@@ -158,11 +161,14 @@ export default function Home({ me }) {
           <p className="secondary mt-2 measure">Vaziyatingizni o'z so'zingiz bilan yozing, jarima SMS'ini yoki shubhali postni joylang. Ro'yxatdan o'tish shart emas.</p>
         </Reveal>
         <Reveal delay={0.05}>
-          <Card padding="lg"><AskPanel /></Card>
+          <Card padding="lg"><AskBox onAppeal={(cardId) => setFormOpen({ cardId })} /></Card>
+          <p className="muted mt-3 text-sm">Jarima SMS'i yoki shubhali post? <a className="link" href="/anonim" onClick={(e) => { e.preventDefault(); go("/anonim"); }}>Anonim rejimda tekshiring</a>.</p>
         </Reveal>
       </section>
 
       <Evidence />
+
+      <AppealFormSheet open={formOpen} onClose={() => setFormOpen(null)} />
 
       <Reveal as="section" className="flex flex-wrap items-center gap-3">
         <UnverifiedBadge>DEMO</UnverifiedBadge>
